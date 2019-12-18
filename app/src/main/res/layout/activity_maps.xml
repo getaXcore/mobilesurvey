@@ -1,0 +1,292 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:sothree="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sliding_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom"
+        sothree:umanoPanelHeight="60dp"
+        sothree:umanoShadowHeight="4dp"
+        sothree:umanoParallaxOffset="100dp"
+        sothree:umanoDragView="@+id/dragView"
+        sothree:umanoOverlay="true"
+        sothree:umanoScrollableView="@+id/list">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="60dp">
+
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="surveyor.id.com.mobilesurvey.MapsActivity" >
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:src="@drawable/ic_direct_putih"/>
+
+
+
+
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/my_awesome_toolbar"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/bg_hed"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:minHeight="?attr/actionBarSize"
+                        app:theme="@style/AppTheme.AppBarOverlay"/>
+
+
+
+                    <RelativeLayout
+                        android:id="@+id/box_menu_maps"
+                        android:visibility="gone"
+                        android:background="@drawable/bg_menu_home"
+                        android:layout_below="@+id/my_awesome_toolbar"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <RelativeLayout
+                            android:id="@+id/box_judul"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:text="@string/judul_menu_maps"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_below="@+id/box_judul"
+                            android:id="@+id/box_new_customer"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/gambar_new_customer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_data_new_kecil"/>
+                            <TextView
+                                android:layout_centerVertical="true"
+                                android:text="@string/new_customer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_new_customer"/>
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_below="@+id/box_new_customer"
+                            android:id="@+id/box_approve_customer"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/gambar_approve_customer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_data_approv_kecil"/>
+                            <TextView
+                                android:layout_centerVertical="true"
+                                android:text="@string/approve_customer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_approve_customer"/>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_below="@+id/box_approve_customer"
+                            android:id="@+id/box_pending_customer"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/gambar_pending_customer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_data_pending_kecil"/>
+                            <TextView
+                                android:layout_centerVertical="true"
+                                android:text="@string/pending_customer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_pending_customer"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_below="@+id/box_pending_customer"
+                            android:id="@+id/box_reject_customer"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/gambar_reject_customer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_data_reject_kecil"/>
+                            <TextView
+                                android:layout_centerVertical="true"
+                                android:text="@string/reject_customer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_reject_customer"/>
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_below="@+id/box_reject_customer"
+                            android:id="@+id/box_surveyor"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/gambar_surveyor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_surveyor_kecil"/>
+                            <TextView
+                                android:layout_centerVertical="true"
+                                android:text="@string/surveyor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_surveyor"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+
+
+                <!--
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/my_awesome_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:titleTextColor="@color/teksUtama"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:minHeight="?attr/actionBarSize"
+                    app:theme="@style/CustomActionBar" />-->
+
+
+            </fragment>
+
+        </RelativeLayout>
+
+
+
+
+        <!-- SLIDING LAYOUT -->
+        <LinearLayout
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="false"
+            android:id="@+id/dragView">
+
+
+            <RelativeLayout
+                android:id="@+id/box_sliding"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="#4bc1e5">
+
+
+
+
+                <surveyor.id.com.mobilesurvey.SlidingTabLayout
+                    android:id="@+id/st1_tabs"
+                    android:layout_width="match_parent"
+                    android:background="@color/colorAccent"
+                    android:layout_height="wrap_content">
+
+                </surveyor.id.com.mobilesurvey.SlidingTabLayout>
+
+                <View
+                    android:id="@+id/c_up"
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent"></View>
+
+
+
+            </RelativeLayout>
+
+
+
+            <View android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:layout_below="@+id/st1_tabs"
+                android:id="@+id/garisbawah"
+                android:background="@color/slidbk"/>
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_tabs"
+                android:layout_below="@+id/garisbawah"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
+
+
+
+
+
+
+</RelativeLayout>

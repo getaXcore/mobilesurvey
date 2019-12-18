@@ -1,0 +1,966 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentDua">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/data_occupation_data"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_occupation_data">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_occupation_data">
+
+                        <ImageView
+                            android:id="@+id/img_cust"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/icon_occupation_data"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_cust"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/occupation_data"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_occupation_data"/>
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_occupation_data"
+                        android:layout_below="@+id/s_judul_occupation_data"
+                        android:src="@drawable/icon_garis"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/garis_judul_occupation_data"
+                        android:layout_below="@+id/panah_bawah_occupation_data"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_occupation_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul_occupation_data">
+
+                        <RelativeLayout
+                            android:id="@+id/box_pekerjaan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_pekerjaan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_pekerjaan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_pekerjaan"
+                                android:layout_toRightOf="@+id/gambar_pekerjaan"
+                                android:text="@string/pekerjaan"/>
+
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_pekerjaan"
+                                android:id="@+id/spinner_pekerjaan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_pekerjaan"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_pekerjaan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_pekerjaan"
+                                android:layout_toRightOf="@+id/gambar_pekerjaan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_job_title"
+                            android:layout_below="@+id/box_pekerjaan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_job_title"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_job_title" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_job_title"
+                                android:layout_toRightOf="@+id/gambar_job_title"
+                                android:text="@string/job_title"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_job_title"
+                                android:id="@+id/spinner_job_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_job_title"
+                                android:spinnerMode="dropdown"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_job_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_job_title"
+                                android:layout_toRightOf="@+id/gambar_job_title"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_name_economy_code"
+                            android:layout_below="@+id/box_job_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_name_economy_code"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_economy_code" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_name_economy_code"
+                                android:layout_toRightOf="@+id/gambar_name_economy_code"
+                                android:text="@string/name_economy_code"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_name_economy_code"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_name_economy_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_name_economy_code"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_name_economy_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_name_economy_code"
+                                android:layout_toRightOf="@+id/gambar_name_economy_code"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_economy_code"
+                            android:layout_below="@+id/box_name_economy_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_economy_code"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_economy_code_2" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_economy_code"
+                                android:layout_toRightOf="@+id/gambar_economy_code"
+                                android:text="@string/economy_code"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_economy_code"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_economy_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_economy_code"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/bg_hed_ce" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_economy_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_economy_code"
+                                android:layout_toRightOf="@+id/gambar_economy_code"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_name"
+                            android:layout_below="@+id/box_economy_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_name"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_company_name" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_name"
+                                android:layout_toRightOf="@+id/gambar_company_name"
+                                android:text="@string/company_name"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_company_name"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_company_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_company_name"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_company_name"
+                                android:layout_toRightOf="@+id/gambar_company_name"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_address"
+                            android:layout_below="@+id/box_company_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_address"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_company_address" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_address"
+                                android:layout_toRightOf="@+id/gambar_company_address"
+                                android:text="@string/company_address"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_company_address"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_company_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_company_address"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_company_address"
+                                android:layout_toRightOf="@+id/gambar_company_address"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_province"
+                            android:layout_below="@+id/box_company_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_province"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_provinsi_ktp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_province"
+                                android:layout_toRightOf="@+id/gambar_company_province"
+                                android:text="@string/company_province"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_company_province"
+                                android:textSize="14dp"
+                                android:id="@+id/spinner_company_province"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_company_province"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_province"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_company_province"
+                                android:layout_toRightOf="@+id/gambar_company_province"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_kab_or_kodya"
+                            android:layout_below="@+id/box_company_province"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_kab_or_kodya"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_kab_or_kodya" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_kab_or_kodya"
+                                android:layout_toRightOf="@+id/gambar_company_kab_or_kodya"
+                                android:text="@string/company_kab_or_kodya"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_company_kab_or_kodya"
+                                android:textSize="14dp"
+                                android:id="@+id/spinner_company_kab_or_kodya"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_company_kab_or_kodya"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_kab_or_kodya"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_company_kab_or_kodya"
+                                android:layout_toRightOf="@+id/gambar_company_kab_or_kodya"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_kecamatan"
+                            android:layout_below="@+id/box_company_kab_or_kodya"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_kecamatan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_kecamatan_ktp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_kecamatan"
+                                android:layout_toRightOf="@+id/gambar_company_kecamatan"
+                                android:text="@string/company_kecamatan"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_company_kecamatan"
+                                android:textSize="14dp"
+                                android:id="@+id/spinner_company_kecamatan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_company_kecamatan"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_kecamatan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_company_kecamatan"
+                                android:layout_toRightOf="@+id/gambar_company_kecamatan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_kelurahan"
+                            android:layout_below="@+id/box_company_kecamatan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_kelurahan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_kelurahan_ktp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_kelurahan"
+                                android:layout_toRightOf="@+id/gambar_company_kelurahan"
+                                android:text="@string/company_kelurahan"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_company_kelurahan"
+                                android:textSize="14dp"
+                                android:id="@+id/spinner_company_kelurahan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_company_kelurahan"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_kelurahan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_company_kelurahan"
+                                android:layout_toRightOf="@+id/gambar_company_kelurahan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_sandi_dati_2"
+                            android:layout_below="@+id/box_company_kelurahan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_sandi_dati_2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_sandi_dati_2" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_sandi_dati_2"
+                                android:layout_toRightOf="@+id/gambar_company_sandi_dati_2"
+                                android:text="@string/company_sandi_dati_2"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_company_sandi_dati_2"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_company_sandi_dati_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_company_sandi_dati_2"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/bg_hed_ce" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_sandi_dati_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_company_sandi_dati_2"
+                                android:layout_toRightOf="@+id/gambar_company_sandi_dati_2"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_postal_code"
+                            android:layout_below="@+id/box_company_sandi_dati_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_postal_code"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_postal_code" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_postal_code"
+                                android:layout_toRightOf="@+id/gambar_company_postal_code"
+                                android:text="@string/company_postal_code"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_company_postal_code"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_company_postal_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_company_postal_code"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/bg_hed_ce" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_postal_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_company_postal_code"
+                                android:layout_toRightOf="@+id/gambar_company_postal_code"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_telephone_1"
+                            android:layout_below="@+id/box_company_postal_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_telephone_1"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_telephone" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_telephone_1"
+                                android:layout_toRightOf="@+id/gambar_company_telephone_1"
+                                android:text="@string/company_telephone_1"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_company_telephone_1"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_company_telephone_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_company_telephone_1"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_telephone_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_company_telephone_1"
+                                android:layout_toRightOf="@+id/gambar_company_telephone_1"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_telephone_2"
+                            android:layout_below="@+id/box_company_telephone_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_telephone_2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_telephone" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_telephone_2"
+                                android:layout_toRightOf="@+id/gambar_company_telephone_2"
+                                android:text="@string/company_telephone_2"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_company_telephone_2"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_company_telephone_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_company_telephone_2"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_telephone_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_company_telephone_2"
+                                android:layout_toRightOf="@+id/gambar_company_telephone_2"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_line_of_business"
+                            android:layout_below="@+id/box_company_telephone_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_line_of_business"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_line_of_business" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_line_of_business"
+                                android:layout_toRightOf="@+id/gambar_line_of_business"
+                                android:text="@string/line_of_business"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_line_of_business"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_line_of_business"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_line_of_business"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_line_of_business"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_line_of_business"
+                                android:layout_toRightOf="@+id/gambar_line_of_business"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_estabilished_since"
+                            android:layout_below="@+id/box_line_of_business"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_estabilished_since"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_estabilished_since" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_estabilished_since"
+                                android:layout_toRightOf="@+id/gambar_estabilished_since"
+                                android:text="@string/estabilished_since"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_estabilished_since"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_estabilished_since"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="3"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_estabilished_since"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_estabilished_since"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_estabilished_since"
+                                android:layout_toRightOf="@+id/gambar_estabilished_since"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_company_fax_1"
+                            android:layout_below="@+id/box_estabilished_since"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_company_fax_1"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_telephone" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_company_fax_1"
+                                android:layout_toRightOf="@+id/gambar_company_fax_1"
+                                android:text="@string/company_fax_1"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_company_fax_1"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_company_fax_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_company_fax_1"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_company_fax_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_company_fax_1"
+                                android:layout_toRightOf="@+id/gambar_company_fax_1"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_occupation_data"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

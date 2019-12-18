@@ -1,0 +1,420 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentSepuluh">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/data_karakter_bayar"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_karakter_bayar">
+
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_karakter_bayar">
+
+                        <ImageView
+                            android:id="@+id/img_karakter_bayar"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/icon_karakter_bayar"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_karakter_bayar"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/karakter_bayar"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_karakter_bayar"/>
+
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_karakter_bayar"
+                        android:layout_below="@+id/s_judul_karakter_bayar"
+                        android:src="@drawable/icon_garis"/>
+
+
+
+
+
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/garis_judul_karakter_bayar"
+                        android:layout_below="@+id/panah_bawah_karakter_bayar"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_karakter_bayar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul_karakter_bayar">
+
+                        <RelativeLayout
+                            android:id="@+id/box_collectabilitas_sid_or_slik_tertinggi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_collectabilitas_sid_or_slik_tertinggi"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_collectabilitas_sid" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_collectabilitas_sid_or_slik_tertinggi"
+                                android:layout_toRightOf="@+id/gambar_collectabilitas_sid_or_slik_tertinggi"
+                                android:text="@string/collectabilitas_sid_or_slik_tertinggi"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_collectabilitas_sid_or_slik_tertinggi"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_collectabilitas_sid_or_slik_tertinggi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_collectabilitas_sid_or_slik_tertinggi"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_collectabilitas_sid_or_slik_tertinggi"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_collectabilitas_sid_or_slik_tertinggi"
+                                android:layout_toRightOf="@+id/gambar_collectabilitas_sid_or_slik_tertinggi"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_pernah_kredit_di_tempat_lain"
+                            android:layout_marginLeft="10dp"
+                            android:layout_below="@+id/box_collectabilitas_sid_or_slik_tertinggi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textSize="12dp"
+                                android:id="@+id/t_pernah_kredit_di_tempat_lain"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:background="@android:color/transparent"
+                                android:text="@string/pernah_kredit_di_tempat_lain" />
+
+                            <RadioGroup
+                                android:layout_below="@+id/t_pernah_kredit_di_tempat_lain"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioGroup_pernah_kredit_di_tempat_lain">
+
+                                <RadioButton
+                                    android:textSize="12dp"
+                                    android:id="@+id/pernah_kredit_di_tempat_lain_ya"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="true"
+                                    android:text="Ya" />
+
+                                <RadioButton
+                                    android:textSize="12dp"
+                                    android:id="@+id/pernah_kredit_di_tempat_lain_tidak"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tidak" />
+                            </RadioGroup>
+
+
+                            <View
+                                android:id="@+id/garis_pernah_kredit_di_tempat_lain"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/radioGroup_pernah_kredit_di_tempat_lain"
+                                android:background="#eaeaea"></View>
+
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/box_overdue_tertinggi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_pernah_kredit_di_tempat_lain"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_overdue_tertinggi"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_overdue_tertinggi" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_overdue_tertinggi"
+                                android:layout_toRightOf="@+id/gambar_overdue_tertinggi"
+                                android:text="@string/overdue_tertinggi"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_overdue_tertinggi"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_overdue_tertinggi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:maxLength="3"
+                                android:layout_toRightOf="@+id/gambar_overdue_tertinggi"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_overdue_tertinggi"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_overdue_tertinggi"
+                                android:layout_toRightOf="@+id/gambar_overdue_tertinggi"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/box_baki_debet_or_outstanding_hutang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_overdue_tertinggi"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_baki_debet_or_outstanding_hutang"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_baki_debet" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_baki_debet_or_outstanding_hutang"
+                                android:layout_toRightOf="@+id/gambar_baki_debet_or_outstanding_hutang"
+                                android:text="@string/baki_debet_or_outstanding_hutang"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_baki_debet_or_outstanding_hutang"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_baki_debet_or_outstanding_hutang"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_baki_debet_or_outstanding_hutang"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_baki_debet_or_outstanding_hutang"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_baki_debet_or_outstanding_hutang"
+                                android:layout_toRightOf="@+id/gambar_baki_debet_or_outstanding_hutang"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_nama_finance_company"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_baki_debet_or_outstanding_hutang"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_nama_finance_company"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/nama_finance_company" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_nama_finance_company"
+                                android:layout_toRightOf="@+id/gambar_nama_finance_company"
+                                android:text="@string/nama_finance_company"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_nama_finance_company"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_nama_finance_company"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_nama_finance_company"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_nama_finance_company"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_nama_finance_company"
+                                android:layout_toRightOf="@+id/gambar_nama_finance_company"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/box_alasan_menunggak_khusus_lebih_dari_coll_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_nama_finance_company"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_alasan_menunggak_khusus_lebih_dari_coll_2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_alasan_menunggak" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_alasan_menunggak_khusus_lebih_dari_coll_2"
+                                android:layout_toRightOf="@+id/gambar_alasan_menunggak_khusus_lebih_dari_coll_2"
+                                android:text="@string/alasan_menunggak_khusus_lebih_dari_coll_2"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_alasan_menunggak_khusus_lebih_dari_coll_2"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_alasan_menunggak_khusus_lebih_dari_coll_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_alasan_menunggak_khusus_lebih_dari_coll_2"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_alasan_menunggak_khusus_lebih_dari_coll_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_alasan_menunggak_khusus_lebih_dari_coll_2"
+                                android:layout_toRightOf="@+id/gambar_alasan_menunggak_khusus_lebih_dari_coll_2"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_karakter_bayar"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+</RelativeLayout>

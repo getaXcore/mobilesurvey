@@ -1,0 +1,292 @@
+<resources>
+    <string name="app_name">Mobile Survey</string>
+
+    <!-- Login Activity-->
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+
+    <!-- HomeActivity-->
+    <string name="title_data_new">Data New</string>
+    <string name="title_data_approve">Pending Kirim</string>
+    <string name="title_data_reject">Data Reject</string>
+    <string name="title_data_pending">Pending Survey</string>
+    <string name="action_settings">Settings</string>
+    <string name="bagian_tidak_baik">Bagian Kondisi Mobil yang Tidak Baik *</string>
+    <string name="lama_kepemilikan_kendaraan">Lama Kepemilikan Kendaraan</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="judul_menu_maps">Informasi Icon</string>
+    <string name="new_customer">New Customer</string>
+    <string name="approve_customer">Approve Customer</string>
+    <string name="pending_customer">Pending Customer</string>
+    <string name="reject_customer">Reject Customer</string>
+    <string name="surveyor">Surveyor</string>
+
+    <string name="input_kelengkapan">Input Kelengkapan</string>
+    <string name="title_telp_cust">Telepon</string>
+    <string name="title_keputusan">Keputusan</string>
+
+    <string name="komentar">Komentar</string>
+    <string name="bt_kirim_komentar">Kirim</string>
+
+
+    <string name="status_kepemilikan_rumah">Status Kepemilikan Rumah *</string>
+    <string name="klasifikasi_perumahan">Klasifikasi Perumahan *</string>
+    <string name="tempat_menaruh_kendaraan">Tempat Menaruh Kendaraan *</string>
+    <string name="status_garasi_kendaraan">Status Garasi Kendaraan *</string>
+    <string name="bentuk_bangunan_rumah">Bentuk Bangunan Rumah *</string>
+    <string name="kondisi_rumah">Kondisi Rumah *</string>
+    <string name="luas_jalan_masuk_rumah">Luas Jalan Masuk Rumah *</string>
+    <string name="status_kepemilikan_rumah_pemohon">Status Kepemilikan Rumah Pemohon *</string>
+    <string name="furniture_or_perabot">Furniture / Perabot *</string>
+    <string name="status_kepemilikan_usaha">Status Kepemilikan Usaha *</string>
+    <string name="bentuk_bangunan_tempat_usaha">Bentuk Bangunan Tempat Usaha / Pekerjaan *</string>
+    <string name="lokasi_tempat_usaha">Lokasi Tempat Usaha / Pekerjaan</string>
+    <string name="jumlah_karyawan">Jumlah Karyawan *</string>
+    <string name="lama_pemohon_menempati_tempat_usaha_tahun">Tahun</string>
+    <string name="lama_pemohon_menempati_tempat_usaha_bulan">Bulan</string>
+    <string name="lama_usaha_berdiri_tahun">Tahun</string>
+    <string name="lama_usaha_berdiri_bulan">Bulan</string>
+    <string name="lama_usaha_berdiri">Lama Usaha Berdiri *</string>
+    <string name="pekerjaan_or_usaha_terkait_ekspor_or_impor">Pekerjaan / Usaha terkait Ekspor / Impor *</string>
+    <string name="tujuan_penggunaan_unit">Tujuan Penggunaan Unit *</string>
+    <string name="kondisi_mobil">Kondisi Mobil *</string>
+    <string name="lama_kepemilikan_kendaraan_tahun">Tahun</string>
+    <string name="lama_kepemilikan_kendaraan_bulan">Bulan</string>
+    <string name="lama_pemohon_menempati_tempat_usaha">Lama Pemohon Menempati Tempat Usaha / Pekerjaan</string>
+
+    <string name="tempat_tinggal_rumah">Tempat Tinggal (Rumah)</string>
+    <string name="jarak_rumah_ke_cabang">Jarak Rumah Ke Cabang *</string>
+    <string name="luas_tanah">Luas Tanah *</string>
+    <string name="luas_bangunan_rumah">Luas Bangunan Rumah *</string>
+    <string name="pekerjaan_or_tempat_usaha">Pekerjaan/Tempat Usaha</string>
+    <string name="jarak_tempat_usaha_dari_rumah">Rata - rata jarak Usaha / Pekerjaan ke Rumah</string>
+    <string name="objek_pembiayaan">Objek Pembiayaan</string>
+    <string name="tanggungan">Tanggungan</string>
+    <string name="jumlah_tanggungan">Jumlah Tanggungan</string>
+    <string name="jumlah_anak">Jumlah Anak</string>
+    <string name="pendapatan_or_kapasitas">PENDAPATAN / KAPASITAS</string>
+    <string name="omzet_or_penghasilan_gross">Omzet/Penghasilan Gross *</string>
+    <string name="penghasilan_nett_or_take_home_pay">Penghasilan Nett/Take Home Pay *</string>
+    <string name="penghasilan_pasangan">Penghasilan Pasangan *</string>
+    <string name="penghasilan_tambahan">Penghasilan Tambahan *</string>
+    <string name="pengeluaran_or_kebutuhan_hidup">Pengeluaran/Kebutuhan Hidup *</string>
+    <string name="total_cicilan_leasing_lain">Total Cicilan Leasing Lain</string>
+    <string name="balance_terakhir_di_rekening_tabungan">Balance Terakhir di Rekening Tabungan</string>
+    <string name="rata_rata_mutasi_in_3_bulan_terakhir">Rata-rata Mutasi In (3 bulan terakhir)</string>
+    <string name="rata_rata_mutasi_out_3_bulan_terakhir">Rata-rata Mutasi Out (3 bulan terakhir)</string>
+    <string name="collectabilitas_sid_or_slik_tertinggi">Collectabilitas SID / SLIK Tertinggi</string>
+    <string name="overdue_tertinggi">Overdue Tertinggi</string>
+    <string name="baki_debet_or_outstanding_hutang">Baki Debet/Outstanding Hutang</string>
+    <string name="nama_finance_company">Nama Perusahaan Finance</string>
+    <string name="alasan_menunggak_khusus_lebih_dari_coll_2">Alasan Menunggak (khusus > Coll 2)</string>
+    <string name="karakter_bayar">Karakter Bayar</string>
+    <string name="apakah_direkomendasikan">Apakah direkomendasikan *</string>
+    <string name="kesimpulan_survey">Kesimpulan Survey</string>
+    <string name="alasan_or_point_penting_rekomendasi_anda">Alasan/Point Penting rekomendasi anda *</string>
+    <string name="pernah_kredit_di_tempat_lain">Pernah Kredit ditempat Lain</string>
+
+
+    <string name="text_judul_foto">Data Foto</string>
+    <string name="list_foto">Ambil Foto</string>
+
+    <string name="foto_ttd">TTD Customer *</string>
+    <string name="foto_ttd_surveyor">TTD Surveyor *</string>
+
+    <string name="bt_simpan">Simpan</string>
+
+
+    <string name="sign_here_title">Sign Here</string>
+    <string name="hint_cancel">Cancel</string>
+    <string name="hint_clear">Clear</string>
+    <string name="hint_save">Save</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="personal_data">Personal Data</string>
+
+    <string name="alasan_cancel">Alasan Cancel</string>
+    <string name="alasan_pending">Alasan Pending</string>
+
+    <string name="name">Nama *</string>
+    <string name="mother_maiden_name">Nama Ibu Kandung *</string>
+    <string name="gelar">Gelar</string>
+    <string name="title">Title *</string>
+    <string name="job_title">Jabatan *</string>
+    <string name="marital_status">Status Pernikahan *</string>
+    <string name="identity_type">Jenis Identitas *</string>
+    <string name="cust_categories">Kategori Customer</string>
+    <string name="npwp_no">Nomor NPWP</string>
+    <string name="birth_place">Tempat Lahir *</string>
+    <string name="birth_date">Tanggal Lahir *</string>
+    <string name="address_ktp">Alamat KTP *</string>
+    <string name="sandi_dati_2_ktp">Sandi Dati II KTP</string>
+    <string name="kab_or_kodya_ktp">Kab / Kodya KTP *</string>
+    <string name="postal_code_ktp">Kode Pos KTP</string>
+
+    <string name="home_address">Alamat Rumah *</string>
+    <string name="sandi_dati_2_home">Sandi Dati II Rumah</string>
+    <string name="kab_or_kodya_home">Kab / Kodya Rumah *</string>
+    <string name="postal_code_home">Kode Pos Rumah</string>
+    <string name="mail_address">Tipe Email</string>
+    <string name="tipe_rumah">Tipe Rumah *</string>
+    <string name="home_status">Status Rumah *</string>
+    <string name="telephone">Telephone</string>
+    <string name="telephone_2">Telephone II</string>
+    <string name="education">Pendidikan</string>
+    <string name="sex">Jenis Kelamin</string>
+    <string name="nama_panggilan">Nama Panggilan</string>
+    <string name="identity_no">Nomor Identitas *</string>
+    <string name="sandi_lahir">Sandi Lahir *</string>
+    <string name="religion">Agama *</string>
+    <string name="kecamatan_ktp">Kecamatan KTP *</string>
+    <string name="provinsi_ktp">Provinsi KTP *</string>
+    <string name="kelurahan_ktp">Kelurahan KTP *</string>
+    <string name="jarak">Jarak Per KM</string>
+    <string name="kecamatan_home">Kecamatan Rumah *</string>
+    <string name="provinsi_home">Provinsi Rumah *</string>
+    <string name="kelurahan_home">Kelurahan Rumah *</string>
+    <string name="stay_length">Stay Length</string>
+    <string name="lama_tinggal">Lama Tinggal</string>
+    <string name="lama_tinggal_per_tahun">Lama Tinggal Per Tahun</string>
+    <string name="handphone_1">Handphone I *</string>
+    <string name="handphone_2">Handphone II</string>
+    <string name="email_stay">Alamat Email</string>
+
+
+    <string name="occupation_data">Data Pekerjaan</string>
+    <string name="pekerjaan">Pekerjaan *</string>
+    <string name="occupation_or_pekerjaan">Occupation / Pekerjaan</string>
+    <string name="name_economy_code">Nama Kode Ekonomi *</string>
+    <string name="company_name">Nama Perusahaan *</string>
+    <string name="company_address">Alamat Perusahaan *</string>
+    <string name="company_sandi_dati_2">Sandi Dati II Perusahaan</string>
+    <string name="company_kab_or_kodya">Kab / Kodya Perusahaan *</string>
+    <string name="company_postal_code">Kode Pos Perusahaan</string>
+    <string name="company_telephone_1">Telephone I Perusahaan *</string>
+    <string name="company_telephone_2">Telephone II Perusahaan</string>
+    <string name="line_of_business">Bidang Usaha</string>
+    <string name="economy_code">Kode Ekonomi</string>
+    <string name="estabilished_since">Berdiri Sejak Per Bulan</string>
+    <string name="company_kecamatan">Kecamatan Perusahaan *</string>
+    <string name="company_province">Provinsi Perusahaan *</string>
+    <string name="company_kelurahan">Kelurahan Perusahaan *</string>
+    <string name="company_fax_1">Fax Perusahaan</string>
+
+
+    <string name="spouse_data">Spouse Data</string>
+    <string name="spouse_name">Nama Pasangan *</string>
+    <string name="spouse_title">Title Pasangan *</string>
+    <string name="spouse_identity_type">Jenis Identitas Pasangan *</string>
+    <string name="spouse_birth_place_or_sandi_lahir">Tempat Lahir / Sandi Lahir Pasangan *</string>
+    <string name="spouse_religion">Agama Pasangan *</string>
+    <string name="spouse_address">Alamat KTP Pasangan *</string>
+    <string name="spouse_sandi_dati_2">Sandi Dati II KTP Pasangan *</string>
+    <string name="spouse_kab_or_kodya">Kab / Kodya KTP Pasangan *</string>
+    <string name="spouse_postal_code">Kode Pos KTP Pasangan *</string>
+    <string name="spouse_no_handphone">Nomor Handphone Pasangan *</string>
+    <string name="spouse_occupation_or_pekerjaan">Pekerjaan Pasangan</string>
+    <string name="spouse_company_name">Nama Perusahaan Pasangan</string>
+    <string name="spouse_company_address">Alamat Perusahaan Pasangan</string>
+    <string name="spouse_company_telephone">Telephone Perusahaan Pasangan</string>
+    <string name="spouse_line_of_business">Bidang Usaha Pasangan</string>
+    <string name="spouse_job_title">Jabatan Pasangan</string>
+    <string name="spouse_sex">Jenis Kelamin Pasangan *</string>
+    <string name="spouse_identity_no">Nomor Identitas Pasangan *</string>
+    <string name="spouse_date_of_birth">Tanggal Lahir Pasangan *</string>
+    <string name="spouse_kecamatan">Kecamatan KTP Pasangan *</string>
+    <string name="spouse_province">Provinsi KTP Pasangan *</string>
+    <string name="spouse_kelurahan">Kelurahan KTP Pasangan *</string>
+    <string name="spouse_estabilished_since">Berdiri Sejak Pasangan Per Bulan</string>
+    <string name="spouse_fax">Fax Pasangan</string>
+
+
+    <string name="contact_person_data">Contact Person Data</string>
+    <string name="has_contact_person">Mempunyai orang yang dapat dihubungi?</string>
+    <string name="contact_name">Nama Kontak *</string>
+    <string name="contact_address">Alamat Kontak *</string>
+    <string name="contact_sandi_dati_2">Sandi Dati II Kontak</string>
+    <string name="contact_kab_or_kodya">Kab / Kodya Kontak *</string>
+    <string name="contact_postal_code">Kode Pos Kontak *</string>
+    <string name="contact_telephone">Telephone Kontak *</string>
+    <string name="relationship">Hubungan *</string>
+    <string name="contact_kecamatan">Kecamatan Kontak *</string>
+    <string name="contact_province">Provinsi Kontak *</string>
+    <string name="contact_kelurahan">Kelurahan Kontak *</string>
+
+    <string name="rumah_depan">Rumah Depan *</string>
+    <string name="rumah_samping">Rumah Samping *</string>
+    <string name="ktp">KTP *</string>
+    <string name="kk">KK *</string>
+    <string name="pbb">PBB *</string>
+    <string name="kepemilikan_rumah">Kepemilikan Rumah *</string>
+    <string name="customer">Customer *</string>
+    <string name="gaji_customer">Gaji Customer *</string>
+    <string name="bukti_penghasilan">Bukti Penghasilan *</string>
+    <string name="tempat_usaha">Tempat Usaha *</string>
+    <string name="bpkb">BPKB *</string>
+    <string name="stnk">STNK *</string>
+    <string name="mobil_depan">Mobil Depan *</string>
+    <string name="mobil_kanan">Mobil Kanan *</string>
+    <string name="mobil_kiri">Mobil Kiri *</string>
+    <string name="mobil_belakang">Mobil Belakang *</string>
+    <string name="dashboard">Dashboard *</string>
+    <string name="mesin_mobil">Mesin Mobil *</string>
+    <string name="nomor_rangka">Nomor Rangka *</string>
+    <string name="cmo_dan_kendaraan">CMO dan Kendaraan *</string>
+    <string name="interior_rumah">Interior Rumah *</string>
+    <string name="customer_tanda_tangan">Customer TTD *</string>
+    <string name="pasangan_tanda_tangan">Pasangan TTD *</string>
+
+<!-- baru 17 des 2018 -->
+    <string name="aktifitas_usaha">Aktifitas Usaha</string>
+    <string name="cmo_bersama_rumah_deb_tampak_depan">CMO Bersama Rumah Deb Tampak Depan</string>
+    <string name="stnk_tampak_belakang">STNK Tampak Belakang</string>
+    <string name="bpkb_halaman_identitas_kendaraan">BPKB Halaman Identitas Kendaraan</string>
+    <string name="ktp_asli_pasangan_calon_debitur">KTP Asli Pasangan Calon Debitur</string>
+    <string name="kk_secara_utuh">KK Secara Utuh</string>
+    <string name="sertifikat_tanah_girik_ajb_rekening_listrik">Sertifikat Tanah / Girik / AJB / Rekening Listrik</string>
+    <string name="pasangan_deb_saat_tanda_tangan_kredit">Pasangan Deb Saat Tanda Tangan Kredit *</string>
+<!-- endbaru 17 des 2018 -->
+
+
+
+<!-- baru 21 des 2018 -->
+    <string name="deb_saat_tanda_tangan_kredit">Deb. Saat Tanda Tangan Kredit *</string>
+    <string name="ktp_asli_calon_debitur">KTP Asli Calon Debitur *</string>
+    <string name="kk_tampak_nama_calon_debitur_tgl_lahir">KK Tampak Nama Calon Debitur dan Tgl Lahir *</string>
+    <string name="tabungan_rek_koran_hal_akhir">Tabungan / Rek Koran Hal. Akhir *</string>
+    <string name="rumah_ruang_tamu">Rumah Ruang Tamu *</string>
+    <string name="rumah_tampak_utuh_dari_depan">Rumah Tampak Utuh Dari Depan *</string>
+    <string name="rumah_tampak_samping">Rumah Tampak Samping *</string>
+    <string name="kendaraan_dashboard_interior">Kendaraan (Dashboard / Interior) *</string>
+    <string name="kendaraan_tampak_samping_kanan">Kendaraan Tampak Samping Kanan *</string>
+    <string name="kendaraan_tampak_samping_kiri">Kendaraan Tampak Samping Kiri *</string>
+    <string name="kendaraan_tampak_belakang">Kendaraan Tampak Belakang *</string>
+    <string name="mesin_kendaraan">Mesin Kendaraan *</string>
+    <string name="no_rangka_dengan_id_card_cmo">No Rangka Dengan Id Card Cmo *</string>
+    <string name="bpkb_halaman_identitas_pemilik">BPKB Halaman Identitas Pemilik *</string>
+    <string name="stnk_tampak_depan">STNK Tampak Depan *</string>
+    <string name="lokasi_usaha_full">Lokasi Usaha Full *</string>
+
+<!-- endbaru 17 des 2018 -->
+
+    <string name="km">KM</string>
+    <string name="meter">Meter</string>
+
+
+    <string name="ambil_foto">Ambil Foto</string>
+    <string name="camera">Camera</string>
+    <string name="galeri">Galeri</string>
+
+    <string name="detail_update_apk">Saat ini mobile survey terdapat versi APK terbaru. Anda diwajibkan untuk mengupdate APK.</string>
+    <string name="update">Update</string>
+
+    <string name="version">Version</string>
+    <string name="jtrust">J Trust Group</string>
+    <string name="detail_desc_ss">PT. JTrust Olympindo Multi Finance is registered and supervised by</string>
+    <string name="detail_desc_ss2">Copyright 2018 JTO Finance All right reserved</string>
+</resources>

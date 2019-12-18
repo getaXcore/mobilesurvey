@@ -1,0 +1,47 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.MapsFragmentDua">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <TextView
+        android:id="@+id/judul_pending"
+        android:layout_marginBottom="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/alasan_pending"/>
+
+    <RelativeLayout
+        android:layout_below="@+id/judul_pending"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tm_komentar"
+        android:padding="10dp"
+        android:background="@drawable/border_maps2">
+        <Spinner
+            android:id="@+id/komentar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:spinnerMode="dialog"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tm_komentar"
+        android:text="@string/bt_kirim_komentar"
+        android:textColor="@color/putih"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_bt_click2"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/bt_simpan"/>
+
+</RelativeLayout>
+
+
+

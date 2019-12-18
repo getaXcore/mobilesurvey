@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="surveyor.id.com.mobilesurvey">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:hardwareAccelerated="false"
+        android:name=".util.AppController"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".SurveyorSplashScreenActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".LoginActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity
+            android:name=".HomeActivity"
+            android:hardwareAccelerated="true"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".AchievementActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".DaftarChatActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".ChatRoom"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".MapsActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity
+            android:name=".InputDataFullActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".SignatureActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".SignatureSurveyorActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".LanjutSurveyActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".ListTugasActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".ApproveActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".HistoryActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".RejectActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".ListTugasPendingActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+
+        <service
+            android:name=".service.BackgroundService"
+            android:enabled="true" />
+
+        <receiver
+            android:name=".service.BackgroundRestarterBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true"
+            android:label="RestartServiceWhenStopped">
+            <intent-filter>
+                <action android:name="com.id.surveyor.ActivityRecognition.RestartSensor" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name=".InputGaleriPhotoActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
+        <activity android:name=".InputPhotoAllActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+    </application>
+
+</manifest>

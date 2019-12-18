@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/list_row_selector"
+    android:padding="8dp">
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="70dp"
+            android:id="@+id/tanggal_bln_thn"
+            android:layout_height="wrap_content"
+            android:background="#F3F3F3"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bulan"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:text="Januari"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tanggal"
+                android:textSize="35dp"
+                android:textColor="@color/background_toolbar"
+                android:gravity="center"
+                android:text="12"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tahun"
+                android:textColor="@color/background_toolbar"
+                android:gravity="center"
+                android:text="2017"/>
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="130dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/nama_dll"
+            android:layout_toEndOf="@+id/tanggal_bln_thn"
+            android:layout_toRightOf="@+id/tanggal_bln_thn"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="@android:color/black"
+                android:text="adsfvsdf"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/surveyaddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="8dp"
+                android:layout_marginTop="5dp"
+                />
+
+            <TextView
+                android:id="@+id/kelurahan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:textSize="8dp"
+                android:layout_marginTop="5dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:id="@+id/jarak_tmt"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/jarak"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@android:color/black"
+                android:text="addafsd" />
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

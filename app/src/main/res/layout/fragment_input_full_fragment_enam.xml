@@ -1,0 +1,665 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentEnam">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/data_pekerjaan_or_tempat_usaha"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_pekerjaan_or_tempat_usaha">
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_pekerjaan_or_tempat_usaha">
+
+                        <ImageView
+                            android:id="@+id/img_pekerjaan_or_tempat_usaha"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/icon_pekerjaan_tempat_usaha"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_pekerjaan_or_tempat_usaha"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/pekerjaan_or_tempat_usaha"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_pekerjaan_or_tempat_usaha"/>
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_pekerjaan_or_tempat_usaha"
+                        android:layout_below="@+id/s_judul_pekerjaan_or_tempat_usaha"
+                        android:src="@drawable/icon_garis"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/garis_judul_pekerjaan_or_tempat_usaha"
+                        android:layout_below="@+id/panah_bawah_pekerjaan_or_tempat_usaha"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_pekerjaan_or_tempat_usaha"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul_pekerjaan_or_tempat_usaha">
+
+
+
+                        <RelativeLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:id="@+id/box_jarak_tempat_usaha_dari_rumah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+
+                            <ImageView
+                                android:id="@+id/gambar_jarak_tempat_usaha_dari_rumah"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentBottom="true"
+                                android:src="@drawable/icon_jarak_tempat_usaha_dari_rumah" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_jarak_tempat_usaha_dari_rumah"
+                                android:layout_toRightOf="@+id/gambar_jarak_tempat_usaha_dari_rumah"
+                                android:text="@string/jarak_tempat_usaha_dari_rumah"/>
+
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_jarak_tempat_usaha_dari_rumah"
+                                android:id="@+id/etx_jarak_tempat_usaha_dari_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="14dp"
+                                android:inputType="number"
+                                android:layout_toLeftOf="@+id/jdl_km_jarak_tempat_usaha_dari_rumah"
+                                android:layout_toRightOf="@+id/gambar_jarak_tempat_usaha_dari_rumah"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_jarak_tempat_usaha_dari_rumah"
+                                android:id="@+id/jdl_km_jarak_tempat_usaha_dari_rumah"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14dp"
+                                android:text="@string/km"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:id="@+id/garis_jarak_tempat_usaha_dari_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_below="@+id/etx_jarak_tempat_usaha_dari_rumah"
+                                android:layout_toRightOf="@+id/gambar_jarak_tempat_usaha_dari_rumah"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/box_status_kepemilikan_usaha"
+                            android:layout_below="@+id/box_jarak_tempat_usaha_dari_rumah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:id="@+id/gambar_status_kepemilikan_usaha"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_status_kepemilikan_usaha" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_status_kepemilikan_usaha"
+                                android:layout_toRightOf="@+id/gambar_status_kepemilikan_usaha"
+                                android:text="@string/status_kepemilikan_usaha"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_status_kepemilikan_usaha"
+                                android:id="@+id/spinner_status_kepemilikan_usaha"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_status_kepemilikan_usaha"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_status_kepemilikan_usaha"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_status_kepemilikan_usaha"
+                                android:layout_toRightOf="@+id/gambar_status_kepemilikan_usaha"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_bentuk_bangunan_tempat_usaha"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/box_status_kepemilikan_usaha"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_bentuk_bangunan_tempat_usaha"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_bentuk_bangunan_tempat_usaha" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_bentuk_bangunan_tempat_usaha"
+                                android:layout_toRightOf="@+id/gambar_bentuk_bangunan_tempat_usaha"
+                                android:text="@string/bentuk_bangunan_tempat_usaha"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_bentuk_bangunan_tempat_usaha"
+                                android:id="@+id/spinner_bentuk_bangunan_tempat_usaha"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_bentuk_bangunan_tempat_usaha"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_bentuk_bangunan_tempat_usaha"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_bentuk_bangunan_tempat_usaha"
+                                android:layout_toRightOf="@+id/gambar_bentuk_bangunan_tempat_usaha"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_lokasi_tempat_usaha"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/box_bentuk_bangunan_tempat_usaha"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_lokasi_tempat_usaha"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_lokasi_tempat_usaha" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_lokasi_tempat_usaha"
+                                android:layout_toRightOf="@+id/gambar_lokasi_tempat_usaha"
+                                android:text="@string/lokasi_tempat_usaha"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_lokasi_tempat_usaha"
+                                android:id="@+id/spinner_lokasi_tempat_usaha"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_lokasi_tempat_usaha"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_lokasi_tempat_usaha"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_lokasi_tempat_usaha"
+                                android:layout_toRightOf="@+id/gambar_lokasi_tempat_usaha"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/box_jumlah_karyawan"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/box_lokasi_tempat_usaha"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_jumlah_karyawan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_jumlah_karyawan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_jumlah_karyawan"
+                                android:layout_toRightOf="@+id/gambar_jumlah_karyawan"
+                                android:text="@string/jumlah_karyawan"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_jumlah_karyawan"
+                                android:id="@+id/spinner_jumlah_karyawan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_jumlah_karyawan"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_jumlah_karyawan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_jumlah_karyawan"
+                                android:layout_toRightOf="@+id/gambar_jumlah_karyawan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/box_lama_pemohon_menempati_tempat_usaha"
+                            android:layout_below="@+id/box_jumlah_karyawan"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/judul_lama_pemohon_menempati_tempat_usaha"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="@string/lama_pemohon_menempati_tempat_usaha"/>
+
+                            <RelativeLayout
+                                android:layout_below="@+id/judul_lama_pemohon_menempati_tempat_usaha"
+                                android:id="@+id/box_tahun_lpmtu"
+                                android:layout_toLeftOf="@+id/batas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+
+                                <ImageView
+                                    android:layout_alignParentTop="true"
+                                    android:id="@+id/gambar_lama_pemohon_menempati_tempat_usaha_tahun"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/icon_tahun" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="11dp"
+                                    android:textColor="@color/bg_hed_ce"
+                                    android:id="@+id/t_judul_lama_pemohon_menempati_tempat_usaha_tahun"
+                                    android:layout_toRightOf="@+id/gambar_lama_pemohon_menempati_tempat_usaha_tahun"
+                                    android:text="@string/lama_pemohon_menempati_tempat_usaha_tahun"/>
+
+                                <EditText
+                                    android:layout_below="@+id/t_judul_lama_pemohon_menempati_tempat_usaha_tahun"
+                                    android:id="@+id/etx_lama_pemohon_menempati_tempat_usaha_tahun"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14dp"
+                                    android:maxLength="4"
+                                    android:inputType="number"
+                                    android:layout_toRightOf="@+id/gambar_lama_pemohon_menempati_tempat_usaha_tahun"
+                                    android:background="@android:color/transparent"
+                                    android:textColor="@android:color/black" />
+
+                                <View
+                                    android:layout_alignParentBottom="true"
+                                    android:id="@+id/garis_lama_pemohon_menempati_tempat_usaha_tahun"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_below="@+id/etx_lama_pemohon_menempati_tempat_usaha_tahun"
+                                    android:layout_toRightOf="@+id/gambar_lama_pemohon_menempati_tempat_usaha_tahun"
+                                    android:background="#eaeaea"></View>
+
+                            </RelativeLayout>
+
+
+                            <TextView
+                                android:id="@+id/batas"
+                                android:layout_centerHorizontal="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+
+                            <RelativeLayout
+                                android:layout_below="@+id/judul_lama_pemohon_menempati_tempat_usaha"
+                                android:id="@+id/box_bulan_lpmtu"
+                                android:layout_toRightOf="@+id/batas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+
+                                <ImageView
+                                    android:layout_alignParentTop="true"
+                                    android:id="@+id/gambar_lama_pemohon_menempati_tempat_usaha_bulan"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/icon_bulan" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="11dp"
+                                    android:textColor="@color/bg_hed_ce"
+                                    android:id="@+id/t_judul_lama_pemohon_menempati_tempat_usaha_bulan"
+                                    android:layout_toRightOf="@+id/gambar_lama_pemohon_menempati_tempat_usaha_bulan"
+                                    android:text="@string/lama_pemohon_menempati_tempat_usaha_bulan"/>
+
+                                <EditText
+                                    android:layout_below="@+id/t_judul_lama_pemohon_menempati_tempat_usaha_bulan"
+                                    android:id="@+id/etx_lama_pemohon_menempati_tempat_usaha_bulan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14dp"
+                                    android:maxLength="2"
+                                    android:inputType="number"
+                                    android:layout_toRightOf="@+id/gambar_lama_pemohon_menempati_tempat_usaha_bulan"
+                                    android:background="@android:color/transparent"
+                                    android:textColor="@android:color/black" />
+
+                                <View
+                                    android:id="@+id/garis_lama_pemohon_menempati_tempat_usaha_bulan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_below="@+id/etx_lama_pemohon_menempati_tempat_usaha_bulan"
+                                    android:layout_toRightOf="@+id/gambar_lama_pemohon_menempati_tempat_usaha_bulan"
+                                    android:background="#eaeaea"></View>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_lama_usaha_berdiri"
+                            android:layout_below="@+id/box_lama_pemohon_menempati_tempat_usaha"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/judul_lama_usaha_berdiri"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="@string/lama_usaha_berdiri"/>
+
+                            <RelativeLayout
+                                android:layout_below="@+id/judul_lama_usaha_berdiri"
+                                android:id="@+id/box_tahun_lub"
+                                android:layout_toLeftOf="@+id/batas2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+
+                                <ImageView
+                                    android:layout_alignParentTop="true"
+                                    android:id="@+id/gambar_lama_usaha_berdiri_tahun"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/icon_tahun" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="11dp"
+                                    android:textColor="@color/bg_hed_ce"
+                                    android:id="@+id/t_judul_lama_usaha_berdiri_tahun"
+                                    android:layout_toRightOf="@+id/gambar_lama_usaha_berdiri_tahun"
+                                    android:text="@string/lama_usaha_berdiri_tahun"/>
+
+                                <EditText
+                                    android:layout_below="@+id/t_judul_lama_usaha_berdiri_tahun"
+                                    android:textSize="14dp"
+                                    android:id="@+id/etx_lama_usaha_berdiri_tahun"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="4"
+                                    android:inputType="number"
+                                    android:layout_toRightOf="@+id/gambar_lama_usaha_berdiri_tahun"
+                                    android:background="@android:color/transparent"
+                                    android:textColor="@android:color/black" />
+
+                                <View
+                                    android:layout_alignParentBottom="true"
+                                    android:id="@+id/garis_lama_usaha_berdiri_tahun"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_below="@+id/etx_lama_usaha_berdiri_tahun"
+                                    android:layout_toRightOf="@+id/gambar_lama_usaha_berdiri_tahun"
+                                    android:background="#eaeaea"></View>
+
+                            </RelativeLayout>
+
+
+                            <TextView
+                                android:id="@+id/batas2"
+                                android:layout_centerHorizontal="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+
+                            <RelativeLayout
+                                android:layout_below="@+id/judul_lama_usaha_berdiri"
+                                android:id="@+id/box_bulan_lub"
+                                android:layout_toRightOf="@+id/batas2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+
+                                <ImageView
+                                    android:layout_alignParentTop="true"
+                                    android:id="@+id/gambar_lama_usaha_berdiri_bulan"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/icon_bulan" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="11dp"
+                                    android:textColor="@color/bg_hed_ce"
+                                    android:id="@+id/t_judul_lama_usaha_berdiri_bulan"
+                                    android:layout_toRightOf="@+id/gambar_lama_usaha_berdiri_bulan"
+                                    android:text="@string/lama_usaha_berdiri_bulan"/>
+
+                                <EditText
+                                    android:layout_below="@+id/t_judul_lama_usaha_berdiri_bulan"
+                                    android:textSize="14dp"
+                                    android:id="@+id/etx_lama_usaha_berdiri_bulan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="2"
+                                    android:inputType="number"
+                                    android:layout_toRightOf="@+id/gambar_lama_usaha_berdiri_bulan"
+                                    android:background="@android:color/transparent"
+                                    android:textColor="@android:color/black" />
+
+                                <View
+                                    android:layout_alignParentBottom="true"
+                                    android:id="@+id/garis_lama_usaha_berdiri_bulan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_below="@+id/etx_lama_usaha_berdiri_bulan"
+                                    android:layout_toRightOf="@+id/gambar_lama_usaha_berdiri_bulan"
+                                    android:background="#eaeaea"></View>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_pekerjaan_or_usaha_terkait_ekspor_or_impor"
+                            android:layout_below="@+id/box_lama_usaha_berdiri"
+                            android:layout_margin="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/t_pekerjaan_or_usaha_terkait_ekspor_or_impor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="12dp"
+                                android:background="@android:color/transparent"
+                                android:text="@string/pekerjaan_or_usaha_terkait_ekspor_or_impor" />
+
+                            <RadioGroup
+                                android:layout_below="@+id/t_pekerjaan_or_usaha_terkait_ekspor_or_impor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioGroup_pekerjaan_or_usaha_terkait_ekspor_or_impor">
+
+                                <RadioButton
+                                    android:id="@+id/radioButton_ya"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="true"
+                                    android:textSize="12dp"
+                                    android:text="Ya" />
+
+                                <RadioButton
+                                    android:id="@+id/radioButton_tidak"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="12dp"
+                                    android:text="Tidak" />
+                            </RadioGroup>
+
+
+
+
+                        </RelativeLayout>
+
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_pekerjaan_or_tempat_usaha"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

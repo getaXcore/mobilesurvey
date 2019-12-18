@@ -1,0 +1,222 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentDuabelas">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/data_kesimpulan_survey"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_kesimpulan_survey">
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_kesimpulan_survey">
+
+                        <ImageView
+                            android:id="@+id/img_kesimpulan_survey"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/icon_kesimpulan_survey"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_kesimpulan_survey"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/kesimpulan_survey"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_kesimpulan_survey"/>
+
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_kesimpulan_survey"
+                        android:layout_below="@+id/s_judul_kesimpulan_survey"
+                        android:src="@drawable/icon_garis"/>
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:id="@+id/garis_judul_kesimpulan_survey"
+                        android:layout_below="@+id/panah_bawah_kesimpulan_survey"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_kesimpulan_survey"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul_kesimpulan_survey">
+
+                        <RelativeLayout
+                            android:id="@+id/box_apakah_direkomendasikan"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:textSize="12dp"
+                                android:id="@+id/t_apakah_direkomendasikan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:background="@android:color/transparent"
+                                android:text="@string/apakah_direkomendasikan" />
+
+                            <RadioGroup
+                                android:layout_below="@+id/t_apakah_direkomendasikan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/radioGroup_apakah_direkomendasikan">
+
+                                <RadioButton
+                                    android:textSize="12dp"
+                                    android:id="@+id/apakah_direkomendasikan_ya"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:checked="true"
+                                    android:text="Ya" />
+
+                                <RadioButton
+                                    android:textSize="12dp"
+                                    android:id="@+id/apakah_direkomendasikan_tidak"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Tidak" />
+                            </RadioGroup>
+
+
+                            <View
+                                android:id="@+id/garis_apakah_direkomendasikan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/radioGroup_apakah_direkomendasikan"
+                                android:background="#eaeaea"></View>
+
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_alasan_or_point_penting_rekomendasi_anda"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_apakah_direkomendasikan"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_alasan_or_point_penting_rekomendasi_anda"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_alasan_or_point_penting" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_alasan_or_point_penting_rekomendasi_anda"
+                                android:layout_toRightOf="@+id/gambar_alasan_or_point_penting_rekomendasi_anda"
+                                android:text="@string/alasan_or_point_penting_rekomendasi_anda"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_alasan_or_point_penting_rekomendasi_anda"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_alasan_or_point_penting_rekomendasi_anda"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_alasan_or_point_penting_rekomendasi_anda"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_alasan_or_point_penting_rekomendasi_anda"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_alasan_or_point_penting_rekomendasi_anda"
+                                android:layout_toRightOf="@+id/gambar_alasan_or_point_penting_rekomendasi_anda"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_kesimpulan_survey"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

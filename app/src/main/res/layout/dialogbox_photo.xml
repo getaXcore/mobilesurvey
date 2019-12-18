@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rsb="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:padding="20dp"
+        android:background="@drawable/bg_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+
+
+        <TextView
+            android:id="@+id/jdl_foto"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ambil_foto"/>
+
+
+        <View
+            android:layout_below="@+id/jdl_foto"
+            android:id="@+id/garis_photo"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#46587B"></View>
+
+        <RelativeLayout
+            android:layout_below="@+id/garis_photo"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:id="@+id/r_camera"
+                android:layout_toLeftOf="@+id/batas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_camera"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_camera"/>
+                <TextView
+                    android:layout_below="@+id/img_camera"
+                    android:id="@+id/tx_camera"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/camera"/>
+            </RelativeLayout>
+
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/batas"
+                android:background="@android:color/transparent"
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+
+
+            <RelativeLayout
+                android:id="@+id/r_galeri"
+                android:layout_toRightOf="@+id/batas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_galeri"
+                    android:layout_width="100dp"
+                    android:layout_height="80dp"
+                    android:layout_centerHorizontal="true"
+                    android:src="@drawable/icon_galeri"/>
+                <TextView
+                    android:layout_below="@+id/img_galeri"
+                    android:id="@+id/tx_galeri"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/galeri"/>
+            </RelativeLayout>
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

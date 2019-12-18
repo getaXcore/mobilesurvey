@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "743355009994",
+    "firebase_url": "https://appsurveyorolymp.firebaseio.com",
+    "project_id": "appsurveyorolymp",
+    "storage_bucket": "appsurveyorolymp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743355009994:android:d95d7ad992f1d9dec71d33",
+        "android_client_info": {
+          "package_name": "surveyor.id.com.mobilesurvey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743355009994-h2msjjd5t410qcbiqttj7d3lc70osju2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCU0ab81aGdZ0_nm9hE5Tj151nDUN8f69g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743355009994-h2msjjd5t410qcbiqttj7d3lc70osju2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

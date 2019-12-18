@@ -1,0 +1,230 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentDelapan">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/data_tanggungan"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_tanggungan">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_tanggungan">
+
+                        <ImageView
+                            android:id="@+id/img_tanggungan"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/icon_tanggungan"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_tanggungan"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/tanggungan"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_tanggungan"/>
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_tanggungan"
+                        android:layout_below="@+id/s_judul_tanggungan"
+                        android:src="@drawable/icon_garis"/>
+
+
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/garis_judul_tanggungan"
+                        android:layout_below="@+id/panah_bawah_tanggungan"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_tanggungan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul_tanggungan">
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_jumlah_tanggungan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_jumlah_tanggungan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_jumlah_tanggungan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_jumlah_tanggungan"
+                                android:layout_toRightOf="@+id/gambar_jumlah_tanggungan"
+                                android:text="@string/jumlah_tanggungan"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_jumlah_tanggungan"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_jumlah_tanggungan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:layout_toRightOf="@+id/gambar_jumlah_tanggungan"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_jumlah_tanggungan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_jumlah_tanggungan"
+                                android:layout_toRightOf="@+id/gambar_jumlah_tanggungan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_jumlah_anak"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/box_jumlah_tanggungan"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_jumlah_anak"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_jumlah_anak" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_jumlah_anak"
+                                android:layout_toRightOf="@+id/gambar_jumlah_anak"
+                                android:text="@string/jumlah_anak"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_jumlah_anak"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_jumlah_anak"
+                                android:inputType="number"
+                                android:maxLength="3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_jumlah_anak"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_jumlah_anak"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_jumlah_anak"
+                                android:layout_toRightOf="@+id/gambar_jumlah_anak"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_tanggungan"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

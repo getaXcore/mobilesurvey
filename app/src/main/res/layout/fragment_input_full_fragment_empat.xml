@@ -1,0 +1,676 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentEmpat">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/data_contact_person_data"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_contact_person_data">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_contact_person_data">
+
+                        <ImageView
+                            android:id="@+id/img_cust"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/data_contact_person"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_cust"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/contact_person_data"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_contact_person_data"/>
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_contact_person_data"
+                        android:layout_below="@+id/s_judul_contact_person_data"
+                        android:src="@drawable/icon_garis"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/garis_judul_contact_person_data"
+                        android:layout_below="@+id/panah_bawah_contact_person_data"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_contact_person_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul_contact_person_data">
+
+                        <RelativeLayout
+                            android:id="@+id/box_has_contact_person"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_has_contact_person"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_has_contact_person" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_has_contact_person"
+                                android:layout_toRightOf="@+id/gambar_has_contact_person"
+                                android:text="@string/has_contact_person"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_has_contact_person"
+                                android:id="@+id/spinner_has_contact_person"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_has_contact_person"
+                                android:spinnerMode="dropdown"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_has_contact_person"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_has_contact_person"
+                                android:layout_toRightOf="@+id/gambar_has_contact_person"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_contact_name"
+                            android:layout_below="@+id/box_has_contact_person"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_contact_name"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_name" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_contact_name"
+                                android:layout_toRightOf="@+id/gambar_contact_name"
+                                android:text="@string/contact_name"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_contact_name"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_contact_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_contact_name"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_contact_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_contact_name"
+                                android:layout_toRightOf="@+id/gambar_contact_name"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_contact_address"
+                            android:layout_below="@+id/box_contact_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_contact_address"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_alamat_rumah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_contact_address"
+                                android:layout_toRightOf="@+id/gambar_contact_address"
+                                android:text="@string/contact_address"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_contact_address"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_contact_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_contact_address"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_contact_address"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_contact_address"
+                                android:layout_toRightOf="@+id/gambar_contact_address"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_contact_province"
+                            android:layout_below="@+id/box_contact_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_contact_province"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_provinsi_ktp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_contact_province"
+                                android:layout_toRightOf="@+id/gambar_contact_province"
+                                android:text="@string/contact_province"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_contact_province"
+                                android:textSize="14dp"
+                                android:id="@+id/spinner_contact_province"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_contact_province"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_contact_province"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_contact_province"
+                                android:layout_toRightOf="@+id/gambar_contact_province"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_contact_kab_or_kodya"
+                            android:layout_below="@+id/box_contact_province"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_contact_kab_or_kodya"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_kab_or_kodya" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_contact_kab_or_kodya"
+                                android:layout_toRightOf="@+id/gambar_contact_kab_or_kodya"
+                                android:text="@string/contact_kab_or_kodya"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_contact_kab_or_kodya"
+                                android:textSize="14dp"
+                                android:id="@+id/spinner_contact_kab_or_kodya"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_contact_kab_or_kodya"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_contact_kab_or_kodya"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_contact_kab_or_kodya"
+                                android:layout_toRightOf="@+id/gambar_contact_kab_or_kodya"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_contact_kecamatan"
+                            android:layout_below="@+id/box_contact_kab_or_kodya"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_contact_kecamatan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_kecamatan_ktp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_contact_kecamatan"
+                                android:layout_toRightOf="@+id/gambar_contact_kecamatan"
+                                android:text="@string/contact_kecamatan"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_contact_kecamatan"
+                                android:textSize="14dp"
+                                android:id="@+id/spinner_contact_kecamatan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_contact_kecamatan"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_contact_kecamatan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_contact_kecamatan"
+                                android:layout_toRightOf="@+id/gambar_contact_kecamatan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_contact_kelurahan"
+                            android:layout_below="@+id/box_contact_kecamatan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_contact_kelurahan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_kelurahan_ktp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_contact_kelurahan"
+                                android:layout_toRightOf="@+id/gambar_contact_kelurahan"
+                                android:text="@string/contact_kelurahan"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_contact_kelurahan"
+                                android:textSize="14dp"
+                                android:id="@+id/spinner_contact_kelurahan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_contact_kelurahan"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_contact_kelurahan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_contact_kelurahan"
+                                android:layout_toRightOf="@+id/gambar_contact_kelurahan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_contact_sandi_dati_2"
+                            android:layout_below="@+id/box_contact_kelurahan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_contact_sandi_dati_2"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_sandi_dati_2" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_contact_sandi_dati_2"
+                                android:layout_toRightOf="@+id/gambar_contact_sandi_dati_2"
+                                android:text="@string/contact_sandi_dati_2"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_contact_sandi_dati_2"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_contact_sandi_dati_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_contact_sandi_dati_2"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/bg_hed_ce" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_contact_sandi_dati_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_contact_sandi_dati_2"
+                                android:layout_toRightOf="@+id/gambar_contact_sandi_dati_2"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_contact_postal_code"
+                            android:layout_below="@+id/box_contact_sandi_dati_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_contact_postal_code"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_postal_code" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_contact_postal_code"
+                                android:layout_toRightOf="@+id/gambar_contact_postal_code"
+                                android:text="@string/contact_postal_code"/>
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_contact_postal_code"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_contact_postal_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_contact_postal_code"
+                                android:background="@android:color/transparent"
+                                android:textColor="@color/bg_hed_ce" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_contact_postal_code"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_contact_postal_code"
+                                android:layout_toRightOf="@+id/gambar_contact_postal_code"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_contact_telephone"
+                            android:layout_below="@+id/box_contact_postal_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_contact_telephone"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_telephone" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_contact_telephone"
+                                android:layout_toRightOf="@+id/gambar_contact_telephone"
+                                android:text="@string/contact_telephone"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_contact_telephone"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_contact_telephone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_contact_telephone"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_contact_telephone"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_contact_telephone"
+                                android:layout_toRightOf="@+id/gambar_contact_telephone"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_relationship"
+                            android:layout_below="@+id/box_contact_telephone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_relationship"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_relationship" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_relationship"
+                                android:layout_toRightOf="@+id/gambar_relationship"
+                                android:text="@string/relationship"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_relationship"
+                                android:id="@+id/spinner_relationship"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_relationship"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_relationship"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_relationship"
+                                android:layout_toRightOf="@+id/gambar_relationship"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_contact_person_data"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

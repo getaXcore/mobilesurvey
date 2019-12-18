@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <!-- <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+-->
+    <RelativeLayout
+        android:padding="20dp"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+        <ScrollView
+            android:id="@+id/sc_keputusan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/bt_close"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon_close"
+                    android:layout_marginBottom="15dp"/>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_below="@+id/bt_close"
+                    android:id="@+id/judul_cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/alasan_cancel"/>
+
+                <RelativeLayout
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_below="@+id/judul_cancel"
+                    android:id="@+id/tm_komentar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_maps2">
+
+
+
+                    <Spinner
+                        android:id="@+id/spinner_alasan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:spinnerMode="dialog"></Spinner>
+
+                    <!--<EditText
+                        android:id="@+id/komentar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="15dp"
+                        android:background="@drawable/border_maps2"
+                        android:hint="@string/komentar"
+                        android:inputType="textMultiLine"
+                        android:padding="10dp" />-->
+
+                </RelativeLayout>
+
+                <Button
+                    android:layout_below="@+id/tm_komentar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bt_kirim_komentar"
+                    android:textColor="@color/putih"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/bg_bt_click2"
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/bt_simpan"/>
+
+            </RelativeLayout>
+
+
+        </ScrollView>
+
+
+
+
+
+
+    </RelativeLayout>
+<!--
+
+</ScrollView>
+-->
+
+
+
+
+    </RelativeLayout>

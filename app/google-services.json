@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "539244997238",
+    "firebase_url": "https://olympindo-survey.firebaseio.com",
+    "project_id": "olympindo-survey",
+    "storage_bucket": "olympindo-survey.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539244997238:android:0fbc6a16d8163df8",
+        "android_client_info": {
+          "package_name": "surveyor.id.com.mobilesurvey"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539244997238-8go9g2ttvji7ie9hua668ms9iutrccmg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEQfZ3KWykeP2Z_kh-9HR-HlyTpN61dBQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

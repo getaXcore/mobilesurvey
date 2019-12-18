@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rsb="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_gravity="center"
+        android:padding="20dp"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/jd_update_apk"
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pemberitahuan"/>
+
+
+        <View
+            android:layout_below="@+id/jd_update_apk"
+            android:id="@+id/garis_update_apk"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_centerHorizontal="true"
+            android:background="#46587B"></View>
+
+        <TextView
+            android:layout_below="@+id/garis_update_apk"
+            android:id="@+id/detail_update_apk"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detail_update_apk"/>
+
+
+        <Button
+            android:layout_below="@+id/detail_update_apk"
+            android:id="@+id/bt_update"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_toLeftOf="@+id/batas"
+            android:background="@drawable/bg_login3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/update"/>
+
+
+    </RelativeLayout>
+
+
+
+
+
+</LinearLayout>

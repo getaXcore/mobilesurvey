@@ -1,0 +1,889 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentSebelas">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scrl">
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="20dp"
+                android:id="@+id/data_foto"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_foto">
+
+                    <!--<TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="15dp"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/background_toolbar"
+                        android:text="@string/text_judul_foto"
+                        android:id="@+id/judul_foto"/>-->
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_foto">
+
+                        <ImageView
+                            android:id="@+id/img_foto"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/icon_karakter_bayar"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_foto"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/text_judul_foto"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_foto"/>
+
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_foto"
+                        android:layout_below="@+id/s_judul_foto"
+                        android:src="@drawable/icon_garis"/>
+
+
+
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/garis_judul_foto"
+                        android:layout_below="@+id/panah_bawah_foto"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_foto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul_foto">
+
+                        <RelativeLayout
+                            android:id="@+id/box_list_foto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/judul_list_foto"
+                                android:textColor="@color/background_toolbar"
+                                android:text="@string/list_foto"
+                                android:layout_centerHorizontal="true"/>
+
+
+                            <HorizontalScrollView
+                                android:layout_below="@+id/judul_list_foto"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <!--start 0.customer-->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_app"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/customer"/>
+                                    </LinearLayout>
+                                    <!--end 0.customer-->
+
+                                    <!--start 1.customer tanda tangan-->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_customer_tanda_tangan"
+                                            android:src="@drawable/foto_order_merah"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/deb_saat_tanda_tangan_kredit"/>
+                                    </LinearLayout>
+                                    <!--end 1.customer tanda tangan-->
+
+                                    <!--start 2.pasangan tanda tangan-->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:id="@+id/box_photo_pasangan_tanda_tangan"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_pasangan_tanda_tangan"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/pasangan_deb_saat_tanda_tangan_kredit"/>
+                                    </LinearLayout>
+                                    <!--end 2.pasangan tanda tangan-->
+
+                                    <!--start 3.ktp-->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_id"
+                                            android:src="@drawable/foto_order_merah"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/ktp_asli_calon_debitur"/>
+                                    </LinearLayout>
+                                    <!--end 3.ktp -->
+
+                                    <!--start 4.kk -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_kk"
+                                            android:src="@drawable/foto_order_merah"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/kk_tampak_nama_calon_debitur_tgl_lahir"/>
+                                    </LinearLayout>
+                                    <!--end 4.kk -->
+
+                                    <!--end 5.bukti penghasilan -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_salary"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/tabungan_rek_koran_hal_akhir"/>
+                                    </LinearLayout>
+                                    <!--end 5.bukti penghasilan -->
+
+                                    <!--start 6.bukti kepemilikan rumah -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_pbb"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/kepemilikan_rumah"/>
+                                    </LinearLayout>
+                                    <!--end 6.bukti kepemilikan rumah -->
+
+                                    <!--start 7.interior rumah -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_interior_rumah"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/rumah_ruang_tamu"/>
+                                    </LinearLayout>
+                                    <!--end 7.interior rumah -->
+
+                                    <!--start 8.rumah depan -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_home1"
+                                            android:src="@drawable/foto_order_merah"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/rumah_tampak_utuh_dari_depan"/>
+                                    </LinearLayout>
+                                    <!--end 8.rumah depan -->
+
+                                    <!--end 9.rumah samping -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_home2"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/rumah_tampak_samping"/>
+                                    </LinearLayout>
+                                    <!--end 9.rumah samping -->
+
+                                    <!--start 10.mobil depan -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_mobil_tampak_depan"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/kendaraan_dashboard_interior"/>
+                                    </LinearLayout>
+                                    <!--end 10.mobil depan -->
+
+                                    <!--start 11.mobil kanan -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_mobil_tampak_samping_kanan"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/kendaraan_tampak_samping_kanan"/>
+                                    </LinearLayout>
+                                    <!--end 11.mobil kanan -->
+
+                                    <!--start 12.mobil kiri -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_mobil_tampak_samping_kiri"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/kendaraan_tampak_samping_kiri"/>
+                                    </LinearLayout>
+                                    <!--end 12.mobil kiri -->
+
+                                    <!--start 13.mobil belakang -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_mobil_tampak_belakang"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/kendaraan_tampak_belakang"/>
+                                    </LinearLayout>
+                                    <!--end 13.mobil belakang -->
+
+                                    <!--start 14.cmo dan kendaraan -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_cmo_dan_kendaraan"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/cmo_dan_kendaraan"/>
+                                    </LinearLayout>
+                                    <!--end 14.cmo dan kendaraan -->
+
+                                    <!--start 15.dashboard -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_dashboard"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/dashboard"/>
+                                    </LinearLayout>
+                                    <!--end 15.dashboard -->
+
+                                    <!--start 16.mesin mobil -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_mesin_mobil"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/mesin_kendaraan"/>
+                                    </LinearLayout>
+                                    <!--end 16.mesin mobil -->
+
+                                    <!--start 17.nomor rangka -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_nomer_rangka"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/no_rangka_dengan_id_card_cmo"/>
+                                    </LinearLayout>
+                                    <!--end 17.nomor rangka -->
+
+                                    <!--start 18.bpkb -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_bpkb"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/bpkb_halaman_identitas_pemilik"/>
+                                    </LinearLayout>
+                                    <!--end 18.bpkb -->
+
+                                    <!--start 19.stnk -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_stnk"
+                                            android:src="@drawable/foto_order_merah"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stnk_tampak_depan"/>
+                                    </LinearLayout>
+                                    <!--end 19.stnk -->
+
+                                    <!--start 20.tempat usaha -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_tempat_usaha"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/lokasi_usaha_full"/>
+                                    </LinearLayout>
+                                    <!--end 20.tempat usaha -->
+
+<!--.............................................Baru 17 des 2018...........................................-->
+                                    <!--start 21.aktifitas usaha -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_aktifitas_usaha"
+                                            android:src="@drawable/foto_order_merah"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/aktifitas_usaha"/>
+                                    </LinearLayout>
+                                    <!--end 21.aktifitas usaha -->
+
+
+                                    <!--start 22.cmo bersama rumah deb tampak depan -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_cmo_bersama_rumah_deb_tampak_depan"
+                                            android:src="@drawable/foto_order_merah"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/cmo_bersama_rumah_deb_tampak_depan"/>
+                                    </LinearLayout>
+                                    <!--end 22.cmo bersama rumah deb tampak depan -->
+
+                                    <!--start 23.stnk tampak belakang -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_stnk_tampak_belakang"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/stnk_tampak_belakang"/>
+                                    </LinearLayout>
+                                    <!--end 23.stnk tampak belakang -->
+
+                                    <!--start 24.bpkb halaman identitas kendaraan -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_bpkb_halaman_identitas_kendaraan"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/bpkb_halaman_identitas_kendaraan"/>
+                                    </LinearLayout>
+                                    <!--end 24.bpkb halaman identitas kendaraan -->
+
+                                    <!--start 25.ktp asli pasangan calon debitur -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_ktp_asli_pasangan_calon_debitur"
+                                            android:src="@drawable/foto_order_merah"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/ktp_asli_pasangan_calon_debitur"/>
+                                    </LinearLayout>
+                                    <!--end 25.ktp asli pasangan calon debitur -->
+
+                                    <!--start 26.kk secara utuh -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_kk_secara_utuh"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/kk_secara_utuh"/>
+                                    </LinearLayout>
+                                    <!--end 26.kk secara utuh -->
+
+                                    <!--start 27.sertifikat tanah / girik / ajb / rekening listrik -->
+                                    <LinearLayout
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginRight="15dp"
+                                        android:layout_width="100dp"
+                                        android:layout_height="match_parent"
+                                        android:orientation="vertical">
+                                        <ImageView
+                                            android:layout_width="100dp"
+                                            android:layout_height="100dp"
+                                            android:layout_gravity="center"
+                                            android:layout_margin="10dp"
+                                            android:id="@+id/photo_sertifikat_tanah_girik_ajb_rekening_listrik"
+                                            android:src="@drawable/foto_order_biru"/>
+                                        <TextView
+                                            android:textColor="@color/background_toolbar"
+                                            android:layout_gravity="center"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/sertifikat_tanah_girik_ajb_rekening_listrik"/>
+                                    </LinearLayout>
+                                    <!--end 27.sertifikat tanah / girik / ajb / rekening listrik -->
+
+
+<!--.............................................End Baru 17 des 2018...........................................-->
+
+
+                                    <!--<ImageView
+                                        android:layout_width="100dp"
+                                        android:layout_height="100dp"
+                                        android:layout_gravity="center"
+                                        android:layout_margin="10dp"
+                                        android:id="@+id/photo_business"
+                                        android:src="@drawable/foto_customer_business"/>-->
+
+                                </LinearLayout>
+                            </HorizontalScrollView>
+
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_foto_ttd"
+                            android:layout_below="@+id/box_list_foto"
+                            android:layout_width="wrap_content"
+                            android:layout_toLeftOf="@+id/batas_ttd"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/judul_foto_ttd"
+                                android:textColor="@color/background_toolbar"
+                                android:text="@string/foto_ttd"
+                                android:layout_centerHorizontal="true"/>
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_below="@+id/judul_foto_ttd"
+                                android:layout_centerHorizontal="true"
+                                android:layout_margin="10dp"
+                                android:src="@drawable/foto_tanda_tangan_customer"
+                                android:id="@+id/img_cek_ttd"/>
+
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/batas_ttd"
+                            android:layout_below="@+id/box_list_foto"
+                            android:layout_centerHorizontal="true"/>
+
+                        <RelativeLayout
+                            android:id="@+id/box_foto_ttd_surveyor"
+                            android:layout_below="@+id/box_list_foto"
+                            android:layout_width="wrap_content"
+                            android:layout_toRightOf="@+id/batas_ttd"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:id="@+id/judul_foto_ttd_surveyor"
+                                android:text="@string/foto_ttd_surveyor"
+                                android:textColor="@color/background_toolbar"
+                                android:layout_centerHorizontal="true"/>
+
+                            <ImageView
+                                android:layout_width="100dp"
+                                android:layout_height="100dp"
+                                android:layout_below="@+id/judul_foto_ttd_surveyor"
+                                android:layout_centerHorizontal="true"
+                                android:layout_margin="10dp"
+                                android:src="@drawable/foto_tanda_tangan_surveyor"
+                                android:id="@+id/img_cek_ttd_surveyor"/>
+
+                        </RelativeLayout>
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+
+            <Button
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_foto"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

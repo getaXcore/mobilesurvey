@@ -1,0 +1,572 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentSembilan">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/data_pendapatan_or_kapasitas"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_pendapatan_or_kapasitas">
+
+
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_pendapatan_or_kapasitas">
+
+                        <ImageView
+                            android:id="@+id/img_pendapatan_or_kapasitas"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/icon_pendapatan_or_kapasitas"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_pendapatan_or_kapasitas"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/pendapatan_or_kapasitas"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_pendapatan_or_kapasitas"/>
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_pendapatan_or_kapasitas"
+                        android:layout_below="@+id/s_judul_pendapatan_or_kapasitas"
+                        android:src="@drawable/icon_garis"/>
+
+
+
+
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="2dp"
+                        android:id="@+id/garis_judul"
+                        android:layout_below="@+id/panah_bawah_pendapatan_or_kapasitas"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_pendapatan_or_kapasitas"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul">
+
+                        <RelativeLayout
+                            android:id="@+id/box_omzet_or_penghasilan_gross"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_omzet_or_penghasilan_gross"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_omzet_penghasilan_gross" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_omzet_or_penghasilan_gross"
+                                android:layout_toRightOf="@+id/gambar_omzet_or_penghasilan_gross"
+                                android:text="@string/omzet_or_penghasilan_gross"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_omzet_or_penghasilan_gross"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_omzet_or_penghasilan_gross"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_omzet_or_penghasilan_gross"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_omzet_or_penghasilan_gross"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_omzet_or_penghasilan_gross"
+                                android:layout_toRightOf="@+id/gambar_omzet_or_penghasilan_gross"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_penghasilan_nett_or_take_home_pay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_omzet_or_penghasilan_gross"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_penghasilan_nett_or_take_home_pay"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_penghasilan_nett" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:inputType="number"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_penghasilan_nett_or_take_home_pay"
+                                android:layout_toRightOf="@+id/gambar_penghasilan_nett_or_take_home_pay"
+                                android:text="@string/penghasilan_nett_or_take_home_pay"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_penghasilan_nett_or_take_home_pay"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_penghasilan_nett_or_take_home_pay"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_penghasilan_nett_or_take_home_pay"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_penghasilan_nett_or_take_home_pay"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_penghasilan_nett_or_take_home_pay"
+                                android:layout_toRightOf="@+id/gambar_penghasilan_nett_or_take_home_pay"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_penghasilan_pasangan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_penghasilan_nett_or_take_home_pay"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_penghasilan_pasangan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_penghasilan_pasangan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_penghasilan_pasangan"
+                                android:layout_toRightOf="@+id/gambar_penghasilan_pasangan"
+                                android:text="@string/penghasilan_pasangan"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_penghasilan_pasangan"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_penghasilan_pasangan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_penghasilan_pasangan"
+                                android:background="@android:color/transparent"
+                                android:inputType="number"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_penghasilan_pasangan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_penghasilan_pasangan"
+                                android:layout_toRightOf="@+id/gambar_penghasilan_pasangan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_penghasilan_tambahan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_penghasilan_pasangan"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_penghasilan_tambahan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_penghasilan_tambahan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_penghasilan_tambahan"
+                                android:layout_toRightOf="@+id/gambar_penghasilan_tambahan"
+                                android:text="@string/penghasilan_tambahan"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_penghasilan_tambahan"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_penghasilan_tambahan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_penghasilan_tambahan"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_penghasilan_tambahan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_penghasilan_tambahan"
+                                android:layout_toRightOf="@+id/gambar_penghasilan_tambahan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_pengeluaran_or_kebutuhan_hidup"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_penghasilan_tambahan"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_pengeluaran_or_kebutuhan_hidup"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_pengeluaran_or_kebutuhan_hidup" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_pengeluaran_or_kebutuhan_hidup"
+                                android:layout_toRightOf="@+id/gambar_pengeluaran_or_kebutuhan_hidup"
+                                android:text="@string/pengeluaran_or_kebutuhan_hidup"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_pengeluaran_or_kebutuhan_hidup"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_pengeluaran_or_kebutuhan_hidup"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_pengeluaran_or_kebutuhan_hidup"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_pengeluaran_or_kebutuhan_hidup"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_pengeluaran_or_kebutuhan_hidup"
+                                android:layout_toRightOf="@+id/gambar_pengeluaran_or_kebutuhan_hidup"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_total_cicilan_leasing_lain"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_pengeluaran_or_kebutuhan_hidup"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_total_cicilan_leasing_lain"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_total_cicilan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_total_cicilan_leasing_lain"
+                                android:layout_toRightOf="@+id/gambar_total_cicilan_leasing_lain"
+                                android:text="@string/total_cicilan_leasing_lain"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_total_cicilan_leasing_lain"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_total_cicilan_leasing_lain"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_total_cicilan_leasing_lain"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_total_cicilan_leasing_lain"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_total_cicilan_leasing_lain"
+                                android:layout_toRightOf="@+id/gambar_total_cicilan_leasing_lain"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_balance_terakhir_di_rekening_tabungan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_total_cicilan_leasing_lain"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_balance_terakhir_di_rekening_tabungan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_balance_terakhir_di_rekening_tabungan" />
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_balance_terakhir_di_rekening_tabungan"
+                                android:layout_toRightOf="@+id/gambar_balance_terakhir_di_rekening_tabungan"
+                                android:text="@string/balance_terakhir_di_rekening_tabungan"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_balance_terakhir_di_rekening_tabungan"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_balance_terakhir_di_rekening_tabungan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_balance_terakhir_di_rekening_tabungan"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_balance_terakhir_di_rekening_tabungan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_balance_terakhir_di_rekening_tabungan"
+                                android:layout_toRightOf="@+id/gambar_balance_terakhir_di_rekening_tabungan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_rata_rata_mutasi_in_3_bulan_terakhir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_balance_terakhir_di_rekening_tabungan"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_rata_rata_mutasi_in_3_bulan_terakhir"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_rata_rata_mutasi_in" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_rata_rata_mutasi_in_3_bulan_terakhir"
+                                android:layout_toRightOf="@+id/gambar_rata_rata_mutasi_in_3_bulan_terakhir"
+                                android:text="@string/rata_rata_mutasi_in_3_bulan_terakhir"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_rata_rata_mutasi_in_3_bulan_terakhir"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_rata_rata_mutasi_in_3_bulan_terakhir"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_rata_rata_mutasi_in_3_bulan_terakhir"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_rata_rata_mutasi_in_3_bulan_terakhir"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_rata_rata_mutasi_in_3_bulan_terakhir"
+                                android:layout_toRightOf="@+id/gambar_rata_rata_mutasi_in_3_bulan_terakhir"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_rata_rata_mutasi_out_3_bulan_terakhir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_rata_rata_mutasi_in_3_bulan_terakhir"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_rata_rata_mutasi_out_3_bulan_terakhir"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_rata_rata_mutasi_out" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_rata_rata_mutasi_out_3_bulan_terakhir"
+                                android:layout_toRightOf="@+id/gambar_rata_rata_mutasi_out_3_bulan_terakhir"
+                                android:text="@string/rata_rata_mutasi_out_3_bulan_terakhir"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_rata_rata_mutasi_out_3_bulan_terakhir"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_rata_rata_mutasi_out_3_bulan_terakhir"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toRightOf="@+id/gambar_rata_rata_mutasi_out_3_bulan_terakhir"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_rata_rata_mutasi_out_3_bulan_terakhir"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_rata_rata_mutasi_out_3_bulan_terakhir"
+                                android:layout_toRightOf="@+id/gambar_rata_rata_mutasi_out_3_bulan_terakhir"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_pendapatan_or_kapasitas"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

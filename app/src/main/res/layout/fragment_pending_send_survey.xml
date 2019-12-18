@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.PendingSendSurveyFragment">
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:background="#f5f6f8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:selectableItemBackground"
+            android:dividerHeight="0dp"
+            android:divider="@android:color/transparent"
+            android:clickable="true"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+</LinearLayout>

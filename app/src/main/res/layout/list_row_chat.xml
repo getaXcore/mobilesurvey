@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/icon2"
+        android:id="@+id/nama_dll">
+
+        <TextView
+            android:id="@+id/nama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:textColor="#4bc1e5"
+            android:text="adsfvsdf"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/chatdetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nama"
+            android:textColor="#4bc1e5"
+            android:text="aasf"
+            android:textSize="12dp"
+            android:layout_marginTop="5dp"
+            />
+
+
+        <TextView
+            android:layout_below="@+id/nama"
+            android:layout_toRightOf="@+id/chatdetail"
+            android:id="@+id/tanggal"
+            android:layout_marginLeft="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="12dp"
+            android:textColor="#4bc1e5"
+            android:text="asdasda"
+            />
+
+
+    </RelativeLayout>
+
+
+
+
+
+</RelativeLayout>

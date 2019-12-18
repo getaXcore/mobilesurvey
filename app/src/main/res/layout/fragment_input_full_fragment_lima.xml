@@ -1,0 +1,791 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentLima">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/data_tempat_tinggal_rumah"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_tempat_tinggal_rumah">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_tempat_tinggal_rumah">
+
+                        <ImageView
+                            android:id="@+id/img_cust"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/icon_tempat_tinggal"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_cust"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/tempat_tinggal_rumah"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_customer"/>
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_tempat_tinggal_rumah"
+                        android:layout_below="@+id/s_judul_tempat_tinggal_rumah"
+                        android:src="@drawable/icon_garis"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/garis_judul_tempat_tinggal_rumah"
+                        android:layout_below="@+id/panah_bawah_tempat_tinggal_rumah"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_tempat_tinggal_rumah"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul_tempat_tinggal_rumah">
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_tipe_rumah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_tipe_rumah"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_tipe_rumah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_tipe_rumah"
+                                android:layout_toRightOf="@+id/gambar_tipe_rumah"
+                                android:text="@string/tipe_rumah"/>
+
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_tipe_rumah"
+                                android:id="@+id/spinner_tipe_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_tipe_rumah"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_tipe_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_tipe_rumah"
+                                android:layout_toRightOf="@+id/gambar_tipe_rumah"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_jarak_rumah_ke_cabang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_below="@+id/box_tipe_rumah">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_jarak_rumah_ke_cabang"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_jarak_rumah_ke_cabang" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_jarak_rumah_ke_cabang"
+                                android:layout_toRightOf="@+id/gambar_jarak_rumah_ke_cabang"
+                                android:text="@string/jarak_rumah_ke_cabang"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_jarak_rumah_ke_cabang"
+                                android:id="@+id/etx_jarak_rumah_ke_cabang"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="14dp"
+                                android:layout_toLeftOf="@+id/jdl_km"
+                                android:layout_toRightOf="@+id/gambar_jarak_rumah_ke_cabang"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_jarak_rumah_ke_cabang"
+                                android:id="@+id/jdl_km"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="14dp"
+                                android:layout_marginRight="10dp"
+                                android:text="@string/km"
+                                android:layout_alignParentRight="true"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_jarak_rumah_ke_cabang"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_jarak_rumah_ke_cabang"
+                                android:layout_toRightOf="@+id/gambar_jarak_rumah_ke_cabang"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_luas_tanah"
+                            android:layout_below="@+id/box_jarak_rumah_ke_cabang"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_luas_tanah"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_luas_tanah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_luas_tanah"
+                                android:layout_toRightOf="@+id/gambar_luas_tanah"
+                                android:text="@string/luas_tanah"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_luas_tanah"
+                                android:textSize="14dp"
+                                android:id="@+id/etx_luas_tanah"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:layout_toLeftOf="@+id/jdl_meter_luas_tanah"
+                                android:layout_toRightOf="@+id/gambar_luas_tanah"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_luas_tanah"
+                                android:textSize="14dp"
+                                android:id="@+id/jdl_meter_luas_tanah"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/meter"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_luas_tanah"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_luas_tanah"
+                                android:layout_toRightOf="@+id/gambar_luas_tanah"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_luas_bangunan_rumah"
+                            android:layout_below="@+id/box_luas_tanah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_luas_bangunan_rumah"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_luas_bangunan_rumah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_luas_bangunan_rumah"
+                                android:layout_toRightOf="@+id/gambar_luas_bangunan_rumah"
+                                android:text="@string/luas_bangunan_rumah"/>
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_luas_bangunan_rumah"
+                                android:id="@+id/etx_luas_bangunan_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:inputType="number"
+                                android:textSize="14dp"
+                                android:layout_toLeftOf="@+id/jdl_meter_luas_bangunan_rumah"
+                                android:layout_toRightOf="@+id/gambar_luas_bangunan_rumah"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_luas_bangunan_rumah"
+                                android:id="@+id/jdl_meter_luas_bangunan_rumah"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="14dp"
+                                android:text="@string/meter"
+                                android:layout_marginRight="10dp"
+                                android:layout_alignParentRight="true"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_luas_bangunan_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_luas_bangunan_rumah"
+                                android:layout_toRightOf="@+id/gambar_luas_bangunan_rumah"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_status_kepemilikan_rumah"
+                            android:layout_below="@+id/box_luas_bangunan_rumah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_status_kepemilikan_rumah"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_status_kepemilikan_rumah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_status_kepemilikan_rumah"
+                                android:layout_toRightOf="@+id/gambar_status_kepemilikan_rumah"
+                                android:text="@string/status_kepemilikan_rumah"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_status_kepemilikan_rumah"
+                                android:id="@+id/spinner_status_kepemilikan_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_status_kepemilikan_rumah"
+                                android:spinnerMode="dropdown"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_status_kepemilikan_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_status_kepemilikan_rumah"
+                                android:layout_toRightOf="@+id/gambar_status_kepemilikan_rumah"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_klasifikasi_perumahan"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/box_status_kepemilikan_rumah"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_klasifikasi_perumahan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_klasifikasi_perumahan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_klasifikasi_perumahan"
+                                android:layout_toRightOf="@+id/gambar_klasifikasi_perumahan"
+                                android:text="@string/klasifikasi_perumahan"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_klasifikasi_perumahan"
+                                android:id="@+id/spinner_klasifikasi_perumahan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_klasifikasi_perumahan"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_klasifikasi_perumahan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_klasifikasi_perumahan"
+                                android:layout_toRightOf="@+id/gambar_klasifikasi_perumahan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_tempat_menaruh_kendaraan"
+                            android:layout_below="@+id/box_klasifikasi_perumahan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_tempat_menaruh_kendaraan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_tempat_menaruh_kendaraan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_tempat_menaruh_kendaraan"
+                                android:layout_toRightOf="@+id/gambar_tempat_menaruh_kendaraan"
+                                android:text="@string/tempat_menaruh_kendaraan"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_tempat_menaruh_kendaraan"
+                                android:id="@+id/spinner_tempat_menaruh_kendaraan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_tempat_menaruh_kendaraan"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_tempat_menaruh_kendaraan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_tempat_menaruh_kendaraan"
+                                android:layout_toRightOf="@+id/gambar_tempat_menaruh_kendaraan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_status_garasi_kendaraan"
+                            android:layout_below="@+id/box_tempat_menaruh_kendaraan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_status_garasi_kendaraan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_status_garasi_kendaraan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_status_garasi_kendaraan"
+                                android:layout_toRightOf="@+id/gambar_status_garasi_kendaraan"
+                                android:text="@string/status_garasi_kendaraan"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_status_garasi_kendaraan"
+                                android:id="@+id/spinner_status_garasi_kendaraan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_status_garasi_kendaraan"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_status_garasi_kendaraan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_status_garasi_kendaraan"
+                                android:layout_toRightOf="@+id/gambar_status_garasi_kendaraan"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/box_bentuk_bangunan_rumah"
+                            android:layout_below="@+id/box_status_garasi_kendaraan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_bentuk_bangunan_rumah"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_bentuk_bangunan_rumah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_bentuk_bangunan_rumah"
+                                android:layout_toRightOf="@+id/gambar_bentuk_bangunan_rumah"
+                                android:text="@string/bentuk_bangunan_rumah"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_bentuk_bangunan_rumah"
+                                android:id="@+id/spinner_bentuk_bangunan_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_bentuk_bangunan_rumah"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_bentuk_bangunan_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_bentuk_bangunan_rumah"
+                                android:layout_toRightOf="@+id/gambar_bentuk_bangunan_rumah"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/box_kondisi_rumah"
+                            android:layout_below="@+id/box_bentuk_bangunan_rumah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_kondisi_rumah"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_kondisi_rumah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_kondisi_rumah"
+                                android:layout_toRightOf="@+id/gambar_kondisi_rumah"
+                                android:text="@string/kondisi_rumah"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_kondisi_rumah"
+                                android:id="@+id/spinner_kondisi_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_kondisi_rumah"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_kondisi_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_kondisi_rumah"
+                                android:layout_toRightOf="@+id/gambar_kondisi_rumah"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_luas_jalan_masuk_rumah"
+                            android:layout_below="@+id/box_kondisi_rumah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_luas_jalan_masuk_rumah"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_luas_jalan_masuk_rumah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_luas_jalan_masuk_rumah"
+                                android:layout_toRightOf="@+id/gambar_luas_jalan_masuk_rumah"
+                                android:text="@string/luas_jalan_masuk_rumah"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_luas_jalan_masuk_rumah"
+                                android:id="@+id/spinner_luas_jalan_masuk_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_luas_jalan_masuk_rumah"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_luas_jalan_masuk_rumah"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_luas_jalan_masuk_rumah"
+                                android:layout_toRightOf="@+id/gambar_luas_jalan_masuk_rumah"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+                        <!--<RelativeLayout
+                            android:id="@+id/box_status_kepemilikan_rumah_pemohon"
+                            android:layout_below="@+id/box_luas_jalan_masuk_rumah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_status_kepemilikan_rumah_pemohon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_status_kepemilikan_rumah" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_status_kepemilikan_rumah_pemohon"
+                                android:layout_toRightOf="@+id/gambar_status_kepemilikan_rumah_pemohon"
+                                android:text="@string/status_kepemilikan_rumah_pemohon"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_status_kepemilikan_rumah_pemohon"
+                                android:id="@+id/spinner_status_kepemilikan_rumah_pemohon"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_status_kepemilikan_rumah_pemohon"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_status_kepemilikan_rumah_pemohon"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_status_kepemilikan_rumah_pemohon"
+                                android:layout_toRightOf="@+id/gambar_status_kepemilikan_rumah_pemohon"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>-->
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_furniture_or_perabot"
+                            android:layout_below="@+id/box_luas_jalan_masuk_rumah"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_furniture_or_perabot"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_furniture" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_furniture_or_perabot"
+                                android:layout_toRightOf="@+id/gambar_furniture_or_perabot"
+                                android:text="@string/furniture_or_perabot"/>
+
+
+                            <EditText
+                                android:layout_below="@+id/t_judul_furniture_or_perabot"
+                                android:id="@+id/etx_furniture_or_perabot"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="14dp"
+                                android:layout_toRightOf="@+id/gambar_furniture_or_perabot"
+                                android:background="@android:color/transparent"
+                                android:textColor="@android:color/black" />
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_furniture_or_perabot"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/etx_furniture_or_perabot"
+                                android:layout_toRightOf="@+id/gambar_furniture_or_perabot"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_tempat_tinggal_rumah"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+
+
+        </RelativeLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+</RelativeLayout>

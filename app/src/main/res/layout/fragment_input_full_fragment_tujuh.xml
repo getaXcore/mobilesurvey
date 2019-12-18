@@ -1,0 +1,399 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eaeaea"
+    tools:context="surveyor.id.com.mobilesurvey.fragment.InputFullFragmentTujuh">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/data_objek_pembiayaan"
+                android:background="@drawable/bg_maps">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/jdl_objek_pembiayaan">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="5dp"
+                        android:id="@+id/s_judul_objek_pembiayaan">
+
+                        <ImageView
+                            android:id="@+id/img_objek_pembiayaan"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="15dp"
+                            android:src="@drawable/icon_objek_pembiayaan"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/img_objek_pembiayaan"
+                            android:textColor="@color/background_toolbar"
+                            android:text="@string/objek_pembiayaan"
+                            android:layout_toLeftOf="@+id/img_check"
+                            android:id="@+id/judul_objek_pembiayaan"/>
+                        <ImageView
+                            android:id="@+id/img_check"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:src="@drawable/dont_check"/>
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/panah_bawah_objek_pembiayaan"
+                        android:layout_below="@+id/s_judul_objek_pembiayaan"
+                        android:src="@drawable/icon_garis"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="3dp"
+                        android:id="@+id/garis_judul_objek_pembiayaan"
+                        android:layout_below="@+id/panah_bawah_objek_pembiayaan"
+                        android:background="#eaeaea"></View>
+
+
+                    <RelativeLayout
+                        android:id="@+id/detail_objek_pembiayaan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis_judul_objek_pembiayaan">
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_tujuan_penggunaan_unit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_tujuan_penggunaan_unit"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_tujuan_penggunaan_unit" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_tujuan_penggunaan_unit"
+                                android:layout_toRightOf="@+id/gambar_tujuan_penggunaan_unit"
+                                android:text="@string/tujuan_penggunaan_unit"/>
+
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_tujuan_penggunaan_unit"
+                                android:id="@+id/spinner_tujuan_penggunaan_unit"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_tujuan_penggunaan_unit"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_tujuan_penggunaan_unit"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_tujuan_penggunaan_unit"
+                                android:layout_toRightOf="@+id/gambar_tujuan_penggunaan_unit"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_kondisi_mobil"
+                            android:layout_width="wrap_content"
+                            android:layout_below="@+id/box_tujuan_penggunaan_unit"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_kondisi_mobil"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_kondisi_mobil" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_kondisi_mobil"
+                                android:layout_toRightOf="@+id/gambar_kondisi_mobil"
+                                android:text="@string/kondisi_mobil"/>
+
+                            <Spinner
+                                android:layout_below="@+id/t_judul_kondisi_mobil"
+                                android:id="@+id/spinner_kondisi_mobil"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_kondisi_mobil"
+                                android:spinnerMode="dialog"
+                                android:textColor="@android:color/black"></Spinner>
+
+                            <View
+                                android:id="@+id/garis_kondisi_mobil"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_kondisi_mobil"
+                                android:layout_toRightOf="@+id/gambar_kondisi_mobil"
+                                android:background="#eaeaea"></View>
+
+                            <RelativeLayout
+                                android:id="@+id/bagian_kondisi_tidak_baik"
+                                android:visibility="gone"
+                                android:layout_marginTop="10dp"
+                                android:layout_below="@+id/garis_kondisi_mobil"
+                                android:layout_toRightOf="@+id/gambar_kondisi_mobil"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <ImageView
+                                    android:layout_alignParentTop="true"
+                                    android:id="@+id/gambar_bagian_kondisi_tidak_baik"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/icon_bagian_kondisi_tidak_baik" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="11dp"
+                                    android:textColor="@color/bg_hed_ce"
+                                    android:id="@+id/t_judul_bagian_kondisi_tidak_baik"
+                                    android:layout_toRightOf="@+id/gambar_bagian_kondisi_tidak_baik"
+                                    android:text="@string/bagian_tidak_baik"/>
+
+                                <EditText
+                                    android:layout_below="@+id/t_judul_bagian_kondisi_tidak_baik"
+                                    android:textSize="14dp"
+                                    android:id="@+id/etx_bagian_kondisi_tidak_baik"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/gambar_bagian_kondisi_tidak_baik"
+                                    android:background="@android:color/transparent"
+                                    android:textColor="@android:color/black" />
+
+                                <View
+                                    android:layout_alignParentBottom="true"
+                                    android:id="@+id/garis_bagian_kondisi_tidak_baik"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_below="@+id/etx_bagian_kondisi_tidak_baik"
+                                    android:layout_toRightOf="@+id/gambar_bagian_kondisi_tidak_baik"
+                                    android:background="#eaeaea"></View>
+                            </RelativeLayout>
+                        </RelativeLayout>
+
+
+
+                        <RelativeLayout
+                            android:id="@+id/box_lama_kepemilikan_kendaraan"
+                            android:layout_below="@+id/box_kondisi_mobil"
+                            android:layout_margin="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/judul_lama_kepemilikan_kendaraan"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="@string/lama_kepemilikan_kendaraan"/>
+
+                            <RelativeLayout
+                                android:layout_below="@+id/judul_lama_kepemilikan_kendaraan"
+                                android:id="@+id/box_tahun_lama_kepemilikan_kendaraan"
+                                android:layout_toLeftOf="@+id/batas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+
+                                <ImageView
+                                    android:layout_alignParentTop="true"
+                                    android:id="@+id/gambar_lama_kepemilikan_kendaraan_tahun"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/icon_tahun" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="11dp"
+                                    android:textColor="@color/bg_hed_ce"
+                                    android:id="@+id/t_judul_lama_kepemilikan_kendaraan_tahun"
+                                    android:layout_toRightOf="@+id/gambar_lama_kepemilikan_kendaraan_tahun"
+                                    android:text="@string/lama_kepemilikan_kendaraan_tahun"/>
+
+                                <EditText
+                                    android:layout_below="@+id/t_judul_lama_kepemilikan_kendaraan_tahun"
+                                    android:textSize="14dp"
+                                    android:id="@+id/etx_lama_kepemilikan_kendaraan_tahun"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="4"
+                                    android:inputType="number"
+                                    android:layout_toRightOf="@+id/gambar_lama_kepemilikan_kendaraan_tahun"
+                                    android:background="@android:color/transparent"
+                                    android:textColor="@android:color/black" />
+
+                                <View
+                                    android:layout_alignParentBottom="true"
+                                    android:id="@+id/garis_lama_kepemilikan_kendaraan_tahun"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_below="@+id/etx_lama_kepemilikan_kendaraan_tahun"
+                                    android:layout_toRightOf="@+id/gambar_lama_kepemilikan_kendaraan_tahun"
+                                    android:background="#eaeaea"></View>
+
+                            </RelativeLayout>
+
+
+                            <TextView
+                                android:id="@+id/batas"
+                                android:layout_centerHorizontal="true"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content" />
+
+
+                            <RelativeLayout
+                                android:layout_below="@+id/judul_lama_kepemilikan_kendaraan"
+                                android:id="@+id/box_bulan_lama_kepemilikan_kendaraan"
+                                android:layout_toRightOf="@+id/batas"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+
+                                <ImageView
+                                    android:layout_alignParentTop="true"
+                                    android:id="@+id/gambar_lama_kepemilikan_kendaraan_bulan"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/icon_bulan" />
+
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="11dp"
+                                    android:textColor="@color/bg_hed_ce"
+                                    android:id="@+id/t_judul_lama_kepemilikan_kendaraan_bulan"
+                                    android:layout_toRightOf="@+id/gambar_lama_kepemilikan_kendaraan_bulan"
+                                    android:text="@string/lama_kepemilikan_kendaraan_bulan"/>
+
+                                <EditText
+                                    android:layout_below="@+id/t_judul_lama_kepemilikan_kendaraan_bulan"
+                                    android:textSize="14dp"
+                                    android:id="@+id/etx_lama_kepemilikan_kendaraan_bulan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:maxLength="2"
+                                    android:inputType="number"
+                                    android:layout_toRightOf="@+id/gambar_lama_kepemilikan_kendaraan_bulan"
+                                    android:background="@android:color/transparent"
+                                    android:textColor="@android:color/black" />
+
+                                <View
+                                    android:layout_alignParentBottom="true"
+                                    android:id="@+id/garis_lama_kepemilikan_kendaraan_bulan"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_below="@+id/etx_lama_kepemilikan_kendaraan_bulan"
+                                    android:layout_toRightOf="@+id/gambar_lama_kepemilikan_kendaraan_bulan"
+                                    android:background="#eaeaea"></View>
+
+                            </RelativeLayout>
+
+                        </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bt_simpan"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/data_objek_pembiayaan"
+                android:textColor="@color/putih"
+                android:background="@drawable/bg_bt_click"
+                android:text="@string/bt_simpan"/>
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+
+
+
+
+
+</RelativeLayout>

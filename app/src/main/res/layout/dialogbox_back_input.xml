@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:rsb="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:background="#ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+
+
+        <TextView
+            android:layout_marginBottom="5dp"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pemberitahuan"/>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#46587B"></View>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apakah anda ingin keluar dari inputan ini?"/>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/bt_tidak"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:layout_toLeftOf="@+id/batas"
+                android:background="@drawable/bg_login3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tidak"/>
+
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/batas"
+                android:background="@android:color/transparent"
+                android:layout_width="5dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/bt_ya"
+                android:layout_toRightOf="@+id/batas"
+                android:text="Ya"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:background="@drawable/bg_login3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
