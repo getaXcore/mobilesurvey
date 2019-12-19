@@ -274,6 +274,9 @@
 
 <!-- endbaru 17 des 2018 -->
 
+    <string name="sumber_order">Sumber Order</string>
+    <string name="nama_sumber_order">Dealer</string>
+
     <string name="km">KM</string>
     <string name="meter">Meter</string>
 

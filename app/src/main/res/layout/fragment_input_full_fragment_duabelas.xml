@@ -192,6 +192,41 @@
 
                         </RelativeLayout>
 
+                        <RelativeLayout
+                            android:id="@+id/box_source"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/box_alasan_or_point_penting_rekomendasi_anda"
+                            android:layout_margin="5dp">
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_source"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_bagian_kondisi_tidak_baik" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_source"
+                                android:layout_toRightOf="@+id/gambar_source"
+                                android:text="@string/sumber_order"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginTop="4dp"
+                                android:textSize="12dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_source"
+                                android:layout_toRightOf="@+id/gambar_source"
+                                android:layout_below="@+id/t_judul_source"
+                                android:text="@string/nama_sumber_order"/>
+                        </RelativeLayout>
+
                     </RelativeLayout>
                 </RelativeLayout>
 
