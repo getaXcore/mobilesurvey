@@ -118,7 +118,7 @@
     <string name="job_title">Jabatan *</string>
     <string name="marital_status">Status Pernikahan *</string>
     <string name="identity_type">Jenis Identitas *</string>
-    <string name="cust_categories">Kategori Customer</string>
+    <string name="cust_categories">Kategori Customer *</string>
     <string name="npwp_no">Nomor NPWP</string>
     <string name="birth_place">Tempat Lahir *</string>
     <string name="birth_date">Tanggal Lahir *</string>

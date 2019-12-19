@@ -90,6 +90,7 @@ public interface setter {
     //public static final String url_customer_pending                             = URL_REQUEST + "/listcustomerpending.php";
     public static final String url_cek_tugas                                    = URL_REQUEST + "/notifCustomerNew";
     public static final String UPDATE_STATUS_SURVEY                                    = URL_REQUEST + "/updateStatusSurvey";
+    public static final String url_list_category                                = URL_REQUEST + "/kategori";
 
 
 

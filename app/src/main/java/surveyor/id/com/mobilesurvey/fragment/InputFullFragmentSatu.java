@@ -64,20 +64,20 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
             cek_list_province_ktp,cek_list_id_province_ktp,cek_list_kab_kodya_ktp,cek_list_id_kab_kodya_ktp,cek_list_kecamatan_ktp,
             cek_list_id_kecamatan_ktp,cek_list_kelurahan_ktp,cek_list_id_kelurahan_ktp,cek_list_province_home,cek_list_kab_kodya_home,
             cek_list_kecamatan_home,cek_list_kelurahan_home,cek_list_id_province_home,cek_list_id_kab_kodya_home,cek_list_id_kel_home,
-            cek_list_id_kec_home;
+            cek_list_id_kec_home,cek_list_categories,cek_list_id_categories;
     private String title,marital_status,identity_type,mail_address,education,sex,religion,
             province_ktp,id_province_ktp,kab_kodya_ktp,id_kab_kodya_ktp,kecamatan_ktp,id_kecamatan_ktp,kelurahan_ktp,id_kelurahan_ktp,
             kodesandidati2_ktp,kodepos_ktp,zipcode_ktp,province_home,kab_kodya_home,kecamatan_home,kelurahan_home,kodesandidati2_home,
-            kodepos_home,id_province_home,id_kab_kodya_home,id_kec_home,id_kel_home,zipcode_home;
+            kodepos_home,id_province_home,id_kab_kodya_home,id_kec_home,id_kel_home,zipcode_home,category_name,category_id;
     private ArrayAdapter<String> myAdapter_title,myAdapter_marital_status,
             myAdapter_identity_type,myAdapter_mail_address,myAdapter_education,myAdapter_sex,
-            myAdapter_religion;
+            myAdapter_religion,myAdapter_Categories;
     private SpinnerDialog spinnerDialog_province_ktp,spinnerDialog_kab_kodya_ktp,
             spinnerDialog_kecamatan_ktp,spinnerDialog_kelurahan_ktp,spinnerDialog_province_home,
             spinnerDialog_kab_kodya_home,spinnerDialog_kecamatan_home,spinnerDialog_kelurahan_home;
     private static final String TAG = InputFullFragmentSatu.class.getSimpleName();
     private Spinner S_title,S_marital_status,S_identity_type,S_mail_address,S_education,S_sex,
-            S_religion;
+            S_religion,S_categories;
     private EditText Name,Mother_maiden_name,Npwp_no,Birth_place,Telephone,Telephone_2,
             Nama_panggilan,Identity_no,Stay_length,Handphone_1,Handphone_2,
             Email_stay,Address_ktp,Address_home;
@@ -85,7 +85,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
             Sandi_dati_2_ktp,Postal_code_ktp,S_province_home,S_kab_kodya_home,S_kecamatan_home,
             S_kelurahan_home,Sandi_dati_2_home,Postal_code_home,S_birth_date,Sandi_lahir;
     private String get_id_order,get_id_surveyor,get_name,get_identity_type,get_identity_no,
-            get_address_home,get_telephone,get_sex,get_handphone_1,tam_json_hasil,real_date;
+            get_address_home,get_telephone,get_sex,get_handphone_1,tam_json_hasil,real_date,getCategory_id;
     private DatabaseManager dm;
     private Button b_simpan;
 
@@ -96,7 +96,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
             C_Postal_code_ktp,C_zipcode_ktp,C_Address_home,C_province_home,C_kab_kodya_home,C_kecamatan_home,C_kelurahan_home,C_Sandi_dati_2_home,
             C_Postal_code_home,C_mail_address,C_Telephone,C_Telephone_2,C_education,C_sex,
             C_Nama_panggilan,C_Identity_no,C_Sandi_lahir,C_religion,C_Stay_length,C_Handphone_1,
-            C_Handphone_2,C_email;
+            C_Handphone_2,C_email,C_category_name,C_category_id;
     private Context hsContext;
 
     @Override
@@ -153,6 +153,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         Handphone_2         = (EditText) view.findViewById(R.id.etx_handphone_2);
         Email_stay          = (EditText) view.findViewById(R.id.etx_email_stay);
         Img_check           = (ImageView) view.findViewById(R.id.img_check);
+        S_categories        = (Spinner) view.findViewById(R.id.spinner_categories);
         b_simpan            = (Button) view.findViewById(R.id.bt_simpan);
 
         Name.addTextChangedListener(new TextWatcher() {
@@ -186,6 +187,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         TampilEducation();
         TampilSex();
         TampilReligion();
+        TampilCategories();
         hasil_data();
 
         S_marital_status.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -247,6 +249,10 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 C_Handphone_1          = Handphone_1.getText().toString();
                 C_Handphone_2          = Handphone_2.getText().toString();
                 C_email                = Email_stay.getText().toString();
+                //C_category_id          = getCategory_id;
+                C_category_id          = String.valueOf(S_categories.getSelectedItemId());
+                C_category_name        = String.valueOf(S_categories.getSelectedItem());
+
 
                 ArrayList<ArrayList<Object>> data = dm.ambilBarisSurvey(get_id_order);
                 if (data.size() < 1) {
@@ -258,7 +264,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                             C_kelurahan_home,C_Sandi_dati_2_home,C_Postal_code_home,C_mail_address,
                             C_education,C_sex,
                             C_Nama_panggilan,C_Sandi_lahir,C_religion,C_Stay_length,
-                            C_Telephone,C_Telephone_2,C_Handphone_1,C_Handphone_2,C_email);
+                            C_Telephone,C_Telephone_2,C_Handphone_1,C_Handphone_2,C_email,C_category_name,C_category_id);
                     dm.addRowSurvey1Tambahan(get_id_order,C_id_province_ktp,C_id_kab_kodya_ktp,C_id_kecamatan_ktp,C_id_kelurahan_ktp,C_zipcode_ktp);
                     Toast.makeText(hsContext, "Simpan Sementara", Toast.LENGTH_LONG).show();
                 } else {
@@ -270,7 +276,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                             C_kelurahan_home,C_Sandi_dati_2_home,C_Postal_code_home,C_mail_address,
                             C_education,C_sex,
                             C_Nama_panggilan,C_Sandi_lahir,C_religion,C_Stay_length,
-                            C_Telephone,C_Telephone_2,C_Handphone_1,C_Handphone_2,C_email);
+                            C_Telephone,C_Telephone_2,C_Handphone_1,C_Handphone_2,C_email,C_category_name,C_category_id);
                     dm.updateBarisSurvey1Tambahan(get_id_order,C_id_province_ktp,C_id_kab_kodya_ktp,C_id_kecamatan_ktp,C_id_kelurahan_ktp,C_zipcode_ktp);
                     Toast.makeText(hsContext, "Update Simpan Sementara",
                             Toast.LENGTH_LONG).show();
@@ -363,6 +369,8 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
             String t_Handphone_1        = ""+baris.get(34);
             String t_Handphone_2        = ""+baris.get(35);
             String t_email              = ""+baris.get(36);
+            String t_category_name      = ""+baris.get(136);
+            String t_category_id        = ""+baris.get(137);
 
             if(t_title.equals("--")){
                 status_lengkap = status_lengkap+1;
@@ -404,6 +412,12 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
             }
             int spinner_religion = myAdapter_religion.getPosition(t_religion);
             S_religion.setSelection(spinner_religion);
+
+            if (t_category_name.equals("--")){
+                status_lengkap = status_lengkap+1;
+            }
+            int spinner_category = myAdapter_Categories.getPosition(t_category_name);
+            S_categories.setSelection(spinner_category);
 
             if(t_nama.equals("null")){
                 status_lengkap = status_lengkap+1;
@@ -782,6 +796,56 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 myAdapter_identity_type.setDropDownViewResource(R.layout.spinner_item);
                 S_identity_type.setAdapter(myAdapter_identity_type);
             } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void TampilCategories(){
+        ArrayList<ArrayList<Object>> data_categories = dm.ambilBarisJsonPilih("Categories");
+        if (data_categories.size()>0){
+            ArrayList<Object> baris = data_categories.get(0);
+            tam_json_hasil = baris.get(0).toString();
+            try {
+                cek_list_categories = new ArrayList<String>();
+                cek_list_categories.add("--");
+
+                cek_list_id_categories = new ArrayList<String>();
+
+
+                JSONObject jObj = new JSONObject(tam_json_hasil);
+                String code = jObj.getString("code");
+
+                if (code.equals("200")){
+                    String data = jObj.getString("data");
+                    JSONArray arrayData = new JSONArray(data);
+                    if (arrayData.length() > 0){
+                        for (int i=0;i<arrayData.length();i++){
+                            JSONObject obj = arrayData.getJSONObject(i);
+                            category_id = obj.getString("categ_type");
+                            category_name = obj.getString("categ_descr");
+                            cek_list_categories.add(category_name);
+                            cek_list_id_categories.add(category_id);
+                        }
+                    }
+                }
+                myAdapter_Categories = new ArrayAdapter<String>(hsContext,R.layout.spinner_item,cek_list_categories);
+                myAdapter_Categories.setDropDownViewResource(R.layout.spinner_item);
+                S_categories.setAdapter(myAdapter_Categories);
+
+                S_categories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                        getCategory_id = cek_list_id_categories.get(position);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+                        Log.e("idCategory",getCategory_id);
+                    }
+                });
+
+            }catch (Exception e){
                 e.printStackTrace();
             }
         }
@@ -1877,6 +1941,40 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         requestQueue.add(jArr);
     }
 
+    public void UpdateCategories(){
+        StringRequest jArr = new StringRequest(Request.Method.POST, setter.url_list_category,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG,response.toString());
+                        try {
+                            JSONObject jObj = new JSONObject(response);
+                            String code = jObj.getString("code");
+                            if (code.equals("200")) {
+                                dm.deleteJsonPilihAll("Categories");
+                                dm.addRowJsonPilih(String.valueOf(response), "Categories");
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            protected Map<String,String> getParams() throws AuthFailureError{
+                Map<String,String> map = new HashMap<String, String>();
+                map.put("tk",setter.APK_CODE);
+
+                return map;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
+        requestQueue.add(jArr);
+    }
+
     public void UpdateMailAddress(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_MAIL_ADDRESS,
                 new Response.Listener<String>() {
@@ -2076,6 +2174,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         UpdateEducation();
         UpdateSex();
         UpdateReligion();
+        UpdateCategories();
     }
 
 
@@ -2145,6 +2244,8 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         C_Handphone_1          = Handphone_1.getText().toString();
         C_Handphone_2          = Handphone_2.getText().toString();
         C_email                = Email_stay.getText().toString();
+        C_category_id          = getCategory_id;
+        C_category_name        = String.valueOf(S_categories.getSelectedItem());
 
         ArrayList<ArrayList<Object>> data = dm.ambilBarisSurvey(get_id_order);
         if (data.size() < 1) {
@@ -2156,7 +2257,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                     C_kelurahan_home,C_Sandi_dati_2_home,C_Postal_code_home,C_mail_address,
                     C_education,C_sex,
                     C_Nama_panggilan,C_Sandi_lahir,C_religion,C_Stay_length,
-                    C_Telephone,C_Telephone_2,C_Handphone_1,C_Handphone_2,C_email);
+                    C_Telephone,C_Telephone_2,C_Handphone_1,C_Handphone_2,C_email,C_category_name,C_category_id);
             dm.addRowSurvey1Tambahan(get_id_order,C_id_province_ktp,C_id_kab_kodya_ktp,C_id_kecamatan_ktp,C_kelurahan_ktp,C_zipcode_ktp);
             /*Toast.makeText(hsContext, "Simpan Sementara",
                     Toast.LENGTH_LONG).show();*/
@@ -2169,7 +2270,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                     C_kelurahan_home,C_Sandi_dati_2_home,C_Postal_code_home,C_mail_address,
                     C_education,C_sex,
                     C_Nama_panggilan,C_Sandi_lahir,C_religion,C_Stay_length,
-                    C_Telephone,C_Telephone_2,C_Handphone_1,C_Handphone_2,C_email);
+                    C_Telephone,C_Telephone_2,C_Handphone_1,C_Handphone_2,C_email,C_category_name,C_category_id);
             dm.updateBarisSurvey1Tambahan(get_id_order,C_id_province_ktp,C_id_kab_kodya_ktp,C_id_kecamatan_ktp,C_kelurahan_ktp,C_zipcode_ktp);
             /*Toast.makeText(hsContext,"Update Simpan Sementara", Toast.LENGTH_LONG).show();*/
         }

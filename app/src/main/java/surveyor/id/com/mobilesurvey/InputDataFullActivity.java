@@ -252,7 +252,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
             t_Spouse_address, t_Spouse_province, t_Spouse_id_province,t_Spouse_kab_kodya, t_Spouse_id_kab_kodya,t_Spouse_kecamatan,
             t_Spouse_id_kecamatan,t_Spouse_kelurahan,t_Spouse_id_kelurahan, t_Spouse_sandi_dati_2, t_Spouse_postal_code,
             t_Spouse_zipcode,t_Spouse_company_address, t_Contact_address, t_Contact_province, t_Contact_kab_kodya,
-            t_Contact_kecamatan, t_Contact_kelurahan, t_Contact_sandi_dati_2, t_Contact_postal_code,
+            t_Contact_kecamatan, t_Contact_kelurahan, t_Contact_sandi_dati_2, t_Contact_postal_code,t_category_id,t_category_name,
             get_username;
     public JSONArray json;
     private Dialog dialog,dialog_gagal_kirim,dialog_back;
@@ -661,6 +661,9 @@ public class InputDataFullActivity extends AppCompatActivity implements
 
             t_apakah_direkomendasikan                       = ""+baris.get(134);
             t_alasan_or_point_penting_rekomendasi_anda      = ""+baris.get(135);
+
+            t_category_name                                 = ""+baris.get(136);
+            t_category_id                                   = ""+baris.get(137);
 
 
 
@@ -1177,6 +1180,9 @@ public class InputDataFullActivity extends AppCompatActivity implements
             if(t_alasan_or_point_penting_rekomendasi_anda.equals("null")){
                 t_alasan_or_point_penting_rekomendasi_anda = "";
             }
+            if (t_category_name.equals("null")){
+                t_category_name = "";
+            }
 
             saveData();
         }
@@ -1396,6 +1402,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
                 params.put("kode_kec_spouse",t_Spouse_id_kecamatan);
                 params.put("kode_kel_spouse",t_Spouse_id_kelurahan);
                 params.put("zipcode_spouse",t_Spouse_zipcode);
+                params.put("category_name",t_category_name);
                 //End Tambahan
 
                 params.put("latitude", ""+latitude);//135
@@ -1914,6 +1921,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
         requestQueue.add(jArr);
     }
 
+
     public void UpdateMailAddress(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_MAIL_ADDRESS,
                 new Response.Listener<String>() {
@@ -2136,6 +2144,41 @@ public class InputDataFullActivity extends AppCompatActivity implements
         requestQueue.add(jArr);
     }
 
+
+    public void UpdateCategories(){
+        StringRequest jArr = new StringRequest(Request.Method.POST, setter.url_list_category,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG, response.toString());
+                        try {
+                            JSONObject jObj = new JSONObject(response);
+                            String code = jObj.getString("code");
+                            if (code.equals("200")) {
+                                dm.deleteJsonPilihAll("Categories");
+                                dm.addRowJsonPilih(String.valueOf(response), "Categories");
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+            protected Map<String,String> getParams() throws AuthFailureError{
+                Map<String,String> map = new HashMap<String, String>();
+                map.put("tk",setter.APK_CODE);
+
+                return map;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(InputDataFullActivity.this);
+        requestQueue.add(jArr);
+    }
+
     public void UpdateJobTitle(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_JOB_TITLE,
                 new Response.Listener<String>() {
@@ -2301,6 +2344,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
         UpdateSpousePekerjaan();
         UpdateHasContactPerson();
         UpdateRelationship();
+        UpdateCategories();
     }
 
 

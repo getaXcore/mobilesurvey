@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class DatabaseManager {
     private static final String NAMA_DB = "surveyor_olym";
-    private static final int DB_VERSION = 19;
+    private static final int DB_VERSION = 22;
 
     //VARIABLE LOGIN
     private static final String ROW_ID          = "_id";
@@ -184,6 +184,8 @@ public class DatabaseManager {
     private static final String ROW_ID_ORDER                                    = "id_order";
     private static final String ROW_ID_SURVEYOR                                 = "id_surveyor";
     //private static final String ROW_ID_CUSTOMER                               = "id_customer";
+    private static final String ROW_CATEGORY_NAME                               = "category_name";
+    private static final String ROW_CATEGORY_ID                                 = "category_id";
     private static final String ROW_NAME                                        = "name";
     private static final String ROW_MOTHER_MAIDEN_NAME                          = "mother_maiden_name";
     private static final String ROW_GELAR                                       = "gelar";
@@ -463,7 +465,9 @@ public class DatabaseManager {
             + ROW_NAMA_FINANCE_COMPANY                          + " text,"
             + ROW_ALASAN_MENUNGGAK_KHUSUS_LEBIH_DARI_COLL_2     + " text,"
             + ROW_APAKAH_DIREKOMENDASIKAN                       + " text,"
-            + ROW_ALASAN_OR_POINT_PENTING_REKOMENDASI_ANDA      + " text)";
+            + ROW_ALASAN_OR_POINT_PENTING_REKOMENDASI_ANDA      + " text,"
+            + ROW_CATEGORY_NAME                                 + " text,"
+            + ROW_CATEGORY_ID                                   + " text)";
     //end variable SURVEY
 
     //variable sandidati2
@@ -1586,7 +1590,7 @@ public class DatabaseManager {
                               String H_Address_home, String H_province_home, String H_kab_kodya_home, String H_kecamatan_home,
                               String H_kelurahan_home,String H_Sandi_dati_2_home, String H_Postal_code_home, String H_mail_address,
                               String H_education, String H_sex, String H_Nama_panggilan, String H_Sandi_lahir, String H_religion, String H_Stay_length,
-                              String H_Telephone, String H_Telephone_2, String H_Handphone_1, String H_Handphone_2, String H_email) {
+                              String H_Telephone, String H_Telephone_2, String H_Handphone_1, String H_Handphone_2, String H_email, String H_Category_name,String H_Category_id) {
         ContentValues values = new ContentValues();
         values.put(ROW_ID_SURVEYOR, H_id_surveyor);
         values.put(ROW_ID_ORDER, H_Id_order);
@@ -1629,6 +1633,8 @@ public class DatabaseManager {
         values.put(ROW_HANDPHONE_STAY_1, H_Handphone_1);
         values.put(ROW_HANDPHONE_STAY_2, H_Handphone_2);
         values.put(ROW_EMAIL_STAY, H_email);
+        values.put(ROW_CATEGORY_NAME, H_Category_name);
+        values.put(ROW_CATEGORY_ID,H_Category_id);
 
 
         try {
@@ -2069,7 +2075,7 @@ public class DatabaseManager {
                     ROW_COLLECTABILITAS_SID_OR_SLIK_TERTINGGI,ROW_PERNAH_KREDIT_DI_TEMPAT_LAIN,
                     ROW_OVERDUE_TERTINGGI,ROW_BAKI_DEBET_OR_OUTSTANDING_HUTANG,ROW_NAMA_FINANCE_COMPANY,
                     ROW_ALASAN_MENUNGGAK_KHUSUS_LEBIH_DARI_COLL_2,ROW_APAKAH_DIREKOMENDASIKAN,
-                    ROW_ALASAN_OR_POINT_PENTING_REKOMENDASI_ANDA}, ROW_ID_ORDER + "='" + Id_order+"'", null, null, null, null);
+                    ROW_ALASAN_OR_POINT_PENTING_REKOMENDASI_ANDA,ROW_CATEGORY_NAME,ROW_CATEGORY_ID}, ROW_ID_ORDER + "='" + Id_order+"'", null, null, null, null);
             cur.moveToFirst();
 
             if (
@@ -2212,6 +2218,8 @@ public class DatabaseManager {
                     dataList.add(cur.getString(133));
                     dataList.add(cur.getString(134));
                     dataList.add(cur.getString(135));
+                    dataList.add(cur.getString(136));
+                    dataList.add(cur.getString(137));
                     dataArray.add(dataList);
                 } while (cur.moveToNext());
             }
@@ -2464,7 +2472,7 @@ public class DatabaseManager {
                                    String H_Address_home, String H_province_home, String H_kab_kodya_home, String H_kecamatan_home,
                                    String H_kelurahan_home,String H_Sandi_dati_2_home, String H_Postal_code_home, String H_mail_address,
                                    String H_education, String H_sex, String H_Nama_panggilan, String H_Sandi_lahir, String H_religion, String H_Stay_length,
-                                   String H_Telephone, String H_Telephone_2, String H_Handphone_1, String H_Handphone_2, String H_email) {
+                                   String H_Telephone, String H_Telephone_2, String H_Handphone_1, String H_Handphone_2, String H_email,String H_Category_name,String H_Category_id) {
         ContentValues cv = new ContentValues();
         cv.put(ROW_NAME, H_Nama);
         cv.put(ROW_MOTHER_MAIDEN_NAME, H_Mother_maiden_name);
@@ -2501,6 +2509,8 @@ public class DatabaseManager {
         cv.put(ROW_HANDPHONE_STAY_1, H_Handphone_1);
         cv.put(ROW_HANDPHONE_STAY_2, H_Handphone_2);
         cv.put(ROW_EMAIL_STAY, H_email);
+        cv.put(ROW_CATEGORY_ID,H_Category_id);
+        cv.put(ROW_CATEGORY_NAME,H_Category_name);
 
         try {
             db.update(NAMA_TABEL_SIMPANSURVEY, cv, ROW_ID_ORDER + "='" + H_Id_order+"'", null);
