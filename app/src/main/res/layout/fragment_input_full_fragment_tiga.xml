@@ -17,7 +17,7 @@
 
 
             <RelativeLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -661,11 +661,6 @@
 
                         </RelativeLayout>
 
-
-
-
-
-
                         <RelativeLayout
                             android:id="@+id/box_spouse_kelurahan"
                             android:layout_below="@+id/box_spouse_kecamatan"
@@ -862,8 +857,98 @@
 
                         </RelativeLayout>
 
+                        <RelativeLayout
+                            android:id="@+id/box_tipe_pekerjaan_spouse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_below="@+id/box_spouse_no_handphone">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_tipe_pekerjaan_spouse"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_pekerjaan" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_tipe_pekerjaan_spouse"
+                                android:layout_toRightOf="@+id/gambar_tipe_pekerjaan_spouse"
+                                android:text="@string/spouse_tipe_pekerjaan"/>
+                            <TextView
+                                android:layout_below="@+id/t_judul_tipe_pekerjaan_spouse"
+                                android:id="@+id/spinner_tipe_pekerjaan_spouse"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_tipe_pekerjaan_spouse"
+                                android:textColor="@android:color/black"></TextView>
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_tipe_pekerjaan_spouse"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_tipe_pekerjaan_spouse"
+                                android:layout_toRightOf="@+id/gambar_tipe_pekerjaan_spouse"
+                                android:background="#eaeaea"></View>
+                        </RelativeLayout>
 
                         <RelativeLayout
+                            android:id="@+id/box_pekerjaan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_below="@+id/box_tipe_pekerjaan_spouse">
+
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_pekerjaan_spouse"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_pekerjaan" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_pekerjaan_spouse"
+                                android:layout_toRightOf="@+id/gambar_pekerjaan_spouse"
+                                android:text="@string/spouse_jenis_pekerjaan"/>
+
+
+                            <TextView
+                                android:layout_below="@+id/t_judul_pekerjaan_spouse"
+                                android:id="@+id/spinner_pekerjaan_spouse"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_pekerjaan_spouse"
+                                android:textColor="@android:color/black"></TextView>
+
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_pekerjaan_spouse"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_pekerjaan_spouse"
+                                android:layout_toRightOf="@+id/gambar_pekerjaan_spouse"
+                                android:background="#eaeaea"></View>
+
+                        </RelativeLayout>
+                       <!-- <RelativeLayout
                             android:id="@+id/box_spouse_occupation_or_pekerjaan"
                             android:layout_below="@+id/box_spouse_no_handphone"
                             android:layout_width="wrap_content"
@@ -886,7 +971,7 @@
                                 android:textColor="@color/bg_hed_ce"
                                 android:id="@+id/t_judul_spouse_occupation_or_pekerjaan"
                                 android:layout_toRightOf="@+id/gambar_spouse_occupation_or_pekerjaan"
-                                android:text="@string/spouse_occupation_or_pekerjaan"/>
+                                android:text="@string/spouse_jenis_pekerjaan"/>
 
                             <Spinner
                                 android:layout_below="@+id/t_judul_spouse_occupation_or_pekerjaan"
@@ -894,7 +979,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_toRightOf="@+id/gambar_spouse_occupation_or_pekerjaan"
-                                android:spinnerMode="dialog"
                                 android:textColor="@android:color/black"></Spinner>
 
                             <View
@@ -906,13 +990,13 @@
                                 android:layout_toRightOf="@+id/gambar_spouse_occupation_or_pekerjaan"
                                 android:background="#eaeaea"></View>
 
-                        </RelativeLayout>
+                        </RelativeLayout>-->
 
 
 
                         <RelativeLayout
                             android:id="@+id/box_spouse_company_name"
-                            android:layout_below="@+id/box_spouse_occupation_or_pekerjaan"
+                            android:layout_below="@+id/box_pekerjaan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_margin="5dp">
@@ -2053,59 +2137,13 @@
                             </RelativeLayout>
 
 
-                            <RelativeLayout
-                                android:id="@+id/box_spouse_occupation_or_pekerjaan_not"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_below="@+id/box_spouse_no_handphone_not"
-                                android:layout_margin="5dp">
-
-                                <ImageView
-                                    android:id="@+id/gambar_spouse_occupation_or_pekerjaan_not"
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
-                                    android:layout_alignParentTop="true"
-                                    android:layout_marginRight="10dp"
-                                    android:src="@drawable/icon_pekerjaan" />
-
-                                <TextView
-                                    android:id="@+id/t_judul_spouse_occupation_or_pekerjaan_not"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_alignParentTop="true"
-                                    android:layout_toRightOf="@+id/gambar_spouse_occupation_or_pekerjaan_not"
-                                    android:text="@string/spouse_occupation_or_pekerjaan"
-                                    android:textColor="@color/bg_hed_ce"
-                                    android:textSize="11dp" />
-
-                                <TextView
-                                    android:id="@+id/etx_spouse_occupation_or_pekerjaan_not"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/t_judul_spouse_occupation_or_pekerjaan_not"
-                                    android:layout_toRightOf="@+id/gambar_spouse_occupation_or_pekerjaan_not"
-                                    android:background="@android:color/transparent"
-                                    android:inputType="number"
-                                    android:textColor="@android:color/black"
-                                    android:textSize="14dp" />
-
-                                <View
-                                    android:id="@+id/garis_spouse_occupation_or_pekerjaan_not"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="1dp"
-                                    android:layout_alignParentBottom="true"
-                                    android:layout_below="@+id/etx_spouse_occupation_or_pekerjaan_not"
-                                    android:layout_toRightOf="@+id/gambar_spouse_occupation_or_pekerjaan_not"
-                                    android:background="#eaeaea"></View>
-
-                            </RelativeLayout>
 
 
                             <RelativeLayout
                                 android:id="@+id/box_spouse_company_name_not"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_below="@+id/box_spouse_occupation_or_pekerjaan_not"
+                                android:layout_below="@+id/box_spouse_no_handphone_not"
                                 android:layout_margin="5dp">
 
                                 <ImageView
@@ -2381,6 +2419,97 @@
                                     android:layout_alignParentBottom="true"
                                     android:layout_below="@+id/etx_spouse_fax_not"
                                     android:layout_toRightOf="@+id/gambar_spouse_fax_not"
+                                    android:background="#eaeaea"></View>
+
+                            </RelativeLayout>
+                            <RelativeLayout
+                                android:id="@+id/box_tipe_pekerjaan_spouse_not"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_below="@+id/box_spouse_fax_not">
+
+                                <ImageView
+                                    android:layout_alignParentTop="true"
+                                    android:id="@+id/gambar_tipe_pekerjaan_spouse_not"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/icon_pekerjaan" />
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="11dp"
+                                    android:textColor="@color/bg_hed_ce"
+                                    android:id="@+id/t_judul_tipe_pekerjaan_spouse_not"
+                                    android:layout_toRightOf="@+id/gambar_tipe_pekerjaan_spouse_not"
+                                    android:text="@string/spouse_tipe_pekerjaan"/>
+                                <TextView
+                                    android:layout_below="@+id/t_judul_tipe_pekerjaan_spouse_not"
+                                    android:id="@+id/spinner_tipe_pekerjaan_spouse_not"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/gambar_tipe_pekerjaan_spouse_not"
+                                    android:textColor="@android:color/black"></TextView>
+                                <View
+                                    android:layout_alignParentBottom="true"
+                                    android:id="@+id/garis_tipe_pekerjaan_spouse_not"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_below="@+id/spinner_tipe_pekerjaan_spouse_not"
+                                    android:layout_toRightOf="@+id/gambar_tipe_pekerjaan_spouse_not"
+                                    android:background="#eaeaea"></View>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/box_pekerjaan_not"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_below="@+id/box_tipe_pekerjaan_spouse_not">
+
+
+                                <ImageView
+                                    android:layout_alignParentTop="true"
+                                    android:id="@+id/gambar_pekerjaan_spouse_not"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="10dp"
+                                    android:src="@drawable/icon_pekerjaan" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentTop="true"
+                                    android:textSize="11dp"
+                                    android:textColor="@color/bg_hed_ce"
+                                    android:id="@+id/t_judul_pekerjaan_spouse_not"
+                                    android:layout_toRightOf="@+id/gambar_pekerjaan_spouse_not"
+                                    android:text="@string/spouse_jenis_pekerjaan"/>
+
+
+                                <TextView
+                                    android:layout_below="@+id/t_judul_pekerjaan_spouse_not"
+                                    android:id="@+id/spinner_pekerjaan_spouse_not"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_toRightOf="@+id/gambar_pekerjaan_spouse_not"
+                                    android:textColor="@android:color/black"></TextView>
+
+                                <View
+                                    android:layout_alignParentBottom="true"
+                                    android:id="@+id/garis_pekerjaan_spouse_not"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_below="@+id/spinner_pekerjaan_spouse_not"
+                                    android:layout_toRightOf="@+id/gambar_pekerjaan_spouse_not"
                                     android:background="#eaeaea"></View>
 
                             </RelativeLayout>

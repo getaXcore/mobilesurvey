@@ -415,9 +415,15 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
 
             if (t_category_name.equals("--")){
                 status_lengkap = status_lengkap+1;
+            }else {
+                if (t_category_name.equals("null")){
+
+                }else {
+                    int spinner_category = myAdapter_Categories.getPosition(t_category_name);
+                    S_categories.setSelection(spinner_category);
+                }
             }
-            int spinner_category = myAdapter_Categories.getPosition(t_category_name);
-            S_categories.setSelection(spinner_category);
+
 
             if(t_nama.equals("null")){
                 status_lengkap = status_lengkap+1;
@@ -833,7 +839,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 myAdapter_Categories.setDropDownViewResource(R.layout.spinner_item);
                 S_categories.setAdapter(myAdapter_Categories);
 
-                S_categories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                /*S_categories.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                         getCategory_id = cek_list_id_categories.get(position);
@@ -843,7 +849,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                     public void onNothingSelected(AdapterView<?> adapterView) {
                         Log.e("idCategory",getCategory_id);
                     }
-                });
+                });*/
 
             }catch (Exception e){
                 e.printStackTrace();

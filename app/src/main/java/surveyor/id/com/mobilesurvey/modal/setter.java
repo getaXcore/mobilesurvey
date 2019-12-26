@@ -91,6 +91,8 @@ public interface setter {
     public static final String url_cek_tugas                                    = URL_REQUEST + "/notifCustomerNew";
     public static final String UPDATE_STATUS_SURVEY                                    = URL_REQUEST + "/updateStatusSurvey";
     public static final String url_list_category                                = URL_REQUEST + "/kategori";
+    public static final String URL_OCPT_TYPE                                    = URL_REQUEST + "/occupationType";
+    public static final String URL_OCPT_CODE                                    = URL_REQUEST + "/occupationCode";
 
 
 

@@ -86,6 +86,49 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/garis_judul_occupation_data">
 
+
+                        <RelativeLayout
+                            android:id="@+id/box_tipe_pekerjaan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:layout_marginBottom="5dp">
+
+                            <ImageView
+                                android:layout_alignParentTop="true"
+                                android:id="@+id/gambar_tipe_pekerjaan"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginRight="10dp"
+                                android:src="@drawable/icon_pekerjaan" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/bg_hed_ce"
+                                android:id="@+id/t_judul_tipe_pekerjaan"
+                                android:layout_toRightOf="@+id/gambar_tipe_pekerjaan"
+                                android:text="@string/tipe_pekerjaan"/>
+                            <TextView
+                                android:layout_below="@+id/t_judul_tipe_pekerjaan"
+                                android:id="@+id/spinner_tipe_pekerjaan"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_toRightOf="@+id/gambar_tipe_pekerjaan"
+                                android:textColor="@android:color/black"></TextView>
+                            <View
+                                android:layout_alignParentBottom="true"
+                                android:id="@+id/garis_tipe_pekerjaan"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:layout_below="@+id/spinner_tipe_pekerjaan"
+                                android:layout_toRightOf="@+id/gambar_tipe_pekerjaan"
+                                android:background="#eaeaea"></View>
+                        </RelativeLayout>
+
                         <RelativeLayout
                             android:id="@+id/box_pekerjaan"
                             android:layout_width="wrap_content"
@@ -93,7 +136,8 @@
                             android:layout_marginTop="10dp"
                             android:layout_marginLeft="5dp"
                             android:layout_marginRight="5dp"
-                            android:layout_marginBottom="5dp">
+                            android:layout_marginBottom="5dp"
+                            android:layout_below="@+id/box_tipe_pekerjaan">
 
 
                             <ImageView
@@ -112,17 +156,16 @@
                                 android:textColor="@color/bg_hed_ce"
                                 android:id="@+id/t_judul_pekerjaan"
                                 android:layout_toRightOf="@+id/gambar_pekerjaan"
-                                android:text="@string/pekerjaan"/>
+                                android:text="@string/jenis_pekerjaan"/>
 
 
-                            <Spinner
+                            <TextView
                                 android:layout_below="@+id/t_judul_pekerjaan"
                                 android:id="@+id/spinner_pekerjaan"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_toRightOf="@+id/gambar_pekerjaan"
-                                android:spinnerMode="dialog"
-                                android:textColor="@android:color/black"></Spinner>
+                                android:textColor="@android:color/black"></TextView>
 
                             <View
                                 android:layout_alignParentBottom="true"
@@ -134,7 +177,6 @@
                                 android:background="#eaeaea"></View>
 
                         </RelativeLayout>
-
 
                         <RelativeLayout
                             android:id="@+id/box_job_title"

@@ -253,6 +253,8 @@ public class InputDataFullActivity extends AppCompatActivity implements
             t_Spouse_id_kecamatan,t_Spouse_kelurahan,t_Spouse_id_kelurahan, t_Spouse_sandi_dati_2, t_Spouse_postal_code,
             t_Spouse_zipcode,t_Spouse_company_address, t_Contact_address, t_Contact_province, t_Contact_kab_kodya,
             t_Contact_kecamatan, t_Contact_kelurahan, t_Contact_sandi_dati_2, t_Contact_postal_code,t_category_id,t_category_name,
+            t_Jenis_pekerjaan,t_Jenis_pekerjaan_code,
+            t_Jenis_pekerjaan_spouse,t_Jenis_pekerjaan_code_spouse,
             get_username;
     public JSONArray json;
     private Dialog dialog,dialog_gagal_kirim,dialog_back;
@@ -553,7 +555,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
 
             //t_id_province_ktp                               =
 
-            t_Pekerjaan                                     = ""+baris.get(37);
+            //t_Pekerjaan                                     = ""+baris.get(37);
             t_job_title                                     = ""+baris.get(38);
             t_Name_economy_code                             = ""+baris.get(39);
             t_Economy_code                                  = ""+baris.get(40);
@@ -665,6 +667,12 @@ public class InputDataFullActivity extends AppCompatActivity implements
             t_category_name                                 = ""+baris.get(136);
             t_category_id                                   = ""+baris.get(137);
 
+
+            t_Jenis_pekerjaan                               = ""+baris.get(140);
+            t_Jenis_pekerjaan_code                          = ""+baris.get(141);
+
+            t_Jenis_pekerjaan_spouse                        = ""+baris.get(144);
+            t_Jenis_pekerjaan_code_spouse                   = ""+baris.get(145);
 
 
 
@@ -811,9 +819,9 @@ public class InputDataFullActivity extends AppCompatActivity implements
 
 
             //36
-            if(t_Pekerjaan.equals("null")){
+            /*if(t_Pekerjaan.equals("null")){
                 t_Pekerjaan = "";
-            }
+            }*/
             if(t_job_title.equals("null")){
                 t_job_title = "";
             }
@@ -1184,6 +1192,22 @@ public class InputDataFullActivity extends AppCompatActivity implements
                 t_category_name = "";
             }
 
+            //140 & 141
+            if (t_Jenis_pekerjaan.equals("null")){
+                t_Jenis_pekerjaan = "";
+            }
+            if (t_Jenis_pekerjaan_code.equals("null")){
+                t_Jenis_pekerjaan_code = "";
+            }
+
+            //144 & 145
+            if (t_Jenis_pekerjaan_spouse.equals("null")){
+                t_Jenis_pekerjaan_spouse = "";
+            }
+            if (t_Jenis_pekerjaan_code_spouse.equals("null")){
+                t_Jenis_pekerjaan_code_spouse = "";
+            }
+
             saveData();
         }
     }
@@ -1290,7 +1314,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
                 params.put("handphone_2", t_Handphone_2);//36
                 params.put("email", t_email);//37
 
-                params.put("pekerjaan", t_Pekerjaan);//38
+                //params.put("pekerjaan", t_Pekerjaan);//38
                 params.put("job_title", t_job_title);//39
                 params.put("name_economy_code", t_Name_economy_code);//40
                 params.put("company_name", t_Company_name);//41
@@ -1403,6 +1427,10 @@ public class InputDataFullActivity extends AppCompatActivity implements
                 params.put("kode_kel_spouse",t_Spouse_id_kelurahan);
                 params.put("zipcode_spouse",t_Spouse_zipcode);
                 params.put("category_name",t_category_name);
+                params.put("ocpt_code",t_Jenis_pekerjaan_code);
+                params.put("ocpt_desc",t_Jenis_pekerjaan);
+                params.put("ocpt_code_spouse",t_Jenis_pekerjaan_code_spouse);
+                params.put("ocpt_desc_spouse",t_Jenis_pekerjaan_spouse);
                 //End Tambahan
 
                 params.put("latitude", ""+latitude);//135
@@ -2216,7 +2244,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
         requestQueue.add(jArr);
     }
 
-    public void UpdateSpousePekerjaan(){
+    /*public void UpdateSpousePekerjaan(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_SPOUSE_PEKERJAAN,
                 new Response.Listener<String>() {
                     @Override
@@ -2251,7 +2279,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
         };
         RequestQueue requestQueue = Volley.newRequestQueue(InputDataFullActivity.this);
         requestQueue.add(jArr);
-    }
+    }*/
 
     public void UpdateHasContactPerson(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_HAS_CONTACT_PERSON,
@@ -2341,7 +2369,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
         UpdateSex();
         UpdateReligion();
         UpdateJobTitle();
-        UpdateSpousePekerjaan();
+        //UpdateSpousePekerjaan();
         UpdateHasContactPerson();
         UpdateRelationship();
         UpdateCategories();

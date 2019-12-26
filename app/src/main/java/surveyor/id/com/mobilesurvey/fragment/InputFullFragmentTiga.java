@@ -61,13 +61,15 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
             spouse_job_title, spouse_sex,province_spouse,id_province_spouse,id_kab_kodya_spouse,kab_kodya_spouse,
             kecamatan_spouse,id_kecamatan_spouse,kelurahan_spouse,id_kelurahan_spouse,kodesandidati2_spouse,
             kodepos_spouse,zipcode_spouse,tam_json_hasil,get_id_order,
+            spouse_tipe_pekerjaan,spouse_tipe_pekerjaan_code,spouse_jenis_pekerjaan,spouse_jenis_pekerjaan_code,
             get_id_surveyor,real_date;
     private int success;
     private ArrayList<String> cek_list_spouse_title,cek_list_spouse_identity_type,
             cek_list_spouse_religion, cek_list_spouse_pekerjaan,cek_list_spouse_job_title,
             cek_list_spouse_sex,cek_list_province_spouse, cek_list_id_province_spouse,cek_list_kab_kodya_spouse,
             cek_list_id_kab_kodya_spouse,cek_list_id_kecamatan_spouse,cek_list_id_kelurahan_spouse,
-            cek_list_kecamatan_spouse,cek_list_kelurahan_spouse;
+            cek_list_kecamatan_spouse,cek_list_kelurahan_spouse,
+            cek_list_tipe_pekerjaan,cek_list_tipe_pekerjaan_code,cek_list_jenis_pekerjan,cek_list_jenis_pekerjaan_code;
     private ArrayAdapter<String> myAdapter_spouse_title,myAdapter_spouse_identity_type,
             myAdapter_spouse_religion,myAdapter_spouse_pekerjaan,myAdapter_spouse_job_title,
             myAdapter_spouse_sex;
@@ -78,9 +80,9 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
     private Spinner S_spouse_title,S_spouse_identity_type,S_spouse_religion,
             S_spouse_occupation_or_pekerjaan, S_spouse_job_title,S_spouse_sex;
     private SpinnerDialog spinnerDialog_province_spouse,spinnerDialog_kab_kodya_spouse,
-            spinnerDialog_kecamatan_spouse,spinnerDialog_kelurahan_spouse;
+            spinnerDialog_kecamatan_spouse,spinnerDialog_kelurahan_spouse,spinnerDialog_tipe_pekerjaan,spinnerDialog_jenis_pekerjaan;
     private TextView S_province_spouse,S_kab_kodya_spouse,S_kecamatan_spouse,S_kelurahan_spouse,
-            Sandi_dati_2_spouse,Postal_code_spouse,Spouse_date_of_birth;
+            Sandi_dati_2_spouse,Postal_code_spouse,Spouse_date_of_birth,S_Tipe_pekerjaan_spouse,S_Jenis_pekerjaan_spouse,S_Tipe_pekerjaan_spouse_code,S_Jenis_pekerjaan_spouse_code;
     private DatabaseManager dm;
     private Button b_simpan;
     private RelativeLayout data_spouse_data,data_spouse_data_not;
@@ -94,7 +96,8 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
             C_Sandi_dati_2_spouse,C_Postal_code_spouse,C_zipcode_spouse,C_Spouse_no_handphone,
             C_spouse_occupation_or_pekerjaan,C_Spouse_company_name,C_Spouse_company_address,
             C_Spouse_company_telephone,C_Spouse_line_of_business,C_spouse_job_title,C_spouse_sex,
-            C_Spouse_identity_no,C_Spouse_date_of_birth,C_Spouse_fax;
+            C_Spouse_identity_no,C_Spouse_date_of_birth,C_Spouse_fax,C_Spouse_tipe_pekerjaan,C_spouse_jenis_pekerjaan,
+            C_Spouse_tipe_pekerjaan_code,C_Spouse_jenis_pekerjaan_code;
     private Context hsContext;
 
     @Override
@@ -121,7 +124,9 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         Sandi_dati_2_spouse                 = (TextView) view.findViewById(R.id.etx_spouse_sandi_dati_2);
         Postal_code_spouse                  = (TextView) view.findViewById(R.id.etx_spouse_postal_code);
         Spouse_no_handphone                 = (EditText) view.findViewById(R.id.etx_spouse_no_handphone);
-        S_spouse_occupation_or_pekerjaan    = (Spinner) view.findViewById(R.id.spinner_spouse_occupation_or_pekerjaan);
+        //S_spouse_occupation_or_pekerjaan    = (Spinner) view.findViewById(R.id.spinner_spouse_occupation_or_pekerjaan);
+        S_Tipe_pekerjaan_spouse             = (TextView) view.findViewById(R.id.spinner_tipe_pekerjaan_spouse);
+        S_Jenis_pekerjaan_spouse            = (TextView) view.findViewById(R.id.spinner_pekerjaan_spouse);
         Spouse_company_name                 = (EditText) view.findViewById(R.id.etx_spouse_company_name);
         Spouse_company_address              = (EditText) view.findViewById(R.id.etx_spouse_company_address);
         Spouse_company_telephone            = (EditText) view.findViewById(R.id.etx_spouse_company_telephone);
@@ -145,7 +150,9 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         TampilKabKodyaSpouse();
         TampilKecamatanSpouse();
         TampilKelurahanSpouse();
-        TampilSpousePekerjaan();
+        //TampilSpousePekerjaan();
+        TampilTipePekerjaan();
+        TampilJenisPekerjaan();
         TampilSpouseJobTitle();
         TampilSpouseSex();
 
@@ -179,7 +186,11 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                 C_Postal_code_spouse                   = Postal_code_spouse.getText().toString();
                 C_zipcode_spouse                       = Postal_code_spouse.getTag().toString();
                 C_Spouse_no_handphone                  = Spouse_no_handphone.getText().toString();
-                C_spouse_occupation_or_pekerjaan       = String.valueOf(S_spouse_occupation_or_pekerjaan.getSelectedItem());
+                //C_spouse_occupation_or_pekerjaan       = String.valueOf(S_spouse_occupation_or_pekerjaan.getSelectedItem());
+                C_Spouse_tipe_pekerjaan                = S_Tipe_pekerjaan_spouse.getText().toString();
+                C_Spouse_tipe_pekerjaan_code           = S_Tipe_pekerjaan_spouse.getTag().toString();
+                C_spouse_jenis_pekerjaan               = S_Jenis_pekerjaan_spouse.getText().toString();
+                C_Spouse_jenis_pekerjaan_code          = S_Jenis_pekerjaan_spouse.getTag().toString();
                 C_Spouse_company_name                  = Spouse_company_name.getText().toString();
                 C_Spouse_company_address               = Spouse_company_address.getText().toString();
                 C_Spouse_company_telephone             = Spouse_company_telephone.getText().toString();
@@ -201,7 +212,8 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                             C_Spouse_no_handphone,C_spouse_occupation_or_pekerjaan,
                             C_Spouse_company_name,C_Spouse_company_address,
                             C_Spouse_company_telephone,C_Spouse_line_of_business,
-                            C_spouse_job_title,C_spouse_sex,C_Spouse_date_of_birth,C_Spouse_fax);
+                            C_spouse_job_title,C_spouse_sex,C_Spouse_date_of_birth,C_Spouse_fax,
+                            C_Spouse_tipe_pekerjaan,C_Spouse_tipe_pekerjaan_code,C_spouse_jenis_pekerjaan,C_Spouse_jenis_pekerjaan_code);
                     dm.addRowSurvey3Tambahan(get_id_order,C_id_province_spouse,C_id_kab_kodya_spouse,C_id_kecamatan_spouse,C_id_kelurahan_spouse,C_zipcode_spouse);
                     Toast.makeText(hsContext, "Simpan Sementara",
                             Toast.LENGTH_LONG).show();
@@ -214,7 +226,8 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                             C_Spouse_no_handphone, C_spouse_occupation_or_pekerjaan,
                             C_Spouse_company_name, C_Spouse_company_address,
                             C_Spouse_company_telephone, C_Spouse_line_of_business,
-                            C_spouse_job_title, C_spouse_sex, C_Spouse_date_of_birth, C_Spouse_fax);
+                            C_spouse_job_title, C_spouse_sex, C_Spouse_date_of_birth, C_Spouse_fax,
+                            C_Spouse_tipe_pekerjaan,C_Spouse_tipe_pekerjaan_code,C_spouse_jenis_pekerjaan,C_Spouse_jenis_pekerjaan_code);
                     if (dataTambahan.size() < 1){
                         dm.addRowSurvey3Tambahan(get_id_order,C_id_province_spouse,C_id_kab_kodya_spouse,C_id_kecamatan_spouse,C_id_kelurahan_spouse,C_zipcode_spouse);
                     }else {
@@ -330,6 +343,10 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
             String t_Spouse_company_address             = ""+baris.get(74);
             String t_Spouse_company_telephone           = ""+baris.get(75);
             String t_Spouse_fax                         = ""+baris.get(76);
+            String t_Spouse_tipe_pekerjaan              = ""+baris.get(142);
+            String t_Spouse_tipe_pekerjaan_code         = ""+baris.get(143);
+            String t_Spouse_jenis_pekerjaan             = ""+baris.get(144);
+            String t_Spouse_jenis_pekerjaan_code        = ""+baris.get(145);
 
             if(t_spouse_title.equals("--")){
                 status_lengkap = status_lengkap+1;
@@ -350,13 +367,40 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
             int spinner_spouse_religion = myAdapter_spouse_religion.getPosition(t_spouse_religion);
             S_spouse_religion.setSelection(spinner_spouse_religion);
 
-            if(t_spouse_occupation_or_pekerjaan.equals("--")){
+            /*if(t_spouse_occupation_or_pekerjaan.equals("--")){
                 //status_lengkap = status_lengkap+1;
             }
             int spinner_spouse_pekerjaan = myAdapter_spouse_pekerjaan.
                     getPosition(t_spouse_occupation_or_pekerjaan);
-            S_spouse_occupation_or_pekerjaan.setSelection(spinner_spouse_pekerjaan);
+            S_spouse_occupation_or_pekerjaan.setSelection(spinner_spouse_pekerjaan);*/
 
+            if (t_Spouse_tipe_pekerjaan.equals("--") || t_Spouse_tipe_pekerjaan.equals("null")){
+                status_lengkap = status_lengkap+1;
+                S_Tipe_pekerjaan_spouse.setText("");
+            }else {
+                S_Tipe_pekerjaan_spouse.setText(t_Spouse_tipe_pekerjaan);
+            }
+            if (t_Spouse_tipe_pekerjaan_code.equals("")){
+                status_lengkap = status_lengkap+1;
+                S_Tipe_pekerjaan_spouse.setTag("");
+            }else {
+                S_Tipe_pekerjaan_spouse.setTag(t_Spouse_tipe_pekerjaan_code);
+            }
+
+            if (t_Spouse_jenis_pekerjaan.equals("--") || t_Spouse_jenis_pekerjaan.equals("null")){
+                status_lengkap = status_lengkap+1;
+                S_Jenis_pekerjaan_spouse.setText("");
+            }else {
+               S_Jenis_pekerjaan_spouse.setText(t_Spouse_jenis_pekerjaan);
+
+            }
+            if (t_Spouse_jenis_pekerjaan_code.equals("")){
+                status_lengkap = status_lengkap+1;
+                S_Jenis_pekerjaan_spouse.setTag("");
+            }else {
+                S_Jenis_pekerjaan_spouse.setTag(t_Spouse_jenis_pekerjaan_code);
+            }
+            
             if(t_spouse_job_title.equals("--")){
            //     status_lengkap = status_lengkap+1;
             }
@@ -630,7 +674,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         }
     }
 
-    public void TampilSpousePekerjaan(){
+    /*public void TampilSpousePekerjaan(){
         ArrayList<ArrayList<Object>> data_spouse_pekerjaan = dm.ambilBarisJsonPilih("Pekerjaan");
         if(data_spouse_pekerjaan.size()>0){
             ArrayList<Object> baris = data_spouse_pekerjaan.get(0);
@@ -659,7 +703,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                 e.printStackTrace();
             }
         }
-    }
+    }*/
 
     public void TampilSpouseJobTitle(){
         ArrayList<ArrayList<Object>> data_spouse_job_title = dm.ambilBarisJsonPilih("Job Title");
@@ -722,6 +766,151 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                 e.printStackTrace();
             }
         }
+    }
+
+    public void TampilTipePekerjaan(){
+        StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_OCPT_TYPE,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG,response.toString());
+                        try {
+                            cek_list_tipe_pekerjaan = new ArrayList<String>();
+                            cek_list_tipe_pekerjaan.add("--");
+
+                            cek_list_tipe_pekerjaan_code = new ArrayList<String>();
+
+                            JSONObject jObj = new JSONObject(response);
+                            String code = jObj.getString("code");
+                            if (code.equals("200")){
+                                String data = jObj.getString("data");
+                                JSONArray arrayData = new JSONArray(data);
+                                if (arrayData.length() > 0){
+                                    for (int i=0;i<arrayData.length();i++){
+                                        JSONObject obj = arrayData.getJSONObject(i);
+                                        spouse_tipe_pekerjaan = obj.getString("ocpt_descr");
+                                        spouse_tipe_pekerjaan_code = obj.getString("ocpt_type");
+                                        cek_list_tipe_pekerjaan.add(spouse_tipe_pekerjaan);
+                                        cek_list_tipe_pekerjaan_code.add(spouse_tipe_pekerjaan_code);
+                                    }
+                                }
+                            }
+
+
+                            spinnerDialog_tipe_pekerjaan = new SpinnerDialog(
+                                    (Activity) hsContext,
+                                    cek_list_tipe_pekerjaan,"Select item");
+                            S_Tipe_pekerjaan_spouse.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    spinnerDialog_tipe_pekerjaan.showSpinerDialog();
+                                }
+                            });
+                            spinnerDialog_tipe_pekerjaan.bindOnSpinerListener(new OnSpinerItemClick() {
+                                @Override
+                                public void onClick(String item, int position) {
+                                    S_Tipe_pekerjaan_spouse.setText(item);
+                                    S_Tipe_pekerjaan_spouse.setTag(cek_list_tipe_pekerjaan_code.get(position-1));
+                                    S_Jenis_pekerjaan_spouse.setText("");
+                                    TampilJenisPekerjaan();
+                                }
+                            });
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("tk", setter.APK_CODE);
+
+                return map;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
+        requestQueue.add(jArr);
+    }
+
+    public void TampilJenisPekerjaan(){
+        StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_OCPT_CODE,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG,response.toString());
+                        try {
+                            cek_list_jenis_pekerjan = new ArrayList<String>();
+                            cek_list_jenis_pekerjan.add("--");
+
+                            cek_list_jenis_pekerjaan_code = new ArrayList<String>();
+
+                            JSONObject jObj = new JSONObject(response);
+                            String code = jObj.getString("code");
+                            if (code.equals("200")){
+                                String data = jObj.getString("data");
+                                JSONArray arrayData = new JSONArray(data);
+                                if (arrayData.length() > 0){
+                                    for (int i=0;i<arrayData.length();i++){
+                                        JSONObject obj = arrayData.getJSONObject(i);
+                                        spouse_jenis_pekerjaan = obj.getString("ocpt_descr");
+                                        spouse_jenis_pekerjaan_code = obj.getString("ocpt_code");
+                                        cek_list_jenis_pekerjan.add(spouse_jenis_pekerjaan);
+                                        cek_list_jenis_pekerjaan_code.add(spouse_jenis_pekerjaan_code);
+                                    }
+                                }
+                            }
+                            spinnerDialog_jenis_pekerjaan = new SpinnerDialog(
+                                    (Activity) hsContext,
+                                    cek_list_jenis_pekerjan,"Select item");
+                            S_Jenis_pekerjaan_spouse.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    spinnerDialog_jenis_pekerjaan.showSpinerDialog();
+                                }
+                            });
+                            spinnerDialog_jenis_pekerjaan.bindOnSpinerListener(new OnSpinerItemClick() {
+                                @Override
+                                public void onClick(String item, int position) {
+                                    S_Jenis_pekerjaan_spouse.setText(item);
+                                    S_Jenis_pekerjaan_spouse.setTag(cek_list_jenis_pekerjaan_code.get(position-1));
+                                }
+                            });
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                String ocpt_type;
+                if (S_Tipe_pekerjaan_spouse.getTag() != null){
+                    ocpt_type = S_Tipe_pekerjaan_spouse.getTag().toString();
+                }else{
+                    ocpt_type = "";
+                }
+
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("tk", setter.APK_CODE);
+                map.put("ocpt_type",ocpt_type);
+                return map;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
+        requestQueue.add(jArr);
     }
 
     public void TampilProvinceSpouse(){
@@ -1281,7 +1470,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         requestQueue.add(jArr);
     }
 
-    public void UpdateSpousePekerjaan(){
+    /*public void UpdateSpousePekerjaan(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_SPOUSE_PEKERJAAN,
                 new Response.Listener<String>() {
                     @Override
@@ -1316,7 +1505,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
-    }
+    }*/
 
     public void UpdateSpouseJobTitle(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_JOB_TITLE,
@@ -1399,7 +1588,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         UpdateSpouseTitle();
         UpdateSpouseIdentityType();
         UpdateSpouseReligion();
-        UpdateSpousePekerjaan();
+        //UpdateSpousePekerjaan();
         UpdateSpouseJobTitle();
         UpdateSpouseSex();
 

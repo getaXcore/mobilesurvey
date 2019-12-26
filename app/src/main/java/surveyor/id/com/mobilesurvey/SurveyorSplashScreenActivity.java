@@ -251,13 +251,32 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
                 panggilimei();
             }*/
             //panggilimei(); //asalnya nyala, dimatiin dulu
+           final int welcomeScreenDisplay = 3000; // 3000 = 3 detik
+           Thread welcomeThread = new Thread() {
+               int wait = 0;
 
-           //langsung ke login
-           Intent intent = new Intent(
-                   SurveyorSplashScreenActivity.this,
-                   LoginActivity.class);
-           startActivity(intent);
-           finish();
+               @Override
+               public void run() {
+                   try {
+                       super.run();
+                       while (wait < welcomeScreenDisplay) {
+                           sleep(100);
+                           wait += 100;
+                       }
+                   } catch (Exception e) {
+                       System.out.println("EXc=" + e);
+                   } finally {
+
+                       //langsung ke login
+                       Intent intent = new Intent(
+                               SurveyorSplashScreenActivity.this,
+                               LoginActivity.class);
+                       startActivity(intent);
+                       finish();
+                   }
+               }
+           };
+           welcomeThread.start();
        } else { //asalnya nyala, dimatiin dulu
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL); //asalnya nyala, dimatiin dulu
         } //asalnya nyala, dimatiin dulu

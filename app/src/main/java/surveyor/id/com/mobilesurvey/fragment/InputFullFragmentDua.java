@@ -51,18 +51,20 @@ public class InputFullFragmentDua extends Fragment  {
     private String pekerjaan,job_title,province_company,kab_kodya_company,kecamatan_company,
             kelurahan_company,kodesandidati2_company,kodepos_company,sektor_ekonomi,kode_ekonomi,
             tam_json_hasil,get_id_order,get_id_surveyor,
-            id_province_company,id_kab_kodya_company,id_kecamatan_company,id_kelurahan_company,zipcode_company;
+            id_province_company,id_kab_kodya_company,id_kecamatan_company,id_kelurahan_company,zipcode_company,
+            ocpt_type_id,ocpt_type_desc,ocpt_code_id,ocpt_code_desc;
     private static final String TAG = InputFullFragmentDua.class.getSimpleName();
     private ArrayList<String> cek_list_pekerjaan,cek_list_job_title,cek_list_province_company,
             cek_list_kab_kodya_company,cek_list_kecamatan_company,cek_list_kelurahan_company,
             cek_list_economy_code,cek_list_id_province_company,cek_list_id_kab_kodya_company,
-            cek_list_id_kec_company,cek_list_id_kel_company;
+            cek_list_id_kec_company,cek_list_id_kel_company,cek_list_ocpt_type_id,cek_list_ocpt_type,
+            cek_list_ocpt_code_id,cek_list_ocpt_code;
     private ArrayAdapter<String> myAdapter_pekerjaan,myAdapter_job_title;
     private SpinnerDialog spinnerDialog_province_company,spinnerDialog_kab_kodya_company,
             spinnerDialog_kecamatan_company,spinnerDialog_kelurahan_company,
-            spinnerDialog_economy_code;
+            spinnerDialog_economy_code,spinnerDialog_ocpt_type,spinnerDialog_ocpt_code;
     private TextView S_name_economy_code,S_province_company,S_kab_kodya_company,S_kecamatan_company,
-            S_kelurahan_company,Sandi_dati_2_company,Postal_code_company,Economy_code;
+            S_kelurahan_company,Sandi_dati_2_company,Postal_code_company,Economy_code,S_Tipe_pekerjaan,S_Jenis_Pekerjaan;
     private DatabaseManager dm;
     private Button b_simpan;
 
@@ -70,7 +72,7 @@ public class InputFullFragmentDua extends Fragment  {
             C_Company_address,C_Company_province,C_Company_kab_or_kodya,C_Company_kecamatan,
             C_Company_kelurahan,C_Sandi_dati_2_company,C_Postal_code_company,C_Company_telephone_1,
             C_Company_telephone_2,C_Line_of_business,C_Economy_code,C_Estabilished_since,
-            C_Company_fax_1;
+            C_Company_fax_1,C_Tipe_pekerjaan,C_Tipe_pekerjaan_code,C_Jenis_pekerjaan,C_Jenis_pekerjaan_code;
     private Context hsContext;
 
     @Override
@@ -83,7 +85,9 @@ public class InputFullFragmentDua extends Fragment  {
         ArrayList<Object> baris_surveyor = data_surveyor.get(0);
         get_id_surveyor = baris_surveyor.get(3).toString();
 
-        S_pekerjaan             = (Spinner) view.findViewById(R.id.spinner_pekerjaan);
+        S_Tipe_pekerjaan        = (TextView) view.findViewById(R.id.spinner_tipe_pekerjaan);
+        S_Jenis_Pekerjaan       = (TextView) view.findViewById(R.id.spinner_pekerjaan);
+        //S_pekerjaan             = (Spinner) view.findViewById(R.id.spinner_pekerjaan);
         S_job_title             = (Spinner) view.findViewById(R.id.spinner_job_title);
         S_name_economy_code     = (TextView) view.findViewById(R.id.etx_name_economy_code);
         Company_name            = (EditText) view.findViewById(R.id.etx_company_name);
@@ -103,7 +107,9 @@ public class InputFullFragmentDua extends Fragment  {
         Img_check               = (ImageView) view.findViewById(R.id.img_check);
         b_simpan                = (Button) view.findViewById(R.id.bt_simpan);
 
-        TampilPekerjaan();
+        //TampilPekerjaan();
+        TampilTipePekerjaan();
+        TampilJenisPekerjaan();
         TampilJobTitle();
         TampilEconomyCode();
         TampilProvinceCompany();
@@ -115,7 +121,11 @@ public class InputFullFragmentDua extends Fragment  {
         b_simpan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                C_pekerjaan            = String.valueOf(S_pekerjaan.getSelectedItem());
+                //C_pekerjaan            = String.valueOf(S_pekerjaan.getSelectedItem());
+                C_Tipe_pekerjaan       = S_Tipe_pekerjaan.getText().toString();
+                C_Tipe_pekerjaan_code  = S_Tipe_pekerjaan.getTag().toString();
+                C_Jenis_pekerjaan      = S_Jenis_Pekerjaan.getText().toString();
+                C_Jenis_pekerjaan_code = S_Jenis_Pekerjaan.getTag().toString();
                 C_job_title            = String.valueOf(S_job_title.getSelectedItem());
                 C_Name_economy_code    = S_name_economy_code.getText().toString();
                 C_Company_name         = Company_name.getText().toString();
@@ -135,21 +145,23 @@ public class InputFullFragmentDua extends Fragment  {
 
                 ArrayList<ArrayList<Object>> data = dm.ambilBarisSurvey(get_id_order);//
                 if (data.size() < 1) {
-                    dm.addRowSurvey2(get_id_surveyor, get_id_order, C_pekerjaan, C_job_title,
+                    dm.addRowSurvey2(get_id_surveyor, get_id_order, C_Jenis_pekerjaan, C_job_title,
                             C_Name_economy_code, C_Company_name, C_Company_address,
                             C_Company_province, C_Company_kab_or_kodya, C_Company_kecamatan,
                             C_Company_kelurahan, C_Sandi_dati_2_company, C_Postal_code_company,
                             C_Company_telephone_1, C_Company_telephone_2, C_Line_of_business,
-                            C_Economy_code, C_Estabilished_since, C_Company_fax_1);
+                            C_Economy_code, C_Estabilished_since, C_Company_fax_1,C_Tipe_pekerjaan,C_Tipe_pekerjaan_code,
+                            C_Jenis_pekerjaan,C_Jenis_pekerjaan_code);
                     Toast.makeText(hsContext, "Simpan Sementara",
                             Toast.LENGTH_LONG).show();
                 } else {
-                    dm.updateBarisSurvey2(get_id_order, C_pekerjaan, C_job_title,
+                    dm.updateBarisSurvey2(get_id_order, C_Jenis_pekerjaan, C_job_title,
                             C_Name_economy_code, C_Company_name, C_Company_address,
                             C_Company_province, C_Company_kab_or_kodya, C_Company_kecamatan,
                             C_Company_kelurahan, C_Sandi_dati_2_company, C_Postal_code_company,
                             C_Company_telephone_1, C_Company_telephone_2, C_Line_of_business,
-                            C_Economy_code, C_Estabilished_since, C_Company_fax_1);
+                            C_Economy_code, C_Estabilished_since, C_Company_fax_1,C_Tipe_pekerjaan,C_Tipe_pekerjaan_code,
+                            C_Jenis_pekerjaan,C_Jenis_pekerjaan_code);
                     Toast.makeText(hsContext,
                             "Update Simpan Sementara", Toast.LENGTH_LONG).show();
                 }
@@ -166,7 +178,7 @@ public class InputFullFragmentDua extends Fragment  {
             Img_check.setImageResource(R.drawable.dont_check);
         } else {
             ArrayList<Object> baris = t_data.get(0);
-            String t_pekerjaan              = ""+baris.get(37);
+            //String t_pekerjaan              = ""+baris.get(37);
             String t_job_title              = ""+baris.get(38);
             String t_Name_economy_code      = ""+baris.get(39);
             String t_Economy_code           = ""+baris.get(40);
@@ -183,12 +195,42 @@ public class InputFullFragmentDua extends Fragment  {
             String t_Line_of_business       = ""+baris.get(51);
             String t_Estabilished_since     = ""+baris.get(52);
             String t_Company_fax_1          = ""+baris.get(53);
+            String t_Tipe_pekerjaan         = ""+baris.get(138);
+            String t_Tipe_pekerjaan_code    = ""+baris.get(139);
+            String t_Jenis_pekerjaan        = ""+baris.get(140);
+            String t_Jenis_pekerjaan_code   = ""+baris.get(141);
 
-            if(t_pekerjaan.equals("--")){
+            /*if(t_pekerjaan.equals("--")){
                 status_lengkap = status_lengkap+1;
             }
-            int spinner_pekerjaan = myAdapter_pekerjaan.getPosition(t_pekerjaan);
-            S_pekerjaan.setSelection(spinner_pekerjaan);
+            int spinner_pekerjaan = myAdapter_pekerjaan.getPosition(t_pekerjaan);*/
+            //S_pekerjaan.setSelection(spinner_pekerjaan);
+
+            if (t_Tipe_pekerjaan.equals("--") || t_Tipe_pekerjaan.equals("null")){
+                status_lengkap = status_lengkap+1;
+                S_Tipe_pekerjaan.setText("");
+            }else {
+                S_Tipe_pekerjaan.setText(t_Tipe_pekerjaan);
+            }
+            if (t_Tipe_pekerjaan_code.equals("")){
+                status_lengkap = status_lengkap+1;
+                S_Tipe_pekerjaan.setTag("");
+            }else {
+                S_Tipe_pekerjaan.setTag(t_Tipe_pekerjaan_code);
+            }
+
+            if (t_Jenis_pekerjaan.equals("--") || t_Jenis_pekerjaan.equals("null")){
+                status_lengkap = status_lengkap+1;
+                S_Jenis_Pekerjaan.setText("");
+            }else {
+                S_Jenis_Pekerjaan.setText(t_Jenis_pekerjaan);
+            }
+            if (t_Jenis_pekerjaan_code.equals("")){
+                status_lengkap = status_lengkap+1;
+                S_Jenis_Pekerjaan.setTag("");
+            }else {
+                S_Jenis_Pekerjaan.setTag(t_Jenis_pekerjaan_code);
+            }
 
             if(t_job_title.equals("--")){
                 status_lengkap = status_lengkap+1;
@@ -310,7 +352,7 @@ public class InputFullFragmentDua extends Fragment  {
         }
     }
 
-    public void TampilPekerjaan(){
+    /*public void TampilPekerjaan(){
         ArrayList<ArrayList<Object>> data_spouse_pekerjaan = dm.ambilBarisJsonPilih("Pekerjaan");
         if(data_spouse_pekerjaan.size()>0){
             ArrayList<Object> baris = data_spouse_pekerjaan.get(0);
@@ -339,7 +381,8 @@ public class InputFullFragmentDua extends Fragment  {
                 e.printStackTrace();
             }
         }
-    }
+    }*/
+
 
     public void TampilJobTitle(){
         ArrayList<ArrayList<Object>> data_job_title = dm.ambilBarisJsonPilih("Job Title");
@@ -444,6 +487,149 @@ public class InputFullFragmentDua extends Fragment  {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void TampilTipePekerjaan(){
+        StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_OCPT_TYPE,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG,response.toString());
+                        try {
+                            cek_list_ocpt_type = new ArrayList<String>();
+                            cek_list_ocpt_type.add("--");
+
+                            cek_list_ocpt_type_id = new ArrayList<String>();
+
+                            JSONObject jObj = new JSONObject(response);
+                            String code = jObj.getString("code");
+                            if (code.equals("200")){
+                                String data = jObj.getString("data");
+                                JSONArray arrayData = new JSONArray(data);
+                                if (arrayData.length() > 0){
+                                    for (int i=0;i<arrayData.length();i++){
+                                        JSONObject obj = arrayData.getJSONObject(i);
+                                        ocpt_type_desc = obj.getString("ocpt_descr");
+                                        ocpt_type_id = obj.getString("ocpt_type");
+                                        cek_list_ocpt_type.add(ocpt_type_desc);
+                                        cek_list_ocpt_type_id.add(ocpt_type_id);
+                                    }
+                                }
+                            }
+
+                            spinnerDialog_ocpt_type = new SpinnerDialog(
+                                    (Activity) hsContext,
+                                    cek_list_ocpt_type,"Select item");
+                            S_Tipe_pekerjaan.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    spinnerDialog_ocpt_type.showSpinerDialog();
+                                }
+                            });
+                            spinnerDialog_ocpt_type.bindOnSpinerListener(new OnSpinerItemClick() {
+                                @Override
+                                public void onClick(String item, int position) {
+                                    S_Tipe_pekerjaan.setText(item);
+                                    S_Tipe_pekerjaan.setTag(cek_list_ocpt_type_id.get(position-1));
+                                    S_Jenis_Pekerjaan.setText("");
+                                    TampilJenisPekerjaan();
+                                }
+                            });
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("tk", setter.APK_CODE);
+
+                return map;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
+        requestQueue.add(jArr);
+    }
+
+    public void TampilJenisPekerjaan(){
+        StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_OCPT_CODE,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG,response.toString());
+                        try {
+                            cek_list_ocpt_code = new ArrayList<String>();
+                            cek_list_ocpt_code.add("--");
+
+                            cek_list_ocpt_code_id = new ArrayList<String>();
+
+                            JSONObject jObj = new JSONObject(response);
+                            String code = jObj.getString("code");
+                            if (code.equals("200")){
+                                String data = jObj.getString("data");
+                                JSONArray arrayData = new JSONArray(data);
+                                if (arrayData.length() > 0){
+                                    for (int i=0;i<arrayData.length();i++){
+                                        JSONObject obj = arrayData.getJSONObject(i);
+                                        ocpt_code_desc = obj.getString("ocpt_descr");
+                                        ocpt_code_id = obj.getString("ocpt_code");
+                                        cek_list_ocpt_code.add(ocpt_code_desc);
+                                        cek_list_ocpt_code_id.add(ocpt_code_id);
+                                    }
+                                }
+                            }
+                            spinnerDialog_ocpt_code = new SpinnerDialog(
+                                    (Activity) hsContext,
+                                    cek_list_ocpt_code,"Select item");
+                            S_Jenis_Pekerjaan.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    spinnerDialog_ocpt_code.showSpinerDialog();
+                                }
+                            });
+                            spinnerDialog_ocpt_code.bindOnSpinerListener(new OnSpinerItemClick() {
+                                @Override
+                                public void onClick(String item, int position) {
+                                    S_Jenis_Pekerjaan.setText(item);
+                                    S_Jenis_Pekerjaan.setTag(cek_list_ocpt_code_id.get(position-1));
+                                }
+                            });
+                        }catch (Exception e){
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+
+                    }
+
+                }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                String ocpt_type;
+                if (S_Tipe_pekerjaan.getTag() != null){
+                    ocpt_type = S_Tipe_pekerjaan.getTag().toString();
+                }else{
+                    ocpt_type = "";
+                }
+                Map<String, String> map = new HashMap<String, String>();
+                map.put("tk", setter.APK_CODE);
+                map.put("ocpt_type",ocpt_type);
+                return map;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
+        requestQueue.add(jArr);
     }
 
     public void TampilProvinceCompany(){
@@ -890,7 +1076,7 @@ public class InputFullFragmentDua extends Fragment  {
         requestQueue.add(jArr);
     }
 
-    public void UpdatePekerjaan(){
+    /*public void UpdatePekerjaan(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_SPOUSE_PEKERJAAN,
                 new Response.Listener<String>() {
                     @Override
@@ -925,7 +1111,7 @@ public class InputFullFragmentDua extends Fragment  {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
-    }
+    }*/
 
     public void UpdateJobTitle(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_JOB_TITLE,
@@ -967,7 +1153,7 @@ public class InputFullFragmentDua extends Fragment  {
     @Override
     public void onResume() {
         super.onResume();
-        UpdatePekerjaan();
+        //UpdatePekerjaan();
         UpdateJobTitle();
     }
 

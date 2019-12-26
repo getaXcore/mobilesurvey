@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class DatabaseManager {
     private static final String NAMA_DB = "surveyor_olym";
-    private static final int DB_VERSION = 22;
+    private static final int DB_VERSION = 24;
 
     //VARIABLE LOGIN
     private static final String ROW_ID          = "_id";
@@ -186,6 +186,10 @@ public class DatabaseManager {
     //private static final String ROW_ID_CUSTOMER                               = "id_customer";
     private static final String ROW_CATEGORY_NAME                               = "category_name";
     private static final String ROW_CATEGORY_ID                                 = "category_id";
+    private static final String ROW_TIPE_PEKERJAAN                              = "tipe_pekrjaan";
+    private static final String ROW_TIPE_PEKERJAAN_CODE                         = "tipe_pekerjaan_code";
+    private static final String ROW_JENIS_PEKERJAAN                             = "jenis_pekerjaan";
+    private static final String ROW_JENIS_PEKERJAAN_CODE                        = "jenis_pekerjaan_code";
     private static final String ROW_NAME                                        = "name";
     private static final String ROW_MOTHER_MAIDEN_NAME                          = "mother_maiden_name";
     private static final String ROW_GELAR                                       = "gelar";
@@ -227,6 +231,10 @@ public class DatabaseManager {
     private static final String ROW_PEKERJAAN                                   = "pekerjaan";
     private static final String ROW_JOB_TITLE_PEKERJAAN                         = "job_title_pekerjaan";
     private static final String ROW_OCCUPATION_OR_PEKERJAAN                     = "occupation_or_pekerjaan";
+    private static final String ROW_TIPE_PEKERJAAN_SPOUSE                       = "tipe_pekerjaan_spouse";
+    private static final String ROW_TIPE_PEKERJAAN_SPOUSE_CODE                  = "tipe_pekerjaan_spouse_code";
+    private static final String ROW_JENIS_PEKERJAAN_SPOUSE                      = "jenis_pekerjaan_spouse";
+    private static final String ROW_JENIS_PEKERJAAN_SPOUSE_CODE                 = "jenis_pekerjaan_Spouse_code";
     private static final String ROW_NAME_ECONOMY_CODE                           = "name_economy_code";
     private static final String ROW_COMPANY_NAME                                = "company_name";
     private static final String ROW_ADDRESS_PEKERJAAN                           = "address_pekerjaan";
@@ -467,7 +475,15 @@ public class DatabaseManager {
             + ROW_APAKAH_DIREKOMENDASIKAN                       + " text,"
             + ROW_ALASAN_OR_POINT_PENTING_REKOMENDASI_ANDA      + " text,"
             + ROW_CATEGORY_NAME                                 + " text,"
-            + ROW_CATEGORY_ID                                   + " text)";
+            + ROW_CATEGORY_ID                                   + " text,"
+            + ROW_TIPE_PEKERJAAN                                + " text,"
+            + ROW_TIPE_PEKERJAAN_CODE                           + " text,"
+            + ROW_JENIS_PEKERJAAN                               + " text,"
+            + ROW_JENIS_PEKERJAAN_CODE                          + " text,"
+            + ROW_TIPE_PEKERJAAN_SPOUSE                         + " text,"
+            + ROW_TIPE_PEKERJAAN_SPOUSE_CODE                    + " text,"
+            + ROW_JENIS_PEKERJAAN_SPOUSE                        + " text,"
+            + ROW_JENIS_PEKERJAAN_SPOUSE_CODE                   + " text)";
     //end variable SURVEY
 
     //variable sandidati2
@@ -1652,7 +1668,8 @@ public class DatabaseManager {
                               String H_Sandi_dati_2_company, String H_Postal_code_company,
                               String H_Company_telephone_1, String H_Company_telephone_2,
                               String H_Line_of_business, String H_Economy_code ,
-                              String H_Estabilished_since, String H_Company_fax_1) {
+                              String H_Estabilished_since, String H_Company_fax_1,String H_Tipe_pekerjaan,String H_Tipe_pekerjaan_code,
+                              String H_Jenis_pekerjaan,String H_Jenis_pekerjaan_code) {
         ContentValues values = new ContentValues();
         values.put(ROW_ID_SURVEYOR, H_id_surveyor);
         values.put(ROW_ID_ORDER, H_Id_order);
@@ -1673,6 +1690,10 @@ public class DatabaseManager {
         values.put(ROW_ECONOMY_CODE, H_Economy_code);
         values.put(ROW_ESTABILISHED_SINCE, H_Estabilished_since);
         values.put(ROW_FAX_1_PEKERJAAN, H_Company_fax_1);
+        values.put(ROW_TIPE_PEKERJAAN, H_Tipe_pekerjaan);
+        values.put(ROW_TIPE_PEKERJAAN_CODE,H_Tipe_pekerjaan_code);
+        values.put(ROW_JENIS_PEKERJAAN,H_Jenis_pekerjaan);
+        values.put(ROW_JENIS_PEKERJAAN_CODE,H_Jenis_pekerjaan_code);
 
         try {
             db.insert(NAMA_TABEL_SIMPANSURVEY, null, values);
@@ -1694,7 +1715,8 @@ public class DatabaseManager {
                               String H_Spouse_company_address, String H_Spouse_company_telephone,
                               String H_Spouse_line_of_business, String H_spouse_job_title,
                               String H_spouse_sex, String H_Spouse_date_of_birth,
-                              String H_Spouse_fax) {
+                              String H_Spouse_fax,String H_Spouse_tipe_pekerjaan,String H_Spouse_tipe_pekerjaan_code,
+                              String H_Spouse_jenis_pekerjaan,String H_Spouse_jenis_pekerjaan_code) {
         ContentValues values = new ContentValues();
         values.put(ROW_ID_SURVEYOR, H_id_surveyor);
         values.put(ROW_ID_ORDER, H_Id_order);
@@ -1721,6 +1743,10 @@ public class DatabaseManager {
         values.put(ROW_IDENTITY_NO_SPOUSE, H_Spouse_identity_no);
         values.put(ROW_DATE_OF_BIRTH_SPOUSE, H_Spouse_date_of_birth);
         values.put(ROW_FAX_SPOUSE, H_Spouse_fax);
+        values.put(ROW_TIPE_PEKERJAAN_SPOUSE,H_Spouse_tipe_pekerjaan);
+        values.put(ROW_TIPE_PEKERJAAN_SPOUSE_CODE,H_Spouse_tipe_pekerjaan_code);
+        values.put(ROW_JENIS_PEKERJAAN_SPOUSE,H_Spouse_jenis_pekerjaan);
+        values.put(ROW_JENIS_PEKERJAAN_SPOUSE_CODE,H_Spouse_jenis_pekerjaan_code);
 
         try {
             db.insert(NAMA_TABEL_SIMPANSURVEY, null, values);
@@ -2075,7 +2101,9 @@ public class DatabaseManager {
                     ROW_COLLECTABILITAS_SID_OR_SLIK_TERTINGGI,ROW_PERNAH_KREDIT_DI_TEMPAT_LAIN,
                     ROW_OVERDUE_TERTINGGI,ROW_BAKI_DEBET_OR_OUTSTANDING_HUTANG,ROW_NAMA_FINANCE_COMPANY,
                     ROW_ALASAN_MENUNGGAK_KHUSUS_LEBIH_DARI_COLL_2,ROW_APAKAH_DIREKOMENDASIKAN,
-                    ROW_ALASAN_OR_POINT_PENTING_REKOMENDASI_ANDA,ROW_CATEGORY_NAME,ROW_CATEGORY_ID}, ROW_ID_ORDER + "='" + Id_order+"'", null, null, null, null);
+                    ROW_ALASAN_OR_POINT_PENTING_REKOMENDASI_ANDA,ROW_CATEGORY_NAME,ROW_CATEGORY_ID,
+                    ROW_TIPE_PEKERJAAN,ROW_TIPE_PEKERJAAN_CODE,ROW_JENIS_PEKERJAAN,ROW_JENIS_PEKERJAAN_CODE,
+                    ROW_TIPE_PEKERJAAN_SPOUSE,ROW_TIPE_PEKERJAAN_SPOUSE_CODE,ROW_JENIS_PEKERJAAN_SPOUSE,ROW_JENIS_PEKERJAAN_SPOUSE_CODE}, ROW_ID_ORDER + "='" + Id_order+"'", null, null, null, null);
             cur.moveToFirst();
 
             if (
@@ -2220,6 +2248,14 @@ public class DatabaseManager {
                     dataList.add(cur.getString(135));
                     dataList.add(cur.getString(136));
                     dataList.add(cur.getString(137));
+                    dataList.add(cur.getString(138));
+                    dataList.add(cur.getString(139));
+                    dataList.add(cur.getString(140));
+                    dataList.add(cur.getString(141));
+                    dataList.add(cur.getString(142));
+                    dataList.add(cur.getString(143));
+                    dataList.add(cur.getString(144));
+                    dataList.add(cur.getString(145));
                     dataArray.add(dataList);
                 } while (cur.moveToNext());
             }
@@ -2528,7 +2564,8 @@ public class DatabaseManager {
                                    String H_Postal_code_company, String H_Company_telephone_1,
                                    String H_Company_telephone_2, String H_Line_of_business,
                                    String H_Economy_code , String H_Estabilished_since,
-                                   String H_Company_fax_1) {
+                                   String H_Company_fax_1,String H_Tipe_pekerjaan,String H_Tipe_pekerjaan_code,
+                                   String H_Jenis_pekerjaan,String H_Jenis_pekerjaan_code) {
         ContentValues cv = new ContentValues();
         cv.put(ROW_PEKERJAAN, H_Pekerjaan);
         cv.put(ROW_JOB_TITLE_PEKERJAAN, H_job_title);
@@ -2547,6 +2584,10 @@ public class DatabaseManager {
         cv.put(ROW_ECONOMY_CODE, H_Economy_code);
         cv.put(ROW_ESTABILISHED_SINCE, H_Estabilished_since);
         cv.put(ROW_FAX_1_PEKERJAAN, H_Company_fax_1);
+        cv.put(ROW_TIPE_PEKERJAAN,H_Tipe_pekerjaan);
+        cv.put(ROW_TIPE_PEKERJAAN_CODE,H_Tipe_pekerjaan_code);
+        cv.put(ROW_JENIS_PEKERJAAN,H_Jenis_pekerjaan);
+        cv.put(ROW_JENIS_PEKERJAAN_CODE,H_Jenis_pekerjaan_code);
 
         try {
             db.update(NAMA_TABEL_SIMPANSURVEY, cv, ROW_ID_ORDER + "='" + H_Id_order+"'", null);
@@ -2569,7 +2610,9 @@ public class DatabaseManager {
                                    String H_Spouse_company_telephone,
                                    String H_Spouse_line_of_business, String H_spouse_job_title,
                                    String H_spouse_sex, String H_Spouse_date_of_birth,
-                                   String H_Spouse_fax) {
+                                   String H_Spouse_fax,String H_Spouse_tipe_pekerjaan,String H_Spouse_tipe_pekerjaan_code,
+                                   String H_Spouse_jenis_pekerjaan,String H_Spouse_jenis_pekerjaan_code) {
+
         ContentValues cv = new ContentValues();
         cv.put(ROW_NAME_SPOUSE, H_Spouse_name);
         cv.put(ROW_TITLE_SPOUSE, H_spouse_title);
@@ -2594,6 +2637,10 @@ public class DatabaseManager {
         cv.put(ROW_IDENTITY_NO_SPOUSE, H_Spouse_identity_no);
         cv.put(ROW_DATE_OF_BIRTH_SPOUSE, H_Spouse_date_of_birth);
         cv.put(ROW_FAX_SPOUSE, H_Spouse_fax);
+        cv.put(ROW_TIPE_PEKERJAAN_SPOUSE,H_Spouse_tipe_pekerjaan);
+        cv.put(ROW_TIPE_PEKERJAAN_SPOUSE_CODE,H_Spouse_tipe_pekerjaan_code);
+        cv.put(ROW_JENIS_PEKERJAAN_SPOUSE,H_Spouse_jenis_pekerjaan);
+        cv.put(ROW_JENIS_PEKERJAAN_SPOUSE_CODE,H_Spouse_jenis_pekerjaan_code);
 
         try {
             db.update(NAMA_TABEL_SIMPANSURVEY, cv, ROW_ID_ORDER + "='" + H_Id_order+"'", null);

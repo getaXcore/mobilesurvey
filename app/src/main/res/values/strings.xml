@@ -159,6 +159,8 @@
 
     <string name="occupation_data">Data Pekerjaan</string>
     <string name="pekerjaan">Pekerjaan *</string>
+    <string name="tipe_pekerjaan">Tipe Pekerjaan *</string>
+    <string name="jenis_pekerjaan">Jenis Pekerjaan *</string>
     <string name="occupation_or_pekerjaan">Occupation / Pekerjaan</string>
     <string name="name_economy_code">Nama Kode Ekonomi *</string>
     <string name="company_name">Nama Perusahaan *</string>
@@ -189,6 +191,8 @@
     <string name="spouse_postal_code">Kode Pos KTP Pasangan *</string>
     <string name="spouse_no_handphone">Nomor Handphone Pasangan *</string>
     <string name="spouse_occupation_or_pekerjaan">Pekerjaan Pasangan</string>
+    <string name="spouse_jenis_pekerjaan">Jenis Pekerjaan Pasangan *</string>
+    <string name="spouse_tipe_pekerjaan">Tipe Pekerjaan Pasangan *</string>
     <string name="spouse_company_name">Nama Perusahaan Pasangan</string>
     <string name="spouse_company_address">Alamat Perusahaan Pasangan</string>
     <string name="spouse_company_telephone">Telephone Perusahaan Pasangan</string>
