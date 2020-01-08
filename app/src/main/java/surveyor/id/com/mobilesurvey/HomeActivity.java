@@ -172,7 +172,10 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
             t_rata_rata_mutasi_out_3_bulan_terakhir,t_collectabilitas_sid_or_slik_tertinggi,
             t_pernah_kredit_di_tempat_lain,t_overdue_tertinggi,t_baki_debet_or_outstanding_hutang,
             t_nama_finance_company,t_alasan_menunggak_khusus_lebih_dari_coll_2,
-            t_apakah_direkomendasikan,t_alasan_or_point_penting_rekomendasi_anda;
+            t_apakah_direkomendasikan,t_alasan_or_point_penting_rekomendasi_anda,
+            t_id_province_ktp,t_id_kab_kodya_ktp,t_id_kecamatan_ktp,t_id_kelurahan_ktp,t_zipcode_ktp,
+            t_Spouse_id_province,t_Spouse_id_kab_kodya,t_Spouse_id_kecamatan,t_Spouse_id_kelurahan,t_Spouse_zipcode,
+            t_category_name,t_category_id,t_Jenis_pekerjaan,t_Jenis_pekerjaan_code,t_Jenis_pekerjaan_spouse,t_Jenis_pekerjaan_code_spouse;
 
     private android.location.LocationListener locListener;
     private LocationManager locationManager;
@@ -936,9 +939,11 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                 //getmjson = baris.get(0).toString();
                 Get_id_order = baris.get(1).toString();
 
+                ArrayList<Object> arrayLists = dm.ambilBarisSurvey1Tbh(Get_id_order);
+                ArrayList<Object> arrayLists3 = dm.ambilBarisSurvey3Tbh(Get_id_order);
 
                 ArrayList<ArrayList<Object>> t_data_inputan = dm.ambilBarisSurvey(Get_id_order);
-                if (t_data_inputan.size() > 0) {
+                if (t_data_inputan.size() > 0 && arrayLists.size() > 0) {
 
                     if(mCurrentLocation != null){
                         String check_lat = ""+String.valueOf(mCurrentLocation.getLatitude());
@@ -959,6 +964,17 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                         sphoto_longitude = longitude_lis;
                     }
 
+                    t_id_province_ktp                               = ""+arrayLists.get(0);
+                    t_id_kab_kodya_ktp                              = ""+arrayLists.get(1);
+                    t_id_kecamatan_ktp                              = ""+arrayLists.get(2);
+                    t_id_kelurahan_ktp                              = ""+arrayLists.get(3);
+                    t_zipcode_ktp                                   = ""+arrayLists.get(4);
+
+                    t_Spouse_id_province                            = ""+arrayLists3.get(0);
+                    t_Spouse_id_kab_kodya                           = ""+arrayLists3.get(1);
+                    t_Spouse_id_kecamatan                           = ""+arrayLists3.get(2);
+                    t_Spouse_id_kelurahan                           = ""+arrayLists3.get(3);
+                    t_Spouse_zipcode                                = ""+arrayLists3.get(4);
 
 
                     ArrayList<Object> baris_inputan = t_data_inputan.get(0);
@@ -1107,6 +1123,16 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                     t_apakah_direkomendasikan                       = ""+baris_inputan.get(134);
                     t_alasan_or_point_penting_rekomendasi_anda      = ""+baris_inputan.get(135);
 
+                    t_category_name                                 = ""+baris.get(136);
+                    t_category_id                                   = ""+baris.get(137);
+
+
+                    t_Jenis_pekerjaan                               = ""+baris.get(140);
+                    t_Jenis_pekerjaan_code                          = ""+baris.get(141);
+
+                    t_Jenis_pekerjaan_spouse                        = ""+baris.get(144);
+                    t_Jenis_pekerjaan_code_spouse                   = ""+baris.get(145);
+
 
 
                     //1
@@ -1149,14 +1175,26 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                     if(t_province_ktp.equals("null")){
                         t_province_ktp = "";
                     }
+                    if (t_id_province_ktp.equals("null")){
+                        t_id_province_ktp = "";
+                    }
                     if(t_kab_kodya_ktp.equals("null")){
                         t_kab_kodya_ktp = "";
+                    }
+                    if (t_id_kab_kodya_ktp.equals("null")){
+                        t_id_kab_kodya_ktp = "";
                     }
                     if(t_kecamatan_ktp.equals("null")){
                         t_kecamatan_ktp = "";
                     }
+                    if (t_id_kecamatan_ktp.equals("null")){
+                        t_id_kecamatan_ktp = "";
+                    }
                     if(t_kelurahan_ktp.equals("null")){
                         t_kelurahan_ktp = "";
+                    }
+                    if (t_id_kelurahan_ktp.equals("null")){
+                        t_id_kelurahan_ktp = "";
                     }
                     if(t_sandi_dati_2_ktp.equals("null")){
                         t_sandi_dati_2_ktp = "";
@@ -1166,6 +1204,9 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                     //16
                     if(t_postal_code_ktp.equals("null")){
                         t_postal_code_ktp = "";
+                    }
+                    if (t_zipcode_ktp.equals("null")){
+                        t_zipcode_ktp = "";
                     }
                     if(t_address_home.equals("null")){
                         t_address_home = "";
@@ -1332,20 +1373,35 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                     if(t_Spouse_province.equals("null")){
                         t_Spouse_province = "";
                     }
+                    if (t_Spouse_id_province.equals("null")){
+                        t_Spouse_id_province = "";
+                    }
                     if(t_Spouse_kab_kodya.equals("null")){
                         t_Spouse_kab_kodya = "";
+                    }
+                    if (t_Spouse_id_kab_kodya.equals("null")){
+                        t_Spouse_id_kab_kodya = "";
                     }
                     if(t_Spouse_kecamatan.equals("null")){
                         t_Spouse_kecamatan = "";
                     }
+                    if (t_Spouse_id_kecamatan.equals("null")){
+                        t_Spouse_id_kecamatan = "";
+                    }
                     if(t_Spouse_kelurahan.equals("null")){
                         t_Spouse_kelurahan = "";
+                    }
+                    if (t_Spouse_id_kelurahan.equals("null")){
+                        t_Spouse_id_kelurahan = "";
                     }
 
 
                     //66
                     if(t_Spouse_postal_code.equals("null")){
                         t_Spouse_postal_code = "";
+                    }
+                    if (t_Spouse_zipcode.equals("null")){
+                        t_Spouse_zipcode = "";
                     }
                     if(t_Spouse_sandi_dati_2.equals("null")){
                         t_Spouse_sandi_dati_2 = "";
@@ -1591,6 +1647,26 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                         t_alasan_or_point_penting_rekomendasi_anda = "";
                     }
 
+                    if (t_category_name.equals("null")){
+                        t_category_name = "";
+                    }
+
+                    //140 & 141
+                    if (t_Jenis_pekerjaan.equals("null")){
+                        t_Jenis_pekerjaan = "";
+                    }
+                    if (t_Jenis_pekerjaan_code.equals("null")){
+                        t_Jenis_pekerjaan_code = "";
+                    }
+
+                    //144 & 145
+                    if (t_Jenis_pekerjaan_spouse.equals("null")){
+                        t_Jenis_pekerjaan_spouse = "";
+                    }
+                    if (t_Jenis_pekerjaan_code_spouse.equals("null")){
+                        t_Jenis_pekerjaan_code_spouse = "";
+                    }
+
 
 
 
@@ -1765,11 +1841,31 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                             params.put("apakah_direkomendasikan", t_apakah_direkomendasikan);//133
                             params.put("alasan_or_point_penting_rekomendasi_anda", t_alasan_or_point_penting_rekomendasi_anda);//134
 
+                            //Tambahan
+                            params.put("kode_propinsi_ktp",t_id_province_ktp);
+                            params.put("kode_kab_kodya_ktp",t_id_kab_kodya_ktp);
+                            params.put("kode_kec_ktp",t_id_kecamatan_ktp);
+                            params.put("kode_kel_ktp",t_id_kelurahan_ktp);
+                            params.put("zipcode_ktp",t_zipcode_ktp);
+                            params.put("kode_propinsi_spouse",t_Spouse_id_province);
+                            params.put("kode_kab_kodya_spouse",t_Spouse_id_kab_kodya);
+                            params.put("kode_kec_spouse",t_Spouse_id_kecamatan);
+                            params.put("kode_kel_spouse",t_Spouse_id_kelurahan);
+                            params.put("zipcode_spouse",t_Spouse_zipcode);
+                            params.put("category_name",t_category_name);
+                            params.put("ocpt_code",t_Jenis_pekerjaan_code);
+                            params.put("ocpt_desc",t_Jenis_pekerjaan);
+                            params.put("ocpt_code_spouse",t_Jenis_pekerjaan_code_spouse);
+                            params.put("ocpt_desc_spouse",t_Jenis_pekerjaan_spouse);
+                            //End Tambahan
+
                             params.put("latitude", ""+sphoto_latitude);//135
                             params.put("longitude", ""+sphoto_longitude);//136
                             params.put("id_surveyor", get_id_surveyor);//137
                             params.put("id_order", Get_id_order);//138
                             params.put("tk", setter.APK_CODE);//139
+
+
 
                             //kembali ke parameters
                             Log.d(TAG, ""+params);

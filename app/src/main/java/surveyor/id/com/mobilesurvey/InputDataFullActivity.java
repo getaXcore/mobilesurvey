@@ -495,8 +495,9 @@ public class InputDataFullActivity extends AppCompatActivity implements
         ArrayList<Object> arrayLists3 = dm.ambilBarisSurvey3Tbh(get_id_order);
         //ArrayList<ArrayList<Object>> arrayListSpouse = dm.ambilBarisSurvey3Tambahan(get_id_order);
         ArrayList<ArrayList<Object>> t_data = dm.ambilBarisSurvey(get_id_order);
-        //Log.e("datatsimpan","t_data:"+t_data.size()+" arrayLists:"+arrayLists.size()+" arrayLists3:"+arrayLists3.size());
-        if (t_data.size() > 0 && arrayLists.size() > 0 && arrayLists3.size() > 0) {
+        Log.e("datatsimpan","t_data:"+t_data.size()+" arrayLists:"+arrayLists.size()+" arrayLists3:"+arrayLists3.size());
+        //if (t_data.size() > 0 && arrayLists.size() > 0 && arrayLists3.size() > 0) {
+        if (t_data.size() > 0 && arrayLists.size() > 0 ) {
             ArrayList<Object> baris = t_data.get(0);
 
 
@@ -511,11 +512,20 @@ public class InputDataFullActivity extends AppCompatActivity implements
             t_id_kelurahan_ktp                              = ""+arrayLists.get(3);
             t_zipcode_ktp                                   = ""+arrayLists.get(4);
 
-            t_Spouse_id_province                            = ""+arrayLists3.get(0);
-            t_Spouse_id_kab_kodya                           = ""+arrayLists3.get(1);
-            t_Spouse_id_kecamatan                           = ""+arrayLists3.get(2);
-            t_Spouse_id_kelurahan                           = ""+arrayLists3.get(3);
-            t_Spouse_zipcode                                = ""+arrayLists3.get(4);
+            if (arrayLists3.size() > 0){
+                t_Spouse_id_province                            = ""+arrayLists3.get(0);
+                t_Spouse_id_kab_kodya                           = ""+arrayLists3.get(1);
+                t_Spouse_id_kecamatan                           = ""+arrayLists3.get(2);
+                t_Spouse_id_kelurahan                           = ""+arrayLists3.get(3);
+                t_Spouse_zipcode                                = ""+arrayLists3.get(4);
+            }else{
+                t_Spouse_id_province = "";
+                t_Spouse_id_kab_kodya = "";
+                t_Spouse_id_kecamatan = "";
+                t_Spouse_id_kelurahan = "";
+                t_Spouse_zipcode = "";
+            }
+
 
             t_nama                                          = ""+baris.get(2);
             t_mother                                        = ""+baris.get(3);
