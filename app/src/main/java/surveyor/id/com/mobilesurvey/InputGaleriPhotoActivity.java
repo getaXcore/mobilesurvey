@@ -10,15 +10,18 @@ import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.ExifInterface;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.renderscript.Sampler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
+import android.util.Log;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -27,6 +30,8 @@ import com.google.android.gms.location.LocationServices;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import surveyor.id.com.mobilesurvey.fragment.InputFullFragmentSebelas;
 import surveyor.id.com.mobilesurvey.modal.DatabaseManager;
@@ -120,7 +125,7 @@ public class InputGaleriPhotoActivity extends AppCompatActivity implements Googl
 
     public String getStringImage(Bitmap bmp){
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bmp.compress(Bitmap.CompressFormat.JPEG, 30, baos);
+        bmp.compress(Bitmap.CompressFormat.JPEG, 20, baos);
         byte[] imageBytes = baos.toByteArray();
 
         String encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
@@ -160,6 +165,8 @@ public class InputGaleriPhotoActivity extends AppCompatActivity implements Googl
                 Bitmap bitmap_logo = null;
 
                 bitmap_logo = MediaStore.Images.Media.getBitmap(this.getContentResolver(), filePath);
+
+                Log.i("bitmap Logo", String.valueOf(bitmap_logo));
 
                 String[] orientationColumn = {MediaStore.Images.Media.ORIENTATION};
                 Cursor cur = this.managedQuery(filePath, orientationColumn, null, null, null);

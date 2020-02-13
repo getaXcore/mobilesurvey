@@ -1,6 +1,7 @@
 package surveyor.id.com.mobilesurvey.fragment;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -74,6 +76,7 @@ public class InputFullFragmentDua extends Fragment  {
             C_Company_telephone_2,C_Line_of_business,C_Economy_code,C_Estabilished_since,
             C_Company_fax_1,C_Tipe_pekerjaan,C_Tipe_pekerjaan_code,C_Jenis_pekerjaan,C_Jenis_pekerjaan_code;
     private Context hsContext;
+    private ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -637,6 +640,7 @@ public class InputFullFragmentDua extends Fragment  {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_province_company = new ArrayList<String>();
@@ -704,9 +708,34 @@ public class InputFullFragmentDua extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        //progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -717,6 +746,11 @@ public class InputFullFragmentDua extends Fragment  {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data provinsi...");
+        progressDialog.show();*/
     }
 
     public void TampilKabKodyaCompany(){
@@ -724,6 +758,7 @@ public class InputFullFragmentDua extends Fragment  {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kab_kodya_company = new ArrayList<String>();
@@ -789,9 +824,34 @@ public class InputFullFragmentDua extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         //          Toast.makeText(HomeActivity.this, "Tidak Terhubung dengan Server", Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idProv;
@@ -811,6 +871,11 @@ public class InputFullFragmentDua extends Fragment  {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kab/kodya...");
+        progressDialog.show();*/
     }
 
     public void TampilKecamatanCompany(){
@@ -818,6 +883,7 @@ public class InputFullFragmentDua extends Fragment  {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kecamatan_company = new ArrayList<String>();
@@ -883,9 +949,34 @@ public class InputFullFragmentDua extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        //progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idKota;
@@ -905,6 +996,11 @@ public class InputFullFragmentDua extends Fragment  {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kecamatan...");
+        progressDialog.show();*/
     }
 
     public void TampilKelurahanCompany(){
@@ -912,6 +1008,7 @@ public class InputFullFragmentDua extends Fragment  {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kelurahan_company = new ArrayList<String>();
@@ -974,9 +1071,34 @@ public class InputFullFragmentDua extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        //progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idKec;
@@ -998,6 +1120,11 @@ public class InputFullFragmentDua extends Fragment  {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kelurahan...");
+        progressDialog.show();*/
     }
 
     public void TampilSandiDati2KodePosCompany(){
@@ -1005,6 +1132,7 @@ public class InputFullFragmentDua extends Fragment  {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             JSONObject jObj = new JSONObject(response);
@@ -1034,9 +1162,34 @@ public class InputFullFragmentDua extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        //progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idProv,idKota,idKec,idKel;
@@ -1074,6 +1227,11 @@ public class InputFullFragmentDua extends Fragment  {
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data sandi dati/lahir...");
+        progressDialog.show();*/
     }
 
     /*public void UpdatePekerjaan(){
@@ -1163,6 +1321,23 @@ public class InputFullFragmentDua extends Fragment  {
 
     }
 
+    public String trimMessage(String json, String key){
+        String trimmedString = null;
+
+        try {
+            JSONObject obj = new JSONObject(json);
+            trimmedString = obj.getString(key);
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+
+        return trimmedString;
+    }
+
+    public void  displayMessage(String toastString){
+        Toast.makeText(hsContext,toastString,Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public void onAttach(Context context) {

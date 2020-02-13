@@ -1,5 +1,6 @@
 package surveyor.id.com.mobilesurvey.fragment;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -921,7 +922,6 @@ public class InputFullFragmentLima extends Fragment  {
         UpdateLuasJalanMasukRumah();
         UpdateStatusKepemilikanRumahPemohon();
     }
-
 
     @Override
     public void onAttach(Context context) {

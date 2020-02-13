@@ -7,7 +7,9 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.ExifInterface;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.Settings;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -28,7 +30,14 @@ import android.widget.Toast;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import surveyor.id.com.mobilesurvey.InputGaleriPhotoActivity;
 import surveyor.id.com.mobilesurvey.InputPhotoAllActivity;
@@ -58,6 +67,8 @@ public class InputFullFragmentSebelas extends Fragment  {
             photoStnkTampakBelakang,photoBpkbHalamanIdentitasKendaraan,
             photoKtpAsliPasanganCalonDebitur,photoKkSecaraUtuh,
             photoSertifikatTanahGirikAjbRekeningListrik;
+    private ExifInterface exifInterface;
+    private static final String TAG = InputFullFragmentSebelas.class.getSimpleName();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -1074,6 +1085,7 @@ public class InputFullFragmentSebelas extends Fragment  {
                 //photo_home1.setImageBitmap(bitmapop);
                 photo_home1.setImageBitmap(getBitmapNew(bitmapop));//using bitmap compress
 
+
             }catch (Exception e){
 
             }
@@ -1160,6 +1172,72 @@ public class InputFullFragmentSebelas extends Fragment  {
                 bitmapop6 = BitmapFactory.decodeByteArray(encodeByte,0,encodeByte.length);
                 //photo_app.setImageBitmap(bitmapop6);
                 photo_app.setImageBitmap(getBitmapNew(bitmapop6));//using bitmap compress
+
+                /*Date c = Calendar.getInstance().getTime();
+
+                SimpleDateFormat df = new SimpleDateFormat("yyy-MM-dd:hh:mm:ss");
+                String tanggal = df.format(c);
+
+               //Step 1 create file for storing image data on SDCard
+                File sdDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                File pictureFileDir = new File(sdDir,"OMOSImages");
+
+                if (!pictureFileDir.exists() && !pictureFileDir.mkdirs()){
+                    Log.d(TAG,"Can't create directory to save image");
+                    Toast.makeText(this.getContext(), "Can't create directory to save image", Toast.LENGTH_SHORT).show();
+                }
+
+                //Step 2 write image byte array to file
+                String photoFile = "Picture_"+ tanggal +".jpg";
+                String imageFilePath = pictureFileDir.getPath()+File.separator+photoFile;
+                File pictureFile = new File(imageFilePath);
+
+                try {
+                    FileOutputStream fos = new FileOutputStream(pictureFile);
+                    fos.write(encodeByte);
+                    fos.close();
+                    Toast.makeText(this.getContext(),"New Image saved: "+photoFile,Toast.LENGTH_LONG).show();
+                }catch (Exception error){
+                    Log.d(TAG,"File "+photoFile+" not save "+error.getMessage());
+                    Toast.makeText(this.getContext(),"Image could not be saved.",Toast.LENGTH_SHORT).show();
+                }
+
+                //Step 3 Get Exif Info from File path
+                try {
+                    exifInterface = new ExifInterface(imageFilePath);
+                    String make = exifInterface.getAttribute(ExifInterface.TAG_MAKE);
+
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+                //check the value of "make" here
+                exifInterface = new ExifInterface(imageFilePath);
+                String dt = exifInterface.getAttribute(ExifInterface.TAG_DATETIME);
+
+                StringBuilder stringBuilder = new StringBuilder();
+                stringBuilder.append("Date & Time : "+dt);
+
+                Log.i("Date&Time",stringBuilder.toString());*/
+                /*exifInterface = new ExifInterface(imageFilePath);
+                String datePhoto = exifInterface.getAttribute(ExifInterface.TAG_DATETIME);
+                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy:MM:dd hh:mm:ss");
+                SimpleDateFormat convertDate = new SimpleDateFormat("MMM dd, yyyy");
+                SimpleDateFormat convertTime = new SimpleDateFormat("hh:mm:ss aa");
+
+                Date date1 = null, date2 = null;
+                try {
+                    date1 = simpleDateFormat.parse(datePhoto);
+                    date2 = simpleDateFormat.parse(datePhoto);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+
+                String dateFormat = convertDate.format(date1);
+                String timeFormat = convertTime.format(date2);*/
+
+
+
 
             }catch (Exception e){
 

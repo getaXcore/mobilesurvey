@@ -1,18 +1,24 @@
 package surveyor.id.com.mobilesurvey;
 
+import android.*;
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresPermission;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +36,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.jar.*;
 
 import surveyor.id.com.mobilesurvey.modal.DatabaseManager;
 import surveyor.id.com.mobilesurvey.modal.setter;
@@ -42,9 +49,12 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
     private String identifier = null;
     private String[] PERMISSIONS = {android.Manifest.permission.CALL_PHONE, android.Manifest.
             permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.ACCESS_FINE_LOCATION};
-    private TextView txDetailVersion;
+    private TextView txDetailVersion, txtBar;
     private PackageInfo pInfo;
     private int resError;
+    private ProgressBar progressBar;
+    private Context hsContext;
+    private CameraManager mngrCam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,24 +63,44 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
         dm = new DatabaseManager(this);
         resError = 1;
 
-        txDetailVersion = (TextView)findViewById(R.id.tx_detail_version);
+        mngrCam = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(),Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CAMERA},PERMISSION_ALL);
+            return;
+        }
+
+        txDetailVersion = (TextView) findViewById(R.id.tx_detail_version);
+        progressBar = (ProgressBar) findViewById(R.id.pgBar);
+        txtBar = (TextView) findViewById(R.id.txtBar);
 
         try {
             pInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
             String version = pInfo.versionName;
-            txDetailVersion.setText(" "+version);
+            txDetailVersion.setText(" " + version);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
     }
-     //asalnya nyala, dimatiin dulu
-    public void panggilimei(){
+
+    //asalnya nyala, dimatiin dulu
+    public void panggilimei() {
         ArrayList<ArrayList<Object>> data = dm.ambilSemuaBaris();//
         if (data.size() < 1) {
-            mngr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-            if (mngr != null) {
-                identifier = mngr.getDeviceId();
+            mngr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+
+            if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_PHONE_STATE},PERMISSION_ALL);
+                return;
             }
+            identifier = mngr.getDeviceId();
+
             if (identifier == null || identifier .length() == 0) {
                 identifier = Settings.Secure.getString(getContentResolver(),
                         Settings.Secure.ANDROID_ID);
@@ -236,6 +266,93 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
         }
     }
 
+    /*public void ambilData(){
+        //Ambil Data Provinsi
+        txtBar.setText("Menyiapkan data prop...");
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, setter.URL_JSON_PROPINSI, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("JsonDataProvinsi", response);
+                try {
+                    final JSONObject jsonObject = new JSONObject(response);
+                    String code = jsonObject.getString("code");
+                    if (code.equals("200")){
+                        dm.deleteJsonPilihAll("ListProv");
+                        dm.addRowJsonPilih(response, "ListProv");
+
+
+                        //Ambil Data KabKodya
+                        txtBar.setText("Menyiapkan data kab...");
+                        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, setter.URL_JSON_KABKODYA, new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                try {
+                                    JSONObject jsonObject1 = new JSONObject(response);
+                                    String code = jsonObject.getString("code");
+                                    if (code.equals("200")) {
+                                        dm.deleteJsonPilihAll("ListKabKodya");
+                                        dm.addRowJsonPilih(response, "ListKabKodya");
+
+                                        //langsung ke login
+                                        Intent intent = new Intent(
+                                              SurveyorSplashScreenActivity.this,
+                                               LoginActivity.class);
+                                        startActivity(intent);
+                                        finish();
+
+                                    } else {
+                                        Log.e("CodeResponseDataKabKodya",code);
+                                        Toast.makeText(getApplicationContext(),"Gagal Ambil Data KabKodya. Code "+code,Toast.LENGTH_LONG);
+                                    }
+                                } catch (NullPointerException e) {
+                                    e.printStackTrace();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                Toast.makeText(getApplicationContext(),"Gagal memuat data. Mohon periksa koneksi internet Anda",Toast.LENGTH_SHORT);
+                                Log.e("GagalAmbilDataKabKodya",String.valueOf(error));
+                            }
+                        }){
+                            protected Map<String,String> getParams() throws AuthFailureError{
+                                Map<String,String> params = new HashMap<>();
+                                params.put("tk",setter.APK_CODE);
+                                return params;
+                            }
+
+                        };
+
+                    }else {
+                        Log.e("CodeResponseDataProvinsi",code);
+                        Toast.makeText(getApplicationContext(),"Gagal Ambil Data Propinsi. Code "+code,Toast.LENGTH_LONG);
+                    }
+                } catch (NullPointerException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(),"Gagal memuat data. Mohon periksa koneksi internet Anda",Toast.LENGTH_SHORT);
+                Log.e("GagalAmbilDataProvinsi",String.valueOf(error));
+            }
+        }){
+            protected Map<String,String> getParams() throws AuthFailureError{
+                Map<String,String> params = new HashMap<>();
+                params.put("tk",setter.APK_CODE);
+
+                return params;
+            }
+        };
+        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+        requestQueue.add(stringRequest);
+    }*/
+
     //asalnya nyala, dimatiin dulu
     @Override
     protected void onResume() {
@@ -263,6 +380,7 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
                            sleep(100);
                            wait += 100;
                        }
+
                    } catch (Exception e) {
                        System.out.println("EXc=" + e);
                    } finally {
@@ -277,9 +395,11 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
                }
            };
            welcomeThread.start();
+           //ambilData();
        } else { //asalnya nyala, dimatiin dulu
             ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL); //asalnya nyala, dimatiin dulu
         } //asalnya nyala, dimatiin dulu
 
     }
+
 }

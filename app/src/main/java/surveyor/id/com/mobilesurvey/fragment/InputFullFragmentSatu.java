@@ -1,6 +1,7 @@
 package surveyor.id.com.mobilesurvey.fragment;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -98,6 +100,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
             C_Nama_panggilan,C_Identity_no,C_Sandi_lahir,C_religion,C_Stay_length,C_Handphone_1,
             C_Handphone_2,C_email,C_category_name,C_category_id;
     private Context hsContext;
+    private ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
@@ -862,6 +865,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_province_ktp = new ArrayList<String>();
@@ -937,10 +941,35 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //          Toast.makeText(HomeActivity.this, "Tidak Terhubung dengan Server", Toast.LENGTH_LONG).show();
+                        progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -951,6 +980,90 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data provinsi...");
+        progressDialog.show();
+
+    }
+
+    public void TampilProvinceKtpNew(){
+        ArrayList<ArrayList<Object>> ListData = dm.ambilBarisJsonPilih("ListProv");
+        Log.i("ListDataSize",String.valueOf(ListData.size()));
+
+        if (ListData.size() > 0){
+
+            try {
+                ArrayList<Object> baris = ListData.get(0);
+                String jsonResponse = baris.get(0).toString();
+
+                Log.d("jsonProvinsi",jsonResponse);
+
+                cek_list_province_ktp = new ArrayList<String>();
+                cek_list_province_ktp.add("--");
+
+                cek_list_id_province_ktp = new ArrayList<String>();
+
+                JSONObject jObj = new JSONObject(jsonResponse);
+                String code = jObj.getString("code");
+
+                if (code.equals("200")){
+                    JSONArray jsonArray = jObj.getJSONArray("data");
+                    JSONArray provData = jsonArray.getJSONArray(0);
+                    JSONArray idProvData = jsonArray.getJSONArray(1);
+
+                    if (provData.length() > 0){
+                        for (int i=0; i<provData.length(); i++){
+                            JSONObject obj = provData.getJSONObject(i);
+                            province_ktp = obj.getString("propinsi");
+
+                            if (cek_list_province_ktp.contains(province_ktp)){
+                            }else {
+                                cek_list_province_ktp.add(province_ktp);
+                            }
+
+                            JSONObject jsonObject = idProvData.getJSONObject(i);
+                            id_province_ktp = jsonObject.getString("kode_propinsi");
+
+                            if (cek_list_id_province_ktp.contains(id_province_ktp)){
+                            }else {
+                                cek_list_id_province_ktp.add(id_province_ktp);
+                            }
+                        }
+                    }
+                }
+                spinnerDialog_province_ktp = new SpinnerDialog((Activity) hsContext,cek_list_province_ktp,"Select item");
+                S_province_ktp.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        spinnerDialog_province_ktp.showSpinerDialog();
+                    }
+                });
+                spinnerDialog_province_ktp.bindOnSpinerListener(new OnSpinerItemClick() {
+                    @Override
+                    public void onClick(String item, int position) {
+                        if (!item.equals("")){
+                            S_province_ktp.setText(item);
+                            S_province_ktp.setTag(cek_list_id_province_ktp.get(position-1));
+                            S_kab_kodya_ktp.setText("");
+                            S_kecamatan_ktp.setText("");
+                            S_kelurahan_ktp.setText("");
+                            Sandi_dati_2_ktp.setText("");
+                            Postal_code_ktp.setText("");
+                            Sandi_lahir.setText("");
+                            TampilKabKodyaKtp();
+                        }
+                    }
+                });
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }
     }
 
     public void TampilKabKodyaKtp(){
@@ -958,6 +1071,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kab_kodya_ktp = new ArrayList<String>();
@@ -1025,10 +1139,38 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
                         //          Toast.makeText(HomeActivity.this, "Tidak Terhubung dengan Server", Toast.LENGTH_LONG).show();
+                        Log.e("AmbilDataProvinsi",error.getMessage());
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
+
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idProvince;
@@ -1048,6 +1190,77 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kab/kodya...");
+        progressDialog.show();
+    }
+
+    public void TampilKabKodyaKtpNew(){
+        ArrayList<ArrayList<Object>> ListData = dm.ambilBarisJsonPilih("ListKabKodya");
+
+        if (ListData.size() > 0) {
+
+            try {
+                ArrayList<Object> baris = ListData.get(0);
+                String jsonResponse = baris.get(0).toString();
+
+                cek_list_kab_kodya_ktp = new ArrayList<String>();
+                cek_list_kab_kodya_ktp.add("--");
+
+                cek_list_id_kab_kodya_ktp = new ArrayList<String>();
+
+                JSONObject jObj = new JSONObject(jsonResponse);
+                String code = jObj.getString("code");
+                if (code.equals("200")){
+                    JSONArray jsonArray = jObj.getJSONArray("data");
+                    JSONArray kotaData = jsonArray.getJSONArray(0);
+                    JSONArray idKotaData = jsonArray.getJSONArray(1);
+                    if (kotaData.length() > 0){
+                        for (int i=0; i<kotaData.length();i++){
+                            JSONObject obj = kotaData.getJSONObject(i);
+                            kab_kodya_ktp = obj.getString("kbpktm");
+                            if (cek_list_kab_kodya_ktp.contains(kab_kodya_ktp)){}
+                            else {
+                                cek_list_kab_kodya_ktp.add(kab_kodya_ktp);
+                            }
+
+                            JSONObject jsonObject = idKotaData.getJSONObject(i);
+                            id_kab_kodya_ktp = jsonObject.getString("kode_kota");
+                            if (cek_list_id_kab_kodya_ktp.contains(id_kab_kodya_ktp)){}
+                            else {
+                                cek_list_id_kab_kodya_ktp.add(id_kab_kodya_ktp);
+                            }
+                        }
+                    }
+                }
+                spinnerDialog_kab_kodya_ktp = new SpinnerDialog((Activity) hsContext,cek_list_kab_kodya_ktp,"Select item");
+                S_kab_kodya_ktp.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        spinnerDialog_kab_kodya_ktp.showSpinerDialog();
+                    }
+                });
+                spinnerDialog_kab_kodya_ktp.bindOnSpinerListener(new OnSpinerItemClick() {
+                    @Override
+                    public void onClick(String item, int position) {
+                        S_kab_kodya_ktp.setText(item);
+                        S_kab_kodya_ktp.setTag(cek_list_id_kab_kodya_ktp.get(position-1));
+                        S_kecamatan_ktp.setText("");
+                        S_kelurahan_ktp.setText("");
+                        Sandi_dati_2_ktp.setText("");
+                        Postal_code_ktp.setText("");
+                        Sandi_lahir.setText("");
+                        TampilKecamatanKtp();
+                    }
+                });
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void TampilKecamatanKtp(){
@@ -1055,6 +1268,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kecamatan_ktp = new ArrayList<String>();
@@ -1120,10 +1334,35 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
 
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idKota;
@@ -1143,6 +1382,11 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kecamatan...");
+        progressDialog.show();
     }
 
     public void TampilKelurahanKtp(){
@@ -1150,6 +1394,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kelurahan_ktp = new ArrayList<String>();
@@ -1211,10 +1456,35 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
 
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idKec;
@@ -1234,6 +1504,11 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kelurahan...");
+        progressDialog.show();
     }
 
 
@@ -1242,6 +1517,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             JSONObject jObj = new JSONObject(response);
@@ -1273,10 +1549,35 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        progressDialog.dismiss();
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
 
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idProv,idKota,idKec,idKel;
@@ -1318,6 +1619,11 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan sandi dati/lahir...");
+        progressDialog.show();
     }
 
     public void TampilProvinceHome(){
@@ -1325,6 +1631,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_province_home = new ArrayList<String>();
@@ -1391,9 +1698,35 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -1404,6 +1737,11 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data propinsi...");
+        progressDialog.show();
     }
 
     public void TampilKabKodyaHome(){
@@ -1411,6 +1749,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kab_kodya_home = new ArrayList<String>();
@@ -1476,9 +1815,35 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -1490,6 +1855,11 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kab/kodya...");
+        progressDialog.show();
     }
 
     public void TampilKecamatanHome(){
@@ -1497,6 +1867,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kecamatan_home = new ArrayList<String>();
@@ -1561,9 +1932,34 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -1575,6 +1971,11 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kecamatan...");
+        progressDialog.show();
     }
 
     public void TampilKelurahanHome(){
@@ -1582,6 +1983,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kelurahan_home = new ArrayList<String>();
@@ -1643,9 +2045,35 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -1657,6 +2085,11 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kelurahan...");
+        progressDialog.show();
     }
 
     public void TampilSandiDati2KodePosHome(){
@@ -1664,6 +2097,7 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             JSONObject jObj = new JSONObject(response);
@@ -1693,9 +2127,35 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -1710,6 +2170,11 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data sandi dati/lahir...");
+        progressDialog.show();
     }
 
     public void TampilMailAddress(){
@@ -2283,6 +2748,23 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
         hasil_data();
     }
 
+    public String trimMessage(String json, String key){
+        String trimmedString = null;
+
+        try {
+            JSONObject obj = new JSONObject(json);
+            trimmedString = obj.getString(key);
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+
+        return trimmedString;
+    }
+
+    public void  displayMessage(String toastString){
+        Toast.makeText(hsContext,toastString,Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public void onAttach(Context context) {
@@ -2294,4 +2776,6 @@ public class InputFullFragmentSatu extends Fragment implements DatePickerDialog.
             a=(Activity) context;
         }*/
     }
+
+
 }

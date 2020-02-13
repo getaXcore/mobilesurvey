@@ -16,6 +16,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.BIND_CONDITION_PROVIDER_SERVICE" />
 
     <application
         android:hardwareAccelerated="false"
@@ -44,7 +45,7 @@
             android:value="@string/google_maps_key" />
 
         <activity android:name=".LoginActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"/>
+            android:configChanges="orientation|screenSize|keyboardHidden" android:launchMode="singleInstance"/>
         <activity
             android:name=".HomeActivity"
             android:hardwareAccelerated="true"
@@ -95,6 +96,10 @@
             android:configChanges="orientation|screenSize|keyboardHidden"/>
         <activity android:name=".InputPhotoAllActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
     </application>
 
 </manifest>

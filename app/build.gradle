@@ -3,14 +3,14 @@ apply plugin: 'io.fabric'
 
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 29
     //buildToolsVersion "26"
     defaultConfig {
         applicationId "surveyor.id.com.mobilesurvey"
-        minSdkVersion 18
-        targetSdkVersion 18
-        versionCode 15
-        versionName "1.15"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 16
+        versionName '1.16'
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
@@ -23,6 +23,8 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    productFlavors {
+    }
 }
 
 
@@ -31,14 +33,13 @@ android {
 
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':datetimepicker')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile group: 'joda-time', name: 'joda-time', version: '2.9.9'
+    compile 'joda-time:joda-time:2.9.9'
     //noinspection GradleCompatible
-
     // compile 'com.github.MdFarhanRaja:SearchableSpinner:1.2'
     /*compile 'com.scottyab:rootbeer-lib:0.0.6'*/
     compile 'com.android.support:multidex:1.0.1'
@@ -63,7 +64,6 @@ dependencies {
     compile 'com.crashlytics.sdk.android:crashlytics:2.9.3'
     //compile 'com.github.boxme:squarecamera:1.1.0'
     //implementation 'com.google.firebase:firebase-analytics:3.2.0'
-
 }
 
 apply plugin: 'com.google.gms.google-services'

@@ -2,16 +2,20 @@ package surveyor.id.com.mobilesurvey;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.telephony.TelephonyManager;
@@ -68,6 +72,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
     private ImageView tampilPassword;
     private int statTamPass;
     private int resError;
+    private static final int REQUEST_PHONE_STATE = 1;
+    private int PERMISSION_ALL = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +96,10 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             // for ActivityCompat#requestPermissions for more details.
             return;
         }
+
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locListener);
+
+        identifier = checkDeviceId();
 
 
         latitude        = "";
@@ -103,15 +112,6 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         tampilPassword      = (ImageView) findViewById(R.id.tampil_password);
         buttonLogin         = (Button) findViewById(R.id.masuk);
 
-
-        mngr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        if (mngr != null) {
-            identifier = mngr.getDeviceId();
-        }
-        if (identifier == null || identifier .length() == 0) {
-            identifier = Settings.Secure.getString(getContentResolver(), Settings.Secure.
-                    ANDROID_ID);
-        }
         ArrayList<ArrayList<Object>> data = dm.ambilSemuaBaris();
         if (data.size() < 1) {
             buttonLogin.setOnClickListener(new View.OnClickListener() {
@@ -144,6 +144,35 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         });
     }
 
+    public String checkDeviceId(){
+        mngr = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+
+        if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(LoginActivity.this,new String[]{Manifest.permission.READ_PHONE_STATE},PERMISSION_ALL);
+        }
+
+        identifier = mngr.getDeviceId();
+
+        if (identifier == null || identifier .length() == 0) {
+            identifier = Settings.Secure.getString(getContentResolver(), Settings.Secure.
+                    ANDROID_ID);
+        }
+
+        return identifier;
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                           @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_ALL) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                checkDeviceId();
+            } else {
+                Toast.makeText(getApplicationContext(), "Mohon Aktifkan Perizinan untuk dapat menggunakan Aplikasi",
+                        Toast.LENGTH_LONG).show();
+            }
+        }
+    }
     private void cekJson(){
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -223,6 +252,8 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
             @Override
             public void onErrorResponse(VolleyError error) {
                 resError++;
+
+                Log.i("resError",String.valueOf(resError));
                 if(resError > 3){
                     OtherUtil.hideAlertDialog();
                     Toast.makeText(LoginActivity.this,"Tidak Terhubung",Toast.LENGTH_LONG).show();
@@ -232,9 +263,14 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
                 }
             }
         }) {
+
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
+
+                Log.i("username",username);
+                Log.i("password",password);
+
                 map.put(KEY_USERNAME, username);
                 map.put(KEY_PASSWORD, password);
                 map.put("imei", identifier);

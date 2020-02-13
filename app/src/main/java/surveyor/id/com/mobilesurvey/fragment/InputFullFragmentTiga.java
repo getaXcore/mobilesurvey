@@ -1,6 +1,7 @@
 package surveyor.id.com.mobilesurvey.fragment;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -99,6 +101,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
             C_Spouse_identity_no,C_Spouse_date_of_birth,C_Spouse_fax,C_Spouse_tipe_pekerjaan,C_spouse_jenis_pekerjaan,
             C_Spouse_tipe_pekerjaan_code,C_Spouse_jenis_pekerjaan_code;
     private Context hsContext;
+    private ProgressDialog progressDialog;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -918,6 +921,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_province_spouse = new ArrayList<String>();
@@ -988,9 +992,34 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        //progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -1001,6 +1030,11 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data provinsi...");
+        progressDialog.show();*/
     }
 
     public void TampilKabKodyaSpouse(){
@@ -1008,6 +1042,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kab_kodya_spouse = new ArrayList<String>();
@@ -1074,9 +1109,34 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        //progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idProv;
@@ -1096,6 +1156,11 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kab/kodya...");
+        progressDialog.show();*/
     }
 
     public void TampilKecamatanSpouse(){
@@ -1103,6 +1168,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kecamatan_spouse = new ArrayList<String>();
@@ -1167,9 +1233,34 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        //progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idKota;
@@ -1189,6 +1280,11 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kecamatan...");
+        progressDialog.show();*/
     }
 
     public void TampilKelurahanSpouse(){
@@ -1196,6 +1292,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             cek_list_kelurahan_spouse = new ArrayList<String>();
@@ -1257,9 +1354,34 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        //progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idKec;
@@ -1280,6 +1402,11 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data kelurahan...");
+        progressDialog.show();*/
     }
 
     public void TampilSandiDati2KodePosSpouse(){
@@ -1287,6 +1414,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        //progressDialog.dismiss();
                         Log.d(TAG, response.toString());
                         try {
                             JSONObject jObj = new JSONObject(response);
@@ -1316,9 +1444,34 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
+                        //progressDialog.dismiss();
+
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 String idProv,idKota,idKec,idKel;
@@ -1356,6 +1509,11 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         };
         RequestQueue requestQueue = Volley.newRequestQueue(hsContext);
         requestQueue.add(jArr);
+
+        //loading process dialog
+        /*progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Menyiapkan data sandi dati/lahir...");
+        progressDialog.show();*/
     }
 
     public void UpdateSpouseTitle(){
@@ -1619,6 +1777,24 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
     public void onPause() {
         super.onPause();
         //Toast.makeText(hsContext, "aa 3",Toast.LENGTH_LONG).show();
+    }
+
+    public String trimMessage(String json, String key){
+        String trimmedString = null;
+
+        try {
+            JSONObject obj = new JSONObject(json);
+            trimmedString = obj.getString(key);
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+
+        return trimmedString;
+    }
+
+    public void  displayMessage(String toastString){
+        Toast.makeText(hsContext,toastString,Toast.LENGTH_LONG).show();
     }
 
     @Override

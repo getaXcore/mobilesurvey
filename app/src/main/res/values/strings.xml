@@ -296,4 +296,6 @@
     <string name="jtrust">J Trust Group</string>
     <string name="detail_desc_ss">PT. JTrust Olympindo Multi Finance is registered and supervised by</string>
     <string name="detail_desc_ss2">Copyright 2018 JTO Finance All right reserved</string>
+
+    <string name="loadingText">Memuat data...</string>
 </resources>

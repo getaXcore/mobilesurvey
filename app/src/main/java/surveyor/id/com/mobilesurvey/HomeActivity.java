@@ -44,6 +44,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -1980,7 +1981,7 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                         try {
                             JSONObject jObj = new JSONObject(response);
                             String code = jObj.getString("code");
-                            if (code.equals("200")) {
+                            if (code.equals("200") && jObj.has("data")) {
                                 String data = jObj.getString("data");
                                 JSONArray arrayData = new JSONArray(data);
                                 if (arrayData.length() > 0) {
@@ -1999,9 +2000,32 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        String json = null;
+
+                        NetworkResponse response = error.networkResponse;
+                        if (response != null && response.data !=null){
+                            switch (response.statusCode){
+                                case 400:
+                                    json = new String(response.data);
+                                    json = trimMessage(json,"message");
+                                    if (json != null) displayMessage(json);
+                                    break;
+                            }
+
+                        }
                     }
 
                 }) {
+
+            @Override
+            protected VolleyError parseNetworkError(VolleyError volleyError){
+                if (volleyError.networkResponse !=null && volleyError.networkResponse.data != null){
+                    VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+                    volleyError = error;
+                }
+
+                return volleyError;
+            }
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> map = new HashMap<String, String>();
@@ -3344,5 +3368,23 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
             }
         });
         dialog_update_apk.show();
+    }
+
+    public String trimMessage(String json, String key){
+        String trimmedString = null;
+
+        try {
+            JSONObject obj = new JSONObject(json);
+            trimmedString = obj.getString(key);
+        }catch (JSONException e){
+            e.printStackTrace();
+            return null;
+        }
+
+        return trimmedString;
+    }
+
+    public void  displayMessage(String toastString){
+        Toast.makeText(getApplicationContext(),toastString,Toast.LENGTH_LONG).show();
     }
 }
