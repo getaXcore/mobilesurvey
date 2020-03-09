@@ -75,6 +75,7 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import pl.com.salsoft.sqlitestudioremote.SQLiteStudioService;
 import surveyor.id.com.mobilesurvey.fragment.MapsHomeFragment;
 import surveyor.id.com.mobilesurvey.fragment.PendingSendSurveyFragment;
 import surveyor.id.com.mobilesurvey.fragment.PendingSurveyFragment;
@@ -191,6 +192,8 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
         setSupportActionBar(toolbar);
 
         dm = new DatabaseManager(this);
+
+        SQLiteStudioService.instance().start(this);
         
         ctx = this;
         mBackgroundService = new BackgroundService(getCtx());
@@ -596,6 +599,7 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
 
     @Override
     protected void onDestroy() {
+        SQLiteStudioService.instance().stop();
         stopService(mServiceIntent);
         Log.i("MAINACT", "onDestroy!");
         super.onDestroy();

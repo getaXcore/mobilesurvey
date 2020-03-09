@@ -1,6 +1,5 @@
 package surveyor.id.com.mobilesurvey;
 
-import android.*;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -12,12 +11,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.annotation.RequiresPermission;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -36,10 +33,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.jar.*;
 
 import surveyor.id.com.mobilesurvey.modal.DatabaseManager;
 import surveyor.id.com.mobilesurvey.modal.setter;
+import surveyor.id.com.mobilesurvey.util.DataSource;
 import surveyor.id.com.mobilesurvey.util.OtherUtil;
 
 public class SurveyorSplashScreenActivity extends AppCompatActivity {
@@ -55,6 +52,7 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private Context hsContext;
     private CameraManager mngrCam;
+    private DataSource dataSource;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +60,11 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_surveyor_splash_screen);
         dm = new DatabaseManager(this);
         resError = 1;
+
+        //insert data propinsi,kota
+        dataSource = new DataSource(this);
+        dataSource.insertProv();
+        dataSource.insertKota();
 
         mngrCam = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         if (ActivityCompat.checkSelfPermission(getApplicationContext(),Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){

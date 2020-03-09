@@ -11,41 +11,97 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
     <option name="TOOL_WINDOW_REGEXP_FILTER" value="false" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68d134dd-3768-4502-8512-1b8ff0e5aca2" name="Default" comment="*Change Target Minimum API &amp; Max API (API 19 - API 29)&#10;*Change request permission phone Device Id &amp; Camera must be grant if user not yet&#10;*Change Handling error while getting data of province, kabkodya, kecamatan, kelurahan, sandi dati&#10;*Add dialog interface while getting data in some case">
+    <list default="true" id="68d134dd-3768-4502-8512-1b8ff0e5aca2" name="Default" comment="*Change Target Minimum API &amp; Max API (API 19 - API 28)&#10;*Store data Provinsi &amp; KabKota locally&#10;*Change about to get data propinsi &amp; KabKot for Tab Personal Data, Occupation Data, Spouse Data, Contact Person Data&#10;*Add Process Dialog while getting data Kecamatan, Kelurahan, Sandi Dati for Tab Personal Data&#10;*Add Toast Notification of failed/no network while getting data Kecamatan, Kelurahan, Sandi Dati for Tab Personal Data, Occupation Data, Spouse Data, Contact Person Data">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/__local_aars___E__taufan_workspace_androidku_mobilesurvey_app_libs_SQLiteStudioRemote_jar_unspecified_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSource.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_mediarouter_v7_24_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_multidex_1_0_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_multidex_1_0_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_android_support_palette_v7_24_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_ads_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_ads_lite_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_analytics_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_analytics_impl_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_appinvite_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_auth_base_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_awareness_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_base_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_basement_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_cast_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_cast_framework_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_clearcut_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_drive_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_fitness_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_games_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_gass_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_gcm_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_identity_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_iid_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_instantapps_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_location_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_maps_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_nearby_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_panorama_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_places_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_plus_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_safetynet_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_tagmanager_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_tagmanager_api_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_tagmanager_v4_impl_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_tasks_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_vision_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_wallet_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_android_gms_play_services_wearable_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_analytics_impl_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_appindexing_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_auth_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_common_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_config_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_crash_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_database_connection_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_iid_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_messaging_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_storage_10_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/com_google_firebase_firebase_storage_common_10_2_4.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/release/output.json" afterPath="$PROJECT_DIR$/app/release/output.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/InputGaleriPhotoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/InputGaleriPhotoActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/LoginActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/MapsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/MapsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SignatureActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SignatureActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SignatureSurveyorActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SignatureSurveyorActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SurveyorSplashScreenActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SurveyorSplashScreenActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentDua.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentDua.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentEmpat.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentEmpat.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentLima.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentLima.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSatu.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSatu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSebelas.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSebelas.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentTiga.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentTiga.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_surveyor_splash_screen.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_surveyor_splash_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/DatabaseManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/DatabaseManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/datetimepicker/datetimepicker.iml" afterPath="$PROJECT_DIR$/datetimepicker/datetimepicker.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobilesurvey.iml" afterPath="$PROJECT_DIR$/mobilesurvey.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle.properties" afterPath="$PROJECT_DIR$/gradle.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,74 +129,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="InputFullFragmentSatu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSatu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="2166" column="0" lean-forward="false" selection-start-line="2166" selection-start-column="0" selection-end-line="2166" selection-end-column="0" />
-              <folding>
-                <marker date="1581493686369" expanded="false" signature="110203:110219" ph="&lt;~&gt;" />
-                <marker date="1581493686369" expanded="false" signature="111702:111718" ph="&lt;~&gt;" />
-                <marker date="1581493686369" expanded="false" signature="113197:113213" ph="&lt;~&gt;" />
-                <marker date="1581493686369" expanded="false" signature="114610:114626" ph="&lt;~&gt;" />
-                <marker date="1581493686369" expanded="false" signature="116100:116116" ph="&lt;~&gt;" />
-                <marker date="1581493686369" expanded="false" signature="117580:117596" ph="&lt;~&gt;" />
-                <marker date="1581493686369" expanded="false" signature="119165:119181" ph="&lt;~&gt;" />
-                <marker date="1581493686369" expanded="false" signature="120770:120786" ph="&lt;~&gt;" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InputFullFragmentDua.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentDua.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19550">
-              <caret line="1191" column="13" lean-forward="false" selection-start-line="1191" selection-start-column="13" selection-end-line="1191" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <marker date="1581494204903" expanded="false" signature="62731:62747" ph="&lt;~&gt;" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SurveyorSplashScreenActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SurveyorSplashScreenActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SurveyorSplashScreenActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-85">
-              <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+            <state relative-caret-position="5466">
+              <caret line="373" column="45" lean-forward="false" selection-start-line="373" selection-start-column="45" selection-end-line="373" selection-end-column="45" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="47" column="108" lean-forward="false" selection-start-line="47" selection-start-column="108" selection-end-line="47" selection-end-column="108" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-manifest">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1802">
-              <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+            <state relative-caret-position="17">
+              <caret line="103" column="15" lean-forward="false" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="false" />
-                <element signature="e#4959#4960#0" expanded="false" />
-                <element signature="e#5011#5012#0" expanded="false" />
-                <element signature="e#7322#7323#0" expanded="false" />
-                <element signature="e#7361#7362#0" expanded="false" />
-                <element signature="e#13625#13626#0" expanded="false" />
-                <element signature="e#13656#13657#0" expanded="false" />
+                <element signature="e#5085#5086#0" expanded="false" />
+                <element signature="e#5137#5138#0" expanded="false" />
+                <element signature="e#7448#7449#0" expanded="false" />
+                <element signature="e#7487#7488#0" expanded="false" />
+                <element signature="e#13985#13986#0" expanded="false" />
+                <element signature="e#14016#14017#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputFullFragmentSatu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSatu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="1617" column="0" lean-forward="false" selection-start-line="1617" selection-start-column="0" selection-end-line="1617" selection-end-column="0" />
+              <folding>
+                <element signature="method#TampilProvinceKtpOld#0;class#InputFullFragmentSatu#0" expanded="false" />
+                <element signature="method#TampilProvinceKtp#0;class#InputFullFragmentSatu#0" expanded="false" />
+                <element signature="method#TampilKabKodyaKtpOld#0;class#InputFullFragmentSatu#0" expanded="false" />
+                <element signature="method#TampilKabKodyaKtp#0;class#InputFullFragmentSatu#0" expanded="false" />
+                <element signature="method#TampilKecamatanKtpNew#0;class#InputFullFragmentSatu#0" expanded="false" />
+                <element signature="method#TampilKelurahanKtpNew#0;class#InputFullFragmentSatu#0" expanded="false" />
+                <element signature="method#TampilProvinceHome#0;class#InputFullFragmentSatu#0" expanded="false" />
+                <element signature="e#82643#82866#0" expanded="true" />
+                <element signature="e#82865#82866#0" expanded="true" />
+                <element signature="e#82934#83559#0" expanded="true" />
+                <element signature="e#83558#83559#0" expanded="true" />
+                <element signature="method#TampilKabKodyaHome#0;class#InputFullFragmentSatu#0" expanded="false" />
+                <element signature="e#90193#90417#0" expanded="true" />
+                <element signature="e#90416#90417#0" expanded="true" />
+                <element signature="e#90486#91061#0" expanded="true" />
+                <element signature="e#91060#91061#0" expanded="true" />
+                <marker date="1583740361517" expanded="false" signature="116699:116715" ph="&lt;~&gt;" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="InputFullFragmentDua.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentDua.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="1001" column="37" lean-forward="false" selection-start-line="1001" selection-start-column="37" selection-end-line="1001" selection-end-column="37" />
+              <folding>
+                <element signature="method#TampilJobTitle#0;class#InputFullFragmentDua#0" expanded="false" />
+                <element signature="method#TampilEconomyCode#0;class#InputFullFragmentDua#0" expanded="false" />
+                <element signature="method#TampilallEconomyCode#0;class#InputFullFragmentDua#0" expanded="false" />
+                <element signature="method#TampilTipePekerjaan#0;class#InputFullFragmentDua#0" expanded="false" />
+                <element signature="method#TampilJenisPekerjaan#0;class#InputFullFragmentDua#0" expanded="false" />
+                <element signature="method#TampilProvinceCompany#0;class#InputFullFragmentDua#0" expanded="false" />
+                <element signature="e#37224#37447#0" expanded="true" />
+                <element signature="e#37446#37447#0" expanded="true" />
+                <element signature="method#TampilKabKodyaCompany#0;class#InputFullFragmentDua#0" expanded="false" />
+                <element signature="e#45154#45381#0" expanded="true" />
+                <element signature="e#45380#45381#0" expanded="true" />
+                <element signature="e#45453#46052#0" expanded="true" />
+                <element signature="e#46051#46052#0" expanded="true" />
+                <element signature="method#parseNetworkError#0;class#57325:61195" expanded="false" />
+                <element signature="method#getParams#0;class#57325:61195" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -149,17 +214,19 @@
       <file leaf-file-name="InputFullFragmentTiga.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentTiga.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24871">
-              <caret line="1515" column="32" lean-forward="false" selection-start-line="1515" selection-start-column="32" selection-end-line="1515" selection-end-column="32" />
+            <state relative-caret-position="17">
+              <caret line="1240" column="26" lean-forward="false" selection-start-line="1240" selection-start-column="26" selection-end-line="1240" selection-end-column="26" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#9939#9940#0" expanded="false" />
-                <element signature="e#9987#9988#0" expanded="false" />
-                <marker date="1581494205020" expanded="false" signature="77622:77638" ph="&lt;~&gt;" />
-                <marker date="1581494205020" expanded="false" signature="79123:79139" ph="&lt;~&gt;" />
-                <marker date="1581494205020" expanded="false" signature="80735:80751" ph="&lt;~&gt;" />
-                <marker date="1581494205020" expanded="false" signature="83717:83733" ph="&lt;~&gt;" />
-                <marker date="1581494205020" expanded="false" signature="85308:85324" ph="&lt;~&gt;" />
+                <element signature="method#TampilProvinceSpouse#0;class#InputFullFragmentTiga#0" expanded="false" />
+                <element signature="e#53928#54153#0" expanded="true" />
+                <element signature="e#54152#54153#0" expanded="true" />
+                <element signature="e#54223#54866#0" expanded="true" />
+                <element signature="e#54865#54866#0" expanded="true" />
+                <element signature="method#TampilKabKodyaSpouse#0;class#InputFullFragmentTiga#0" expanded="false" />
+                <element signature="e#61892#62118#0" expanded="true" />
+                <element signature="e#62117#62118#0" expanded="true" />
+                <element signature="e#62189#62780#0" expanded="true" />
+                <element signature="e#62779#62780#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,12 +235,11 @@
       <file leaf-file-name="InputFullFragmentEmpat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentEmpat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="14960">
-              <caret line="921" column="32" lean-forward="false" selection-start-line="921" selection-start-column="32" selection-end-line="921" selection-end-column="32" />
+            <state relative-caret-position="323">
+              <caret line="649" column="26" lean-forward="false" selection-start-line="649" selection-start-column="26" selection-end-line="649" selection-end-column="26" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <marker date="1581494204967" expanded="false" signature="46353:46369" ph="&lt;~&gt;" />
-                <marker date="1581494204967" expanded="false" signature="47974:47990" ph="&lt;~&gt;" />
+                <element signature="method#TampilProvinceContact#0;class#InputFullFragmentEmpat#0" expanded="false" />
+                <element signature="method#TampilKabKodyaContact#0;class#InputFullFragmentEmpat#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -181,28 +247,15 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getInstance</find>
-      <find>addToRequestQueue</find>
-      <find>AppController</find>
-      <find>customer_app</find>
-      <find>addRowJson</find>
-      <find>checkLoginImei</find>
-      <find>loadingText</find>
-      <find>hsContext</find>
-      <find>URL_JSON_PROPINSI</find>
-      <find>ROW_JSON_PILIH_HASIL</find>
-      <find>provinceSp</find>
-      <find>provinceCo</find>
-      <find>java.lang.SecurityException: getDeviceId</find>
-      <find>onRequestPermissionsResult</find>
-      <find>provinceKtp</find>
-      <find>provinceCom</find>
-      <find>Mengambil</find>
-      <find>Menyiapkan</find>
-      <find>provinceC</find>
-      <find>PERMISSION_ALL</find>
       <find>panggilimei</find>
       <find>PERMISSIONS</find>
       <find>tidak terhubung</find>
@@ -212,7 +265,27 @@
       <find>province</find>
       <find>cekJson</find>
       <find>login</find>
+      <find>fragment</find>
+      <find>onDes</find>
+      <find>province_ktp</find>
+      <find>TampilProvinceKtpNew</find>
+      <find>DatabaseManager</find>
+      <find>TampilKabKodyaKtp</find>
+      <find>ambilKotaByProv</find>
+      <find>url_list_tugas</find>
+      <find>NAMA_TABEL_KOTA</find>
+      <find>basement</find>
+      <find>10.2.4</find>
+      <find>ambilKecByKota</find>
+      <find>Login gagal</find>
       <find>identifier</find>
+      <find>Imei Tidak Terdaftar</find>
+      <find>URL_SERVICE_2</find>
+      <find>checkDeviceId</find>
+      <find>mSignature</find>
+      <find>signature</find>
+      <find>StoredPath</find>
+      <find>parseNetworkError</find>
     </findStrings>
     <replaceStrings>
       <replace>S_Jenis_pekerjaan_spouse</replace>
@@ -221,7 +294,7 @@
     </replaceStrings>
   </component>
   <component name="GenerateSignedApkSettings">
-    <option name="KEY_STORE_PATH" value="F:\taufan\omos\key store mobile survey\key_store_mobile_survey.jks" />
+    <option name="KEY_STORE_PATH" value="E:\taufan\omos\key store mobile survey\key_store_mobile_survey.jks" />
     <option name="KEY_ALIAS" value="key0" />
     <option name="REMEMBER_PASSWORDS" value="true" />
   </component>
@@ -2860,32 +2933,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/gradle.properties" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_input_full_fragment_sebelas.xml" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_input_full_fragment_satu.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_input_full_fragment_duabelas.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/setter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/DatabaseManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_input_full_fragment_dua.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_approve.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/ApproveActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_input_full_fragment_tiga.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/InputDataFullActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSebelas.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/InputGaleriPhotoActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_surveyor_splash_screen.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentLima.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/InputDataFullActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/HomeActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSatu.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentDua.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentTiga.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentEmpat.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSource2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKecP1.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKecP2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKecP3.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKecP4.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSource.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP1.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP21.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP22.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP10.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP11.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP12.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP14.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP15.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP16.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP17.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP19.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP18.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP2.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP3.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP4.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP5.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP6.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP7.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP8.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP9.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP20.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/MapsActivity.java" />
+        <option value="$PROJECT_DIR$/gradle.properties" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP13.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/DatabaseManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SignatureActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SignatureSurveyorActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SurveyorSplashScreenActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSatu.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentEmpat.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentTiga.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentDua.java" />
       </list>
     </option>
   </component>
@@ -2910,9 +3008,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2934,6 +3030,14 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -2945,26 +3049,93 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidManifestsGroupNode" />
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobilesurvey" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobilesurvey" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobilesurvey" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobilesurvey" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobilesurvey" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mobilesurvey" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="preferences.externalTools" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../omos/appsurveyorolym" />
-    <property name="device.picker.selection" value="" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../omos/key store mobile survey/key_store_mobile_survey.jks" />
+    <property name="device.picker.selection" value="42b2e86c" />
     <property name="android.profiler.active" value="true" />
     <property name="android.project.structure.last.selected" value="app" />
     <property name="android.project.structure.proportion" value="0.15" />
-    <property name="ExportApk.ApkPath" value="F:\taufan\workspace-androidku\mobilesurvey\app" />
+    <property name="ExportApk.ApkPath" value="E:\taufan\workspace-androidku\mobilesurvey\app" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="ExportApk.SignV1" value="true" />
+    <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -3049,7 +3220,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1581562699978" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1583749462178" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -3097,7 +3268,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1581562699978" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1583749462178" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3129,6 +3300,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -3224,7 +3416,7 @@
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
       <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
       <option name="FORCE_STOP_RUNNING_APP" value="true" />
-      <option name="TARGET_SELECTION_MODE" value="USB_DEVICE" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="Nexus_5_API_27" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
@@ -3259,7 +3451,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1581562699979" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1583749462178" />
       </method>
     </configuration>
     <list size="1">
@@ -3333,10 +3525,17 @@
       <option name="project" value="LOCAL" />
       <updated>1578467766938</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="*Change Target Minimum API &amp; Max API (API 19 - API 29)&#10;*Change request permission phone Device Id &amp; Camera must be grant if user not yet&#10;*Change Handling error while getting data of province, kabkodya, kecamatan, kelurahan, sandi dati&#10;*Add dialog interface while getting data in some case">
+      <created>1581562738879</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1581562738879</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="4">
+  <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
     </todo-panel>
@@ -3350,22 +3549,21 @@
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.49701494" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24678664" sideWeight="0.54347825" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.90616965" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24678664" sideWeight="0.58498025" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3275862" sideWeight="0.50385606" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5025707" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35278514" sideWeight="0.49614397" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.4974293" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.49550128" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37931034" sideWeight="0.5044987" order="12" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24678664" sideWeight="0.45652175" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24678664" sideWeight="0.41501975" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32969153" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
@@ -3381,6 +3579,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31491002" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980132" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="SVN Repositories" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891247" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3428,488 +3627,35 @@
     <MESSAGE value="Add Tipe dan Jenis Pekerjaan di Tab Occupation dan Tab Spouse Data" />
     <MESSAGE value="*Change condition for checking customer data &#10;*Add condition if there is no spouse data&#10;*Add some parameter for sync data" />
     <MESSAGE value="*Change Target Minimum API &amp; Max API (API 19 - API 29)&#10;*Change request permission phone Device Id &amp; Camera must be grant if user not yet&#10;*Change Handling error while getting data of province, kabkodya, kecamatan, kelurahan, sandi dati&#10;*Add dialog interface while getting data in some case" />
-    <option name="LAST_COMMIT_MESSAGE" value="*Change Target Minimum API &amp; Max API (API 19 - API 29)&#10;*Change request permission phone Device Id &amp; Camera must be grant if user not yet&#10;*Change Handling error while getting data of province, kabkodya, kecamatan, kelurahan, sandi dati&#10;*Add dialog interface while getting data in some case" />
+    <MESSAGE value="*Change Target Minimum API &amp; Max API (API 19 - API 28)&#10;*Store data Provinsi &amp; KabKota locally&#10;*Change about to get data propinsi &amp; KabKot for Tab Personal Data, Occupation Data, Spouse Data, Contact Person Data&#10;*Add Process Dialog while getting data Kecamatan, Kelurahan, Sandi Dati for Tab Personal Data&#10;*Add Toast Notification of failed/no network while getting data Kecamatan, Kelurahan, Sandi Dati for Tab Personal Data, Occupation Data, Spouse Data, Contact Person Data" />
+    <option name="LAST_COMMIT_MESSAGE" value="*Change Target Minimum API &amp; Max API (API 19 - API 28)&#10;*Store data Provinsi &amp; KabKota locally&#10;*Change about to get data propinsi &amp; KabKot for Tab Personal Data, Occupation Data, Spouse Data, Contact Person Data&#10;*Add Process Dialog while getting data Kecamatan, Kelurahan, Sandi Dati for Tab Personal Data&#10;*Add Toast Notification of failed/no network while getting data Kecamatan, Kelurahan, Sandi Dati for Tab Personal Data, Occupation Data, Spouse Data, Contact Person Data" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_achievement.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/tab_view.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/spinner_item.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/nav_header_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_row_send_pending.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_row_lanjut_survey.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_row_history.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_row_chat.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_row_achievement.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_row.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pending_survey.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_pending_send_survey.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_maps_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_maps_fragment_tiga.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_maps_fragment_satu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_maps_fragment_dua.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_input_full_fragment_tujuh.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/google_maps_api.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/activity_main_drawer.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_maps.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_input_data.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_home.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="36" lean-forward="false" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="36" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_input_galeri_photo.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-48">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_input_full_fragment_sebelas.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="130" column="47" lean-forward="false" selection-start-line="130" selection-start-column="47" selection-end-line="130" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/service/BackgroundRestarterBroadcastReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/adapter/CustomListSendPendingAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-133">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/InputGaleriPhotoActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1530">
-          <caret line="126" column="65" lean-forward="true" selection-start-line="126" selection-start-column="65" selection-end-line="126" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/InputDataFullActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="223" column="79" lean-forward="false" selection-start-line="223" selection-start-column="74" selection-end-line="223" selection-end-column="79" />
-          <folding>
-            <marker date="1578466021765" expanded="false" signature="113008:113024" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/AppController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="56" column="37" lean-forward="false" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/service/BackgroundService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="111" column="27" lean-forward="false" selection-start-line="111" selection-start-column="16" selection-end-line="111" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSebelas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="1165" column="46" lean-forward="false" selection-start-line="1165" selection-start-column="46" selection-end-line="1165" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="571">
-          <caret line="299" column="29" lean-forward="false" selection-start-line="299" selection-start-column="18" selection-end-line="299" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/setter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="51" column="98" lean-forward="false" selection-start-line="51" selection-start-column="98" selection-end-line="51" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_surveyor_splash_screen.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="44" column="31" lean-forward="false" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/DatabaseManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2533">
-          <caret line="2821" column="30" lean-forward="false" selection-start-line="2821" selection-start-column="30" selection-end-line="2821" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_input_full_fragment_satu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentLima.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="68" column="30" lean-forward="false" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_input_full_fragment_empat.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="1985" column="74" lean-forward="false" selection-start-line="1985" selection-start-column="74" selection-end-line="1985" selection-end-column="74" />
-          <folding />
+        <state relative-caret-position="1870">
+          <caret line="195" column="49" lean-forward="false" selection-start-line="195" selection-start-column="49" selection-end-line="195" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentTiga.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/ListTugasActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24871">
-          <caret line="1515" column="32" lean-forward="false" selection-start-line="1515" selection-start-column="32" selection-end-line="1515" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#9939#9940#0" expanded="false" />
-            <element signature="e#9987#9988#0" expanded="false" />
-            <marker date="1581494205020" expanded="false" signature="77622:77638" ph="&lt;~&gt;" />
-            <marker date="1581494205020" expanded="false" signature="79123:79139" ph="&lt;~&gt;" />
-            <marker date="1581494205020" expanded="false" signature="80735:80751" ph="&lt;~&gt;" />
-            <marker date="1581494205020" expanded="false" signature="83717:83733" ph="&lt;~&gt;" />
-            <marker date="1581494205020" expanded="false" signature="85308:85324" ph="&lt;~&gt;" />
-          </folding>
+        <state relative-caret-position="329">
+          <caret line="328" column="98" lean-forward="false" selection-start-line="328" selection-start-column="84" selection-end-line="328" selection-end-column="98" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentEmpat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="14960">
-          <caret line="921" column="32" lean-forward="false" selection-start-line="921" selection-start-column="32" selection-end-line="921" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <marker date="1581494204967" expanded="false" signature="46353:46369" ph="&lt;~&gt;" />
-            <marker date="1581494204967" expanded="false" signature="47974:47990" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentDua.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19550">
-          <caret line="1191" column="13" lean-forward="false" selection-start-line="1191" selection-start-column="13" selection-end-line="1191" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <marker date="1581494204903" expanded="false" signature="62731:62747" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="159" column="0" lean-forward="false" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#4959#4960#0" expanded="false" />
-            <element signature="e#5011#5012#0" expanded="false" />
-            <element signature="e#7322#7323#0" expanded="false" />
-            <element signature="e#7361#7362#0" expanded="false" />
-            <element signature="e#13625#13626#0" expanded="false" />
-            <element signature="e#13656#13657#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSatu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="2166" column="0" lean-forward="false" selection-start-line="2166" selection-start-column="0" selection-end-line="2166" selection-end-column="0" />
-          <folding>
-            <marker date="1581493686369" expanded="false" signature="110203:110219" ph="&lt;~&gt;" />
-            <marker date="1581493686369" expanded="false" signature="111702:111718" ph="&lt;~&gt;" />
-            <marker date="1581493686369" expanded="false" signature="113197:113213" ph="&lt;~&gt;" />
-            <marker date="1581493686369" expanded="false" signature="114610:114626" ph="&lt;~&gt;" />
-            <marker date="1581493686369" expanded="false" signature="116100:116116" ph="&lt;~&gt;" />
-            <marker date="1581493686369" expanded="false" signature="117580:117596" ph="&lt;~&gt;" />
-            <marker date="1581493686369" expanded="false" signature="119165:119181" ph="&lt;~&gt;" />
-            <marker date="1581493686369" expanded="false" signature="120770:120786" ph="&lt;~&gt;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSource2.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="108" lean-forward="false" selection-start-line="47" selection-start-column="108" selection-end-line="47" selection-end-column="108" />
+        <state relative-caret-position="340">
+          <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -3917,19 +3663,285 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/Route.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="45" lean-forward="false" selection-start-line="3" selection-start-column="45" selection-end-line="3" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/MapsFragmentDua.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP21.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP22.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="45" lean-forward="false" selection-start-line="29" selection-start-column="45" selection-end-line="29" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="24" column="42" lean-forward="false" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP1.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP2.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP3.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP4.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP5.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP6.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP7.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP8.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP9.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP10.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP11.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP12.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP13.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP14.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP15.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP16.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP17.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP18.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP19.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKelP20.java" />
+    <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/appcompat-v7-26.1.0.aar/7fa79feb2cf498dd735272b0a7ff5a0c/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="245" column="4" lean-forward="false" selection-start-line="245" selection-start-column="4" selection-end-line="245" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="77" lean-forward="false" selection-start-line="20" selection-start-column="77" selection-end-line="20" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/DatabaseManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14433">
+          <caret line="862" column="62" lean-forward="false" selection-start-line="862" selection-start-column="36" selection-end-line="862" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#49167#49168#0" expanded="false" />
+            <element signature="e#49232#49233#0" expanded="false" />
+            <element signature="e#52061#52062#0" expanded="false" />
+            <element signature="e#52093#52094#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/modal/setter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="16" column="44" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="49" column="42" lean-forward="false" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
+        <state relative-caret-position="-24">
+          <caret line="81" column="31" lean-forward="false" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SignatureSurveyorActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="118" column="24" lean-forward="false" selection-start-line="118" selection-start-column="16" selection-end-line="118" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SignatureActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="108" column="33" lean-forward="false" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKecP1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="1451" column="35" lean-forward="false" selection-start-line="1451" selection-start-column="35" selection-end-line="1451" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKecP2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKecP3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="2346" column="63" lean-forward="true" selection-start-line="2346" selection-start-column="63" selection-end-line="2346" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSourceKecP4.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="692">
+          <caret line="1798" column="36" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1803" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/util/DataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8004">
+          <caret line="70" column="57" lean-forward="true" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSebelas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="56" column="40" lean-forward="false" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentLima.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2414">
+          <caret line="41" column="13" lean-forward="false" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="103" column="15" lean-forward="false" selection-start-line="103" selection-start-column="15" selection-end-line="103" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#5085#5086#0" expanded="false" />
+            <element signature="e#5137#5138#0" expanded="false" />
+            <element signature="e#7448#7449#0" expanded="false" />
+            <element signature="e#7487#7488#0" expanded="false" />
+            <element signature="e#13985#13986#0" expanded="false" />
+            <element signature="e#14016#14017#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/SurveyorSplashScreenActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-85">
-          <caret line="74" column="0" lean-forward="true" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
+        <state relative-caret-position="5466">
+          <caret line="373" column="45" lean-forward="false" selection-start-line="373" selection-start-column="45" selection-end-line="373" selection-end-column="45" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentSatu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="1617" column="0" lean-forward="false" selection-start-line="1617" selection-start-column="0" selection-end-line="1617" selection-end-column="0" />
+          <folding>
+            <element signature="method#TampilProvinceKtpOld#0;class#InputFullFragmentSatu#0" expanded="false" />
+            <element signature="method#TampilProvinceKtp#0;class#InputFullFragmentSatu#0" expanded="false" />
+            <element signature="method#TampilKabKodyaKtpOld#0;class#InputFullFragmentSatu#0" expanded="false" />
+            <element signature="method#TampilKabKodyaKtp#0;class#InputFullFragmentSatu#0" expanded="false" />
+            <element signature="method#TampilKecamatanKtpNew#0;class#InputFullFragmentSatu#0" expanded="false" />
+            <element signature="method#TampilKelurahanKtpNew#0;class#InputFullFragmentSatu#0" expanded="false" />
+            <element signature="method#TampilProvinceHome#0;class#InputFullFragmentSatu#0" expanded="false" />
+            <element signature="e#82643#82866#0" expanded="true" />
+            <element signature="e#82865#82866#0" expanded="true" />
+            <element signature="e#82934#83559#0" expanded="true" />
+            <element signature="e#83558#83559#0" expanded="true" />
+            <element signature="method#TampilKabKodyaHome#0;class#InputFullFragmentSatu#0" expanded="false" />
+            <element signature="e#90193#90417#0" expanded="true" />
+            <element signature="e#90416#90417#0" expanded="true" />
+            <element signature="e#90486#91061#0" expanded="true" />
+            <element signature="e#91060#91061#0" expanded="true" />
+            <marker date="1583740361517" expanded="false" signature="116699:116715" ph="&lt;~&gt;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentEmpat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="649" column="26" lean-forward="false" selection-start-line="649" selection-start-column="26" selection-end-line="649" selection-end-column="26" />
+          <folding>
+            <element signature="method#TampilProvinceContact#0;class#InputFullFragmentEmpat#0" expanded="false" />
+            <element signature="method#TampilKabKodyaContact#0;class#InputFullFragmentEmpat#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentTiga.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1240" column="26" lean-forward="false" selection-start-line="1240" selection-start-column="26" selection-end-line="1240" selection-end-column="26" />
+          <folding>
+            <element signature="method#TampilProvinceSpouse#0;class#InputFullFragmentTiga#0" expanded="false" />
+            <element signature="e#53928#54153#0" expanded="true" />
+            <element signature="e#54152#54153#0" expanded="true" />
+            <element signature="e#54223#54866#0" expanded="true" />
+            <element signature="e#54865#54866#0" expanded="true" />
+            <element signature="method#TampilKabKodyaSpouse#0;class#InputFullFragmentTiga#0" expanded="false" />
+            <element signature="e#61892#62118#0" expanded="true" />
+            <element signature="e#62117#62118#0" expanded="true" />
+            <element signature="e#62189#62780#0" expanded="true" />
+            <element signature="e#62779#62780#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/surveyor/id/com/mobilesurvey/fragment/InputFullFragmentDua.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="1001" column="37" lean-forward="false" selection-start-line="1001" selection-start-column="37" selection-end-line="1001" selection-end-column="37" />
+          <folding>
+            <element signature="method#TampilJobTitle#0;class#InputFullFragmentDua#0" expanded="false" />
+            <element signature="method#TampilEconomyCode#0;class#InputFullFragmentDua#0" expanded="false" />
+            <element signature="method#TampilallEconomyCode#0;class#InputFullFragmentDua#0" expanded="false" />
+            <element signature="method#TampilTipePekerjaan#0;class#InputFullFragmentDua#0" expanded="false" />
+            <element signature="method#TampilJenisPekerjaan#0;class#InputFullFragmentDua#0" expanded="false" />
+            <element signature="method#TampilProvinceCompany#0;class#InputFullFragmentDua#0" expanded="false" />
+            <element signature="e#37224#37447#0" expanded="true" />
+            <element signature="e#37446#37447#0" expanded="true" />
+            <element signature="method#TampilKabKodyaCompany#0;class#InputFullFragmentDua#0" expanded="false" />
+            <element signature="e#45154#45381#0" expanded="true" />
+            <element signature="e#45380#45381#0" expanded="true" />
+            <element signature="e#45453#46052#0" expanded="true" />
+            <element signature="e#46051#46052#0" expanded="true" />
+            <element signature="method#parseNetworkError#0;class#57325:61195" expanded="false" />
+            <element signature="method#getParams#0;class#57325:61195" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -34,6 +34,7 @@ import com.google.android.gms.location.LocationServices;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -91,6 +92,11 @@ public class SignatureActivity extends AppCompatActivity implements GoogleApiCli
         file = new File(DIRECTORY);
         if (!file.exists()) {
             file.mkdir();
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         Get_id_order = getIntent().getExtras().getString("id_order");
     }

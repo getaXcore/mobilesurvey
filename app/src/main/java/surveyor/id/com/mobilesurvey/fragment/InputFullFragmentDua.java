@@ -635,7 +635,7 @@ public class InputFullFragmentDua extends Fragment  {
         requestQueue.add(jArr);
     }
 
-    public void TampilProvinceCompany(){
+    public void TampilProvinceCompanyOld(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_JSON_PROPINSI,
                 new Response.Listener<String>() {
                     @Override
@@ -708,21 +708,8 @@ public class InputFullFragmentDua extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //progressDialog.dismiss();
-
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
+                        Toast.makeText(hsContext,"Gagal memuat propinsi. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {
@@ -753,7 +740,51 @@ public class InputFullFragmentDua extends Fragment  {
         progressDialog.show();*/
     }
 
-    public void TampilKabKodyaCompany(){
+    public void TampilProvinceCompany(){
+        ArrayList<ArrayList<Object>> ListData = dm.ambilSemuaProvinsi();
+
+        if (ListData.size() > 0){
+            try {
+                cek_list_province_company = new ArrayList<String>();
+                cek_list_id_province_company = new ArrayList<String>();
+
+                for (int i=0;i<ListData.size();i++){
+                    province_company = ListData.get(i).get(0).toString();
+                    id_province_company = ListData.get(i).get(1).toString();
+
+                    cek_list_province_company.add(province_company);
+                    cek_list_id_province_company.add(id_province_company);
+                }
+
+                spinnerDialog_province_company = new SpinnerDialog((Activity) hsContext,cek_list_province_company,"Select item");
+                S_province_company.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        spinnerDialog_province_company.showSpinerDialog();
+                    }
+                });
+                spinnerDialog_province_company.bindOnSpinerListener(new OnSpinerItemClick() {
+                    @Override
+                    public void onClick(String item, int position) {
+                        if (!item.equals("")){
+                            S_province_company.setText(item);
+                            S_province_company.setTag(cek_list_id_province_company.get(position));
+                            S_kab_kodya_company.setText("");
+                            S_kecamatan_company.setText("");
+                            S_kelurahan_company.setText("");
+                            Sandi_dati_2_company.setText("");
+                            Postal_code_company.setText("");
+                            TampilKabKodyaCompany();
+                        }
+                    }
+                });
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void TampilKabKodyaCompanyOld(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_JSON_KABKODYA,
                 new Response.Listener<String>() {
                     @Override
@@ -823,22 +854,8 @@ public class InputFullFragmentDua extends Fragment  {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        //          Toast.makeText(HomeActivity.this, "Tidak Terhubung dengan Server", Toast.LENGTH_LONG).show();
-                        progressDialog.dismiss();
-
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
+                        Toast.makeText(hsContext,"Gagal memuat data kab/kodya. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {
@@ -876,6 +893,57 @@ public class InputFullFragmentDua extends Fragment  {
         /*progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Menyiapkan data kab/kodya...");
         progressDialog.show();*/
+    }
+
+    public void TampilKabKodyaCompany(){
+        String provCode;
+        if (S_province_company.getTag() != null){
+            provCode = S_province_company.getTag().toString();
+        }else {
+            provCode = "";
+        }
+
+        ArrayList<ArrayList<Object>> ListData = dm.ambilKotaByProv(provCode);
+
+        if (ListData.size() > 0) {
+
+            try {
+
+                cek_list_kab_kodya_company = new ArrayList<String>();
+                cek_list_id_kab_kodya_company = new ArrayList<String>();
+
+                for (int i=0; i<ListData.size();i++){
+                    kab_kodya_company = ListData.get(i).get(0).toString();
+                    id_kab_kodya_company = ListData.get(i).get(1).toString();
+
+                    cek_list_kab_kodya_company.add(kab_kodya_company);
+                    cek_list_id_kab_kodya_company.add(id_kab_kodya_company);
+
+                }
+
+                spinnerDialog_kab_kodya_company = new SpinnerDialog((Activity) hsContext,cek_list_kab_kodya_company,"Select item");
+                S_kab_kodya_company.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        spinnerDialog_kab_kodya_company.showSpinerDialog();
+                    }
+                });
+                spinnerDialog_kab_kodya_company.bindOnSpinerListener(new OnSpinerItemClick() {
+                    @Override
+                    public void onClick(String item, int position) {
+                        S_kab_kodya_company.setText(item);
+                        S_kab_kodya_company.setTag(cek_list_id_kab_kodya_company.get(position));
+                        S_kecamatan_company.setText("");
+                        S_kelurahan_company.setText("");
+                        Sandi_dati_2_company.setText("");
+                        Postal_code_company.setText("");
+                        TampilKecamatanCompany();
+                    }
+                });
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }
+        }
     }
 
     public void TampilKecamatanCompany(){
@@ -949,21 +1017,8 @@ public class InputFullFragmentDua extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //progressDialog.dismiss();
-
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
+                        Toast.makeText(hsContext,"Gagal memuat data kecamatan. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {
@@ -1071,21 +1126,9 @@ public class InputFullFragmentDua extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //progressDialog.dismiss();
+                        Toast.makeText(hsContext,"Gagal memuat data kelurahan. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
 
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
                     }
 
                 }) {
@@ -1162,21 +1205,8 @@ public class InputFullFragmentDua extends Fragment  {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //progressDialog.dismiss();
-
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
+                        Toast.makeText(hsContext,"Gagal memuat data sandi dati. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {

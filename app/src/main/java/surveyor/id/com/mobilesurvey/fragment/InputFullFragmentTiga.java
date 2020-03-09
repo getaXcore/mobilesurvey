@@ -916,7 +916,7 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         requestQueue.add(jArr);
     }
 
-    public void TampilProvinceSpouse(){
+    public void TampilProvinceSpouseOld(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_JSON_PROPINSI,
                 new Response.Listener<String>() {
                     @Override
@@ -992,21 +992,8 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //progressDialog.dismiss();
-
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
+                        Toast.makeText(hsContext,"Gagal memuat propinsi. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {
@@ -1037,7 +1024,51 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         progressDialog.show();*/
     }
 
-    public void TampilKabKodyaSpouse(){
+    public void TampilProvinceSpouse(){
+        ArrayList<ArrayList<Object>> ListData = dm.ambilSemuaProvinsi();
+
+        if (ListData.size() > 0){
+            try {
+                cek_list_province_spouse = new ArrayList<String>();
+                cek_list_id_province_spouse = new ArrayList<String>();
+
+                for (int i=0;i<ListData.size();i++){
+                    province_spouse = ListData.get(i).get(0).toString();
+                    id_province_spouse = ListData.get(i).get(1).toString();
+
+                    cek_list_province_spouse.add(province_spouse);
+                    cek_list_id_province_spouse.add(id_province_spouse);
+                }
+
+                spinnerDialog_province_spouse = new SpinnerDialog(
+                        (Activity) hsContext, cek_list_province_spouse,
+                        "Select item");
+                S_province_spouse.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        spinnerDialog_province_spouse.showSpinerDialog();
+                    }
+                });
+                spinnerDialog_province_spouse.bindOnSpinerListener(new OnSpinerItemClick() {
+                    @Override
+                    public void onClick(String item, int position) {
+                        S_province_spouse.setText(item);
+                        S_province_spouse.setTag(cek_list_id_province_spouse.get(position));
+                        S_kab_kodya_spouse.setText("");
+                        S_kecamatan_spouse.setText("");
+                        S_kelurahan_spouse.setText("");
+                        Sandi_dati_2_spouse.setText("");
+                        Postal_code_spouse.setText("");
+                        TampilKabKodyaSpouse();
+                    }
+                });
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void TampilKabKodyaSpouseOld(){
         StringRequest jArr = new StringRequest(Request.Method.POST, setter.URL_JSON_KABKODYA,
                 new Response.Listener<String>() {
                     @Override
@@ -1109,21 +1140,8 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //progressDialog.dismiss();
-
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
+                        Toast.makeText(hsContext,"Gagal memuat data kab/kodya. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {
@@ -1161,6 +1179,58 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
         /*progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Menyiapkan data kab/kodya...");
         progressDialog.show();*/
+    }
+
+    public void TampilKabKodyaSpouse(){
+        String provCode;
+        if (S_province_spouse.getTag() != null){
+            provCode = S_province_spouse.getTag().toString();
+        }else {
+            provCode = "";
+        }
+
+        ArrayList<ArrayList<Object>> ListData = dm.ambilKotaByProv(provCode);
+
+        if (ListData.size() > 0) {
+
+            try {
+
+                cek_list_kab_kodya_spouse = new ArrayList<String>();
+                cek_list_id_kab_kodya_spouse = new ArrayList<String>();
+
+                for (int i=0; i<ListData.size();i++){
+                    kab_kodya_spouse = ListData.get(i).get(0).toString();
+                    id_kab_kodya_spouse = ListData.get(i).get(1).toString();
+
+                    cek_list_kab_kodya_spouse.add(kab_kodya_spouse);
+                    cek_list_id_kab_kodya_spouse.add(id_kab_kodya_spouse);
+
+                }
+
+                spinnerDialog_kab_kodya_spouse = new SpinnerDialog((Activity) hsContext,
+                        cek_list_kab_kodya_spouse,"Select item");
+                S_kab_kodya_spouse.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        spinnerDialog_kab_kodya_spouse.showSpinerDialog();
+                    }
+                });
+                spinnerDialog_kab_kodya_spouse.bindOnSpinerListener(new OnSpinerItemClick() {
+                    @Override
+                    public void onClick(String item, int position) {
+                        S_kab_kodya_spouse.setText(item);
+                        S_kab_kodya_spouse.setTag(cek_list_id_kab_kodya_spouse.get(position));
+                        S_kecamatan_spouse.setText("");
+                        S_kelurahan_spouse.setText("");
+                        Sandi_dati_2_spouse.setText("");
+                        Postal_code_spouse.setText("");
+                        TampilKecamatanSpouse();
+                    }
+                });
+            }catch (NullPointerException e){
+                e.printStackTrace();
+            }
+        }
     }
 
     public void TampilKecamatanSpouse(){
@@ -1233,21 +1303,8 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //progressDialog.dismiss();
-
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
+                        Toast.makeText(hsContext,"Gagal memuat data kecamatan. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {
@@ -1354,21 +1411,8 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //progressDialog.dismiss();
-
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
+                        Toast.makeText(hsContext,"Gagal memuat data kelurahan. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {
@@ -1444,21 +1488,8 @@ public class InputFullFragmentTiga extends Fragment implements DatePickerDialog.
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        //progressDialog.dismiss();
-
-                        String json = null;
-
-                        NetworkResponse response = error.networkResponse;
-                        if (response != null && response.data !=null){
-                            switch (response.statusCode){
-                                case 400:
-                                    json = new String(response.data);
-                                    json = trimMessage(json,"message");
-                                    if (json != null) displayMessage(json);
-                                    break;
-                            }
-
-                        }
+                        Toast.makeText(hsContext,"Gagal memuat data sandi dati. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {

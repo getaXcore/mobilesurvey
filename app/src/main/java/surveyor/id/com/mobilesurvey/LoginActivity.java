@@ -99,7 +99,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locListener);
 
-        identifier = checkDeviceId();
+        if (checkOSversion() >= 29){
+            identifier = String.valueOf(checkOSversion());
+        }else {
+            identifier = checkDeviceId();
+        }
 
 
         latitude        = "";
@@ -209,6 +213,11 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
         }
     }
 
+    public int checkOSversion(){
+        int code = Build.VERSION.SDK_INT;
+        return code;
+    }
+
     private void login(){
         OtherUtil.hideAlertDialog();
         OtherUtil.showAlertDialogLoading(LoginActivity.this, "Please Wait ...");
@@ -266,6 +275,9 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
+                if (identifier.equals(null)){
+                    identifier = String.valueOf(checkOSversion());
+                }
                 Map<String, String> map = new HashMap<String, String>();
 
                 Log.i("username",username);

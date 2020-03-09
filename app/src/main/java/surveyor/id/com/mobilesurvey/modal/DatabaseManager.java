@@ -3,6 +3,7 @@ package surveyor.id.com.mobilesurvey.modal;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 
 public class DatabaseManager {
     private static final String NAMA_DB = "surveyor_olym";
-    private static final int DB_VERSION = 24;
+    private static final int DB_VERSION = 29;
 
     //VARIABLE LOGIN
     private static final String ROW_ID          = "_id";
@@ -141,6 +142,53 @@ public class DatabaseManager {
             + ROW_KIRIMLOKASI_ID_SURVEYOR           + " text,"
             + ROW_KIRIMLOKASI_TIME_SURVEYOR         + " text)";
     //end variable chatdetail
+
+    //untuk data provinsi
+    private static final String ID_PROVINSI                         = "id_provinsi";
+    private static final String NAMA_PROVINSI                       = "nama_provinsi";
+    private static final String PROV_CODE                           = "prov_code";
+    private static final String NAMA_TABEL_PROVINSI                 = "tb_provinsi";
+    private static final String CREATE_TABLE_PROVINSI               = "create table "
+            + NAMA_TABEL_PROVINSI                        + " ("
+            + ID_PROVINSI                                + " integer PRIMARY KEY autoincrement,"
+            + NAMA_PROVINSI                              + " text,"
+            + PROV_CODE                                  + " text)";
+
+    //untuk data kota
+    private static final String ID_KOTA                             = "id_kota";
+    private static final String NAMA_KOTA                           = "nama_kota";
+    private static final String KOTA_CODE                           = "kota_code";
+    private static final String NAMA_TABEL_KOTA                     = "tb_kota";
+    private static final String CREATE_TABLE_KOTA                   = "create table "
+            + NAMA_TABEL_KOTA                           + " ("
+            + ID_KOTA                                   + " integer PRIMARY KEY autoincrement,"
+            + NAMA_KOTA                                 + " text,"
+            + PROV_CODE                                 + " text,"
+            + KOTA_CODE                                 + " text)";
+
+    //untuk data kecamatan
+    private static final String ID_KECAMATAN                        = "id_kecamatan";
+    private static final String NAMA_KECAMATAN                      = "nama_kecamatan";
+    private static final String KEC_KODE                            = "kec_code";
+    private static final String NAMA_TABEL_KECAMATAN                = "tb_kecamatan";
+    private static final String CREATE_TABLE_KECAMATAN              = "create table "
+            + NAMA_TABEL_KECAMATAN                      + " ("
+            + ID_KECAMATAN                              + " integer PRIMARY KEY autoincrement,"
+            + NAMA_KECAMATAN                            + " text,"
+            + KOTA_CODE                                 + " text,"
+            + KEC_KODE                                  + " text)";
+
+    //untuk data kelurahan
+    private static final String ID_KELURAHAN                        = "id_kelurahan";
+    private static final String NAMA_KELURAHAN                      = "nama_kelurahan";
+    private static final String KEL_CODE                            = "kel_code";
+    private static final String NAMA_TABEL_KELURAHAN                = "tb_kelurahan";
+    private static final String CREATE_TABLE_KELURAHAN              = "create table "
+            + NAMA_TABEL_KELURAHAN                      + " ("
+            + ID_KELURAHAN                              + " integer PRIMARY KEY autoincrement,"
+            + NAMA_KELURAHAN                            + " text,"
+            + KEC_KODE                                  + " text,"
+            + KEL_CODE                                  + " text)";
 
     //Tambahan utk data survey
     private static final String ID_DATA_1                                       = "id_data_1";
@@ -606,12 +654,13 @@ public class DatabaseManager {
 
     private final Context context;
     private DatabaseOpenHelper dbHelper;
-    private SQLiteDatabase db;
+    private SQLiteDatabase db,database;
 
     public DatabaseManager(Context ctx) {
         this.context = ctx;
         dbHelper = new DatabaseOpenHelper(ctx);
         db = dbHelper.getWritableDatabase();
+        database = dbHelper.getReadableDatabase();
     }
 
     private static class DatabaseOpenHelper extends
@@ -639,6 +688,10 @@ public class DatabaseManager {
             db.execSQL(CREATE_TABLE_JANJI_SURVEY);
             db.execSQL(CREATE_TABLE_SIMPANSURVEY1_TAMBAHAN);
             db.execSQL(CREATE_TABLE_SIMPANSURVEY3_TAMBAHAN);
+            db.execSQL(CREATE_TABLE_PROVINSI);
+            db.execSQL(CREATE_TABLE_KOTA);
+            db.execSQL(CREATE_TABLE_KECAMATAN);
+            db.execSQL(CREATE_TABLE_KELURAHAN);
         }
 
         @Override
@@ -661,6 +714,10 @@ public class DatabaseManager {
             db.execSQL("DROP TABLE IF EXISTS " + NAMA_TABEL_JANJI_SURVEY);
             db.execSQL("DROP TABLE IF EXISTS " + NAMA_TABEL_SIMPANSURVEY1_TAMBAHAN);
             db.execSQL("DROP TABLE IF EXISTS " + NAMA_TABEL_SIMPANSURVEY3_TAMBAHAN);
+            db.execSQL("DROP TABLE IF EXISTS " + NAMA_TABEL_PROVINSI);
+            db.execSQL("DROP TABLE IF EXISTS " + NAMA_TABEL_KOTA);
+            db.execSQL("DROP TABLE IF EXISTS " + NAMA_TABEL_KECAMATAN);
+            db.execSQL("DROP TABLE IF EXISTS " + NAMA_TABEL_KELURAHAN);
             onCreate(db);
         }
     }
@@ -682,6 +739,206 @@ public class DatabaseManager {
             Log.e("DB ERROR", e.toString());
             e.printStackTrace();
         }
+    }
+
+    public void addRowProvinsi(String nama_provinsi,String prov_code){
+        ContentValues values = new ContentValues();
+        values.put(NAMA_PROVINSI,nama_provinsi);
+        values.put(PROV_CODE,prov_code);
+        try {
+            db.insert(NAMA_TABEL_PROVINSI,null,values);
+        }catch (Exception e){
+            Log.e("DB ERROR",e.toString());
+            e.printStackTrace();
+        }
+    }
+
+    public void addRowKota(String nama_kota,String prov_code,String kota_code){
+        ContentValues values = new ContentValues();
+        values.put(NAMA_KOTA,nama_kota);
+        values.put(PROV_CODE,prov_code);
+        values.put(KOTA_CODE,kota_code);
+        try {
+            db.insert(NAMA_TABEL_KOTA,null,values);
+        }catch (Exception e){
+            Log.e("DB ERROR",e.toString());
+            e.printStackTrace();
+        }
+    }
+
+    public void addRowKecamatan(String nama_kecamatan,String kota_code,String kec_kode){
+        ContentValues values = new ContentValues();
+        values.put(NAMA_KECAMATAN,nama_kecamatan);
+        values.put(KOTA_CODE,kota_code);
+        values.put(KEC_KODE,kec_kode);
+        try {
+            db.insert(NAMA_TABEL_KECAMATAN,null,values);
+        }catch (Exception e){
+            Log.e("DB ERROR",e.toString());
+            e.printStackTrace();
+        }
+    }
+
+    public void addRowKelurahan(String nama_kelurahan,String kel_code,String kec_code){
+        ContentValues values = new ContentValues();
+        values.put(NAMA_KELURAHAN,nama_kelurahan);
+        values.put(KEL_CODE,kel_code);
+        values.put(KEC_KODE,kec_code);
+        try {
+            db.insert(NAMA_TABEL_KELURAHAN,null,values);
+        }catch (Exception e){
+            Log.e("DB ERROR",e.toString());
+            e.printStackTrace();
+        }
+    }
+
+    public ArrayList<ArrayList<Object>> ambilSemuaProvinsi(){
+        ArrayList<ArrayList<Object>> arrayList = new ArrayList<ArrayList<Object>>();
+        Cursor cursor = null;
+        try {
+            cursor = db.query(NAMA_TABEL_PROVINSI,new String[]{NAMA_PROVINSI,PROV_CODE},null,null,null,null,null,null);
+            cursor.moveToFirst();
+            if (!cursor.isAfterLast()){
+                do {
+                    ArrayList<Object> dataArray = new ArrayList<Object>();
+                    dataArray.add(cursor.getString(0));
+                    dataArray.add(cursor.getString(1));
+                    arrayList.add(dataArray);
+                }while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("DB ERROR",e.toString());
+            Toast.makeText(context,"Gagal Ambil Data Provinsi : "+e.toString(),Toast.LENGTH_SHORT).show();
+        }finally {
+            if (cursor != null){
+                cursor.close();
+            }
+        }
+
+        return arrayList;
+    }
+
+    public ArrayList<ArrayList<Object>> ambilKotaByProv(String prov_code){
+        ArrayList<ArrayList<Object>> arrayList = new ArrayList<ArrayList<Object>>();
+        Cursor cursor = null;
+        try {
+            //cursor = db.query(NAMA_TABEL_KOTA,new String[]{NAMA_KOTA,KOTA_CODE},"prov_code=?",new String[]{prov_code},null,null,null);
+            cursor = db.rawQuery("SELECT nama_kota,kota_code FROM "+NAMA_TABEL_KOTA+" WHERE prov_code='"+prov_code.trim()+"'",null,null);
+            cursor.moveToFirst();
+            if (!cursor.isAfterLast()){
+                do {
+                    ArrayList<Object> dataArray = new ArrayList<Object>();
+                    dataArray.add(cursor.getString(0));
+                    dataArray.add(cursor.getString(1));
+                    arrayList.add(dataArray);
+                }while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("DB ERROR",e.toString());
+            Toast.makeText(context,"Gagal Ambil Data Kota : "+e.toString(),Toast.LENGTH_SHORT).show();
+        }
+
+        return arrayList;
+    }
+
+    public ArrayList<ArrayList<Object>> ambilKecByKota(String kota_code){
+        ArrayList<ArrayList<Object>> arrayList = new ArrayList<ArrayList<Object>>();
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery("SELECT nama_kecamatan,kec_code FROM "+NAMA_TABEL_KECAMATAN+" WHERE kota_code='"+kota_code.trim()+"'",null,null);
+            cursor.moveToFirst();
+            if (!cursor.isAfterLast()){
+                do {
+                    ArrayList<Object> dataArray = new ArrayList<Object>();
+                    dataArray.add(cursor.getString(0));
+                    dataArray.add(cursor.getString(1));
+                    arrayList.add(dataArray);
+                }while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("DB ERROR",e.toString());
+            Toast.makeText(context,"Gagal Ambil Data Kecamatan : "+e.toString(),Toast.LENGTH_SHORT).show();
+        }
+
+        return arrayList;
+    }
+
+    public ArrayList<ArrayList<Object>> ambilKelByKec(String kec_code){
+        ArrayList<ArrayList<Object>> arrayList = new ArrayList<ArrayList<Object>>();
+        Cursor cursor = null;
+        try {
+            cursor = db.rawQuery("SELECT nama_kelurahan,kel_code FROM "+NAMA_TABEL_KELURAHAN+" WHERE kec_code='"+kec_code.trim()+"'",null,null);
+            cursor.moveToFirst();
+            if (!cursor.isAfterLast()){
+                do {
+                    ArrayList<Object> dataArray = new ArrayList<Object>();
+                    dataArray.add(cursor.getString(0));
+                    dataArray.add(cursor.getString(1));
+                    arrayList.add(dataArray);
+                }while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            Log.e("DB ERROR",e.toString());
+            Toast.makeText(context,"Gagal Ambil Data Kelurahan : "+e.toString(),Toast.LENGTH_SHORT).show();
+        }
+
+        return arrayList;
+    }
+
+    public int rowCountProvinsi(){
+        int count = 0;
+        String queryCount = "SELECT * FROM "+NAMA_TABEL_PROVINSI;
+
+        Cursor cursor = database.rawQuery(queryCount,null);
+        if (cursor != null && !cursor.isClosed()){
+            count = cursor.getCount();
+            cursor.close();
+        }
+
+        return count;
+    }
+
+    public int rowCountKota(){
+        int count = 0;
+        String queryCount = "SELECT * FROM "+NAMA_TABEL_KOTA;
+
+        Cursor cursor = database.rawQuery(queryCount,null);
+        if (cursor != null && !cursor.isClosed()){
+            count = cursor.getCount();
+            cursor.close();
+        }
+
+        return count;
+    }
+
+    public int rowCountKecamatan(){
+        int count = 0;
+        String queryCount = "SELECT * FROM "+NAMA_TABEL_KECAMATAN;
+
+        Cursor cursor = database.rawQuery(queryCount,null);
+        if (cursor != null && !cursor.isClosed()){
+            count = cursor.getCount();
+            cursor.close();
+        }
+
+        return count;
+    }
+
+    public int rowCountKelurahan(){
+        int count = 0;
+        String queryCount = "SELECT * FROM "+NAMA_TABEL_KELURAHAN;
+
+        Cursor cursor = database.rawQuery(queryCount,null);
+        if (cursor != null && !cursor.isClosed()){
+            count = cursor.getCount();
+            cursor.close();
+        }
+
+        return count;
     }
 
     public ArrayList<ArrayList<Object>> ambilSemuaBaris() {
