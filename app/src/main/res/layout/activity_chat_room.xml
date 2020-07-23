@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:minHeight="?attr/actionBarSize"
-        android:background="@color/background_toolbar"
+        android:background="@color/biru_muda"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <ListView

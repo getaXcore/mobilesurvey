@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/background_toolbar"
+        android:background="@color/biru_muda"
         android:text="@string/sign_here_title"
         android:textColor="@android:color/white"
         android:textSize="@dimen/title_size"

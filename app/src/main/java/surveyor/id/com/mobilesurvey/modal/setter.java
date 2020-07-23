@@ -6,7 +6,7 @@ package surveyor.id.com.mobilesurvey.modal;
 
 public interface setter {
     public static final String APK_CODE           = "MEkwdFE4OWlkbVAREGAZ09mZVBZM05pcHNsODQ";
-    public static final String APK_UPDATE_CODE    = "AASSACAS3JK53G44HKH2";
+    public static final String APK_UPDATE_CODE    = "AASSACAS3JK53G44HKH11632";
 
     public static final String URL_REQUEST       = "https://devmos.jto.co.id/appsurvey/public";
     //public static final String URL_REQUEST       = "http://192.168.1.142/appsurvey/public";

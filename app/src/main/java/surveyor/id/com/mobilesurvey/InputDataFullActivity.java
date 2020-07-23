@@ -1920,6 +1920,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
         };
         RequestQueue requestQueue = Volley.newRequestQueue(InputDataFullActivity.this);
         requestQueue.add(jArr);
+        requestQueue.stop();
     }
 
     public void UpdateIdentityType(){
@@ -1995,6 +1996,7 @@ public class InputDataFullActivity extends AppCompatActivity implements
         };
         RequestQueue requestQueue = Volley.newRequestQueue(InputDataFullActivity.this);
         requestQueue.add(jArr);
+        requestQueue.stop();
     }
 
     public void UpdateTipeRumah(){

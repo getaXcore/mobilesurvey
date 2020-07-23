@@ -271,7 +271,7 @@ public class InputFullFragmentDua extends Fragment  {
 
             if(t_Company_kab_or_kodya.equals("null")){
                 status_lengkap = status_lengkap+1;
-                S_province_company.setText("");
+                S_kab_kodya_company.setText("");
             }else{
                 S_kab_kodya_company.setText(t_Company_kab_or_kodya);
             }
@@ -546,7 +546,8 @@ public class InputFullFragmentDua extends Fragment  {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(hsContext,"Gagal memuat Tipe Pekrjaan. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {
@@ -613,7 +614,8 @@ public class InputFullFragmentDua extends Fragment  {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(hsContext,"Gagal memuat Jenis Pekrjaan. Koneksi internet tidak stabil.",Toast.LENGTH_LONG).show();
+                        Log.e("VollyError",String.valueOf(error.getMessage()));
                     }
 
                 }) {

@@ -141,7 +141,7 @@ public class InputFullFragmentSebelas extends Fragment  {
         photo_home1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String locationProviders = Settings.Secure.getString(hsContext.
+                /*String locationProviders = Settings.Secure.getString(hsContext.
                         getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
                 if (locationProviders == null || locationProviders.equals("")) {
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -152,7 +152,8 @@ public class InputFullFragmentSebelas extends Fragment  {
                     keldata.putString("photo_name", "home1");
                     hs.putExtras(keldata);
                     startActivity(hs);
-                }
+                }*/
+                CustomDialogPhoto("home1");
             }
         });
 
@@ -166,7 +167,7 @@ public class InputFullFragmentSebelas extends Fragment  {
         photo_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String locationProviders = Settings.Secure.getString(hsContext.
+                /*String locationProviders = Settings.Secure.getString(hsContext.
                         getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
                 if (locationProviders == null || locationProviders.equals("")) {
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -178,7 +179,8 @@ public class InputFullFragmentSebelas extends Fragment  {
                     hs.putExtras(keldata);
                     startActivity(hs);
 
-                }
+                }*/
+                CustomDialogPhoto("customer_id");
 
             }
         });
@@ -186,7 +188,7 @@ public class InputFullFragmentSebelas extends Fragment  {
         photo_kk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String locationProviders = Settings.Secure.getString(hsContext.
+                /*String locationProviders = Settings.Secure.getString(hsContext.
                         getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
                 if (locationProviders == null || locationProviders.equals("")) {
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -197,7 +199,8 @@ public class InputFullFragmentSebelas extends Fragment  {
                     keldata.putString("photo_name", "customer_kk");
                     hs.putExtras(keldata);
                     startActivity(hs);
-                }
+                }*/
+                CustomDialogPhoto("customer_kk");
             }
         });
 
@@ -251,8 +254,8 @@ public class InputFullFragmentSebelas extends Fragment  {
         photo_stnk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //CustomDialogPhoto("stnk");
-                String locationProviders = Settings.Secure.getString(hsContext.
+                CustomDialogPhoto("stnk");
+                /*String locationProviders = Settings.Secure.getString(hsContext.
                         getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
                 if (locationProviders == null || locationProviders.equals("")) {
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -263,7 +266,7 @@ public class InputFullFragmentSebelas extends Fragment  {
                     keldata.putString("photo_name", "stnk");
                     hs.putExtras(keldata);
                     startActivity(hs);
-                }
+                }*/
             }
         });
 
@@ -346,7 +349,7 @@ public class InputFullFragmentSebelas extends Fragment  {
         photo_customer_tanda_tangan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String locationProviders = Settings.Secure.getString(hsContext.
+                /*String locationProviders = Settings.Secure.getString(hsContext.
                         getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
                 if (locationProviders == null || locationProviders.equals("")) {
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -358,6 +361,8 @@ public class InputFullFragmentSebelas extends Fragment  {
                     hs.putExtras(keldata);
                     startActivity(hs);
                 }
+                */
+                CustomDialogPhoto("customer_tanda_tangan");
             }
         });
 
@@ -384,7 +389,7 @@ public class InputFullFragmentSebelas extends Fragment  {
         photoAktifitasUsaha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String locationProviders = Settings.Secure.getString(hsContext.
+                /*String locationProviders = Settings.Secure.getString(hsContext.
                         getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
                 if (locationProviders == null || locationProviders.equals("")) {
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -395,7 +400,9 @@ public class InputFullFragmentSebelas extends Fragment  {
                     keldata.putString("photo_name", "aktifitas_usaha");
                     hs.putExtras(keldata);
                     startActivity(hs);
-                }
+                }*/
+
+                CustomDialogPhoto("aktifitas_usaha");
 
             }
         });
@@ -403,7 +410,7 @@ public class InputFullFragmentSebelas extends Fragment  {
         photoCmoBersamaRumahDebTampakDepan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String locationProviders = Settings.Secure.getString(hsContext.
+                /*String locationProviders = Settings.Secure.getString(hsContext.
                         getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
                 if (locationProviders == null || locationProviders.equals("")) {
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -414,7 +421,8 @@ public class InputFullFragmentSebelas extends Fragment  {
                     keldata.putString("photo_name", "cmo_bersama_rumah_deb_tampak_depan");
                     hs.putExtras(keldata);
                     startActivity(hs);
-                }
+                }*/
+                CustomDialogPhoto("cmo_bersama_rumah_deb_tampak_depan");
             }
         });
 
@@ -435,7 +443,7 @@ public class InputFullFragmentSebelas extends Fragment  {
         photoKtpAsliPasanganCalonDebitur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String locationProviders = Settings.Secure.getString(hsContext.
+                /*String locationProviders = Settings.Secure.getString(hsContext.
                         getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
                 if (locationProviders == null || locationProviders.equals("")) {
                     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
@@ -446,7 +454,8 @@ public class InputFullFragmentSebelas extends Fragment  {
                     keldata.putString("photo_name", "ktp_asli_pasangan_calon_debitur");
                     hs.putExtras(keldata);
                     startActivity(hs);
-                }
+                }*/
+                CustomDialogPhoto("ktp_asli_pasangan_calon_debitur");
             }
         });
 

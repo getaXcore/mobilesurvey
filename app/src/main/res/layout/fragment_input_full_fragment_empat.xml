@@ -658,7 +658,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@+id/data_contact_person_data"
                 android:textColor="@color/putih"
-                android:background="@drawable/bg_bt_click"
+                android:background="@color/biru_muda"
                 android:text="@string/bt_simpan"/>
 
 

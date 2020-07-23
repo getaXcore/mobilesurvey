@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Dialog;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -26,6 +28,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -71,6 +74,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -84,6 +88,7 @@ import surveyor.id.com.mobilesurvey.modal.setter;
 import surveyor.id.com.mobilesurvey.service.BackgroundService;
 import surveyor.id.com.mobilesurvey.util.AppController;
 import surveyor.id.com.mobilesurvey.util.BottomNavigationViewHelper;
+import surveyor.id.com.mobilesurvey.util.NotificationClass;
 
 public class HomeActivity extends AppCompatActivity implements ActivityCompat.
         OnRequestPermissionsResultCallback, NavigationView.OnNavigationItemSelectedListener,
@@ -100,7 +105,7 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
     private String code_update_apk,link_update_apk;
     private Dialog dialog_update_apk;
     private String latitude,longitude;
-
+    private int SvcInf;
     public Context getCtx() {
         return ctx;
     }
@@ -137,6 +142,7 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
     private int cek_status_survey;
     public Map<String, String> params;
     private String get_id_surveyor;
+
 
     private String t_nama,t_mother,t_title,t_marital_status,t_identity_type,t_Npwp_no,t_Birth_place,
             t_Birth_date,t_Identity_no,t_address_ktp,t_province_ktp,t_kab_kodya_ktp,t_kecamatan_ktp,
@@ -200,6 +206,8 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
         mServiceIntent = new Intent(getCtx(), mBackgroundService.getClass());
         if (!isMyServiceRunning(mBackgroundService.getClass())) {
             startService(mServiceIntent);
+            Log.i("isServiceRunning ",String.valueOf(isMyServiceRunning(mBackgroundService.getClass())));
+            Toast.makeText(getApplicationContext(),"Background service is running...",Toast.LENGTH_LONG).show();
         }
         
         PowerManager.WakeLock screenLock = ((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(
@@ -694,6 +702,8 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.action_sync) {
+
+            Toast.makeText(getApplicationContext(),"Refresh berhasil. Dimohon menunggu dan tidak menutup paksa aplikasi jika sedang proses pengiriman data.",Toast.LENGTH_LONG).show();
             uploaddata();
             uploadphoto();
         }
@@ -863,9 +873,15 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                             if (code.equals("200")) {
                                 dm.deleteStatusTerkirim(hasilIdOrder);
                                 //uploadphoto();
+                                NotificationClass notificationClass = new NotificationClass(getCtx());
+                                notificationClass.NotifyBuilder("Status Pengiriman","Data Survey Berhasil Terkirim. Terima kasih!");
+                                notificationClass.createNotificationChannel();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            NotificationClass notificationClass = new NotificationClass(getCtx());
+                            notificationClass.NotifyBuilder("Status Pengiriman","Sebagian photo belum berhasil diupload. Koneksi internet tidak stabil.");
+                            notificationClass.createNotificationChannel();
                         }
 
                     }
@@ -907,6 +923,9 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                             if (code.equals("200")) {
                                 dm.deletePhotoAll(p_photo_nama,p_photo_id_order);
                                 uploadphoto();
+
+                                Toast.makeText(getApplicationContext(),"Photo "+p_photo_nama+" berhasil diupload",Toast.LENGTH_LONG).show();
+
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -916,7 +935,8 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(getApplicationContext(),"Proses upload foto terhenti. Photo "+p_photo_nama+" gagal diupload. Koneksi internet tidak stabil. Anda bisa melakukan refresh di halaman Home jika diperlukan.",Toast.LENGTH_LONG).show();
+                Log.e("VollyError",String.valueOf(error.getMessage()));
             }
         }) {
             @Override
@@ -975,11 +995,30 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                     t_id_kelurahan_ktp                              = ""+arrayLists.get(3);
                     t_zipcode_ktp                                   = ""+arrayLists.get(4);
 
-                    t_Spouse_id_province                            = ""+arrayLists3.get(0);
-                    t_Spouse_id_kab_kodya                           = ""+arrayLists3.get(1);
-                    t_Spouse_id_kecamatan                           = ""+arrayLists3.get(2);
-                    t_Spouse_id_kelurahan                           = ""+arrayLists3.get(3);
-                    t_Spouse_zipcode                                = ""+arrayLists3.get(4);
+                    if (arrayLists3.size() > 0){
+                        t_Spouse_id_province                            = ""+arrayLists3.get(0);
+                        t_Spouse_id_kab_kodya                           = ""+arrayLists3.get(1);
+                        t_Spouse_id_kecamatan                           = ""+arrayLists3.get(2);
+                        t_Spouse_id_kelurahan                           = ""+arrayLists3.get(3);
+                        t_Spouse_zipcode                                = ""+arrayLists3.get(4);
+
+                        if (t_Spouse_id_province.equals("null")){
+                            t_Spouse_id_province = "";
+                        }
+                        if (t_Spouse_id_kab_kodya.equals("null")){
+                            t_Spouse_id_kab_kodya = "";
+                        }
+                        if (t_Spouse_id_kecamatan.equals("null")){
+                            t_Spouse_id_kecamatan = "";
+                        }
+                        if (t_Spouse_id_kelurahan.equals("null")){
+                            t_Spouse_id_kelurahan = "";
+                        }
+                        if (t_Spouse_zipcode.equals("null")){
+                            t_Spouse_zipcode = "";
+                        }
+                    }
+
 
 
                     ArrayList<Object> baris_inputan = t_data_inputan.get(0);
@@ -1128,15 +1167,17 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                     t_apakah_direkomendasikan                       = ""+baris_inputan.get(134);
                     t_alasan_or_point_penting_rekomendasi_anda      = ""+baris_inputan.get(135);
 
-                    t_category_name                                 = ""+baris.get(136);
-                    t_category_id                                   = ""+baris.get(137);
+                    t_category_name                                 = ""+baris_inputan.get(136);
+                    t_category_id                                   = ""+baris_inputan.get(137);
 
 
-                    t_Jenis_pekerjaan                               = ""+baris.get(140);
-                    t_Jenis_pekerjaan_code                          = ""+baris.get(141);
+                    t_Jenis_pekerjaan                               = ""+baris_inputan.get(140);
+                    t_Jenis_pekerjaan_code                          = ""+baris_inputan.get(141);
 
-                    t_Jenis_pekerjaan_spouse                        = ""+baris.get(144);
-                    t_Jenis_pekerjaan_code_spouse                   = ""+baris.get(145);
+                    t_Jenis_pekerjaan_spouse                        = ""+baris_inputan.get(144);
+                    t_Jenis_pekerjaan_code_spouse                   = ""+baris_inputan.get(145);
+
+
 
 
 
@@ -1378,35 +1419,20 @@ public class HomeActivity extends AppCompatActivity implements ActivityCompat.
                     if(t_Spouse_province.equals("null")){
                         t_Spouse_province = "";
                     }
-                    if (t_Spouse_id_province.equals("null")){
-                        t_Spouse_id_province = "";
-                    }
                     if(t_Spouse_kab_kodya.equals("null")){
                         t_Spouse_kab_kodya = "";
-                    }
-                    if (t_Spouse_id_kab_kodya.equals("null")){
-                        t_Spouse_id_kab_kodya = "";
                     }
                     if(t_Spouse_kecamatan.equals("null")){
                         t_Spouse_kecamatan = "";
                     }
-                    if (t_Spouse_id_kecamatan.equals("null")){
-                        t_Spouse_id_kecamatan = "";
-                    }
                     if(t_Spouse_kelurahan.equals("null")){
                         t_Spouse_kelurahan = "";
-                    }
-                    if (t_Spouse_id_kelurahan.equals("null")){
-                        t_Spouse_id_kelurahan = "";
                     }
 
 
                     //66
                     if(t_Spouse_postal_code.equals("null")){
                         t_Spouse_postal_code = "";
-                    }
-                    if (t_Spouse_zipcode.equals("null")){
-                        t_Spouse_zipcode = "";
                     }
                     if(t_Spouse_sandi_dati_2.equals("null")){
                         t_Spouse_sandi_dati_2 = "";

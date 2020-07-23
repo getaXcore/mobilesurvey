@@ -1,18 +1,24 @@
 package surveyor.id.com.mobilesurvey.service;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -39,6 +45,7 @@ import surveyor.id.com.mobilesurvey.R;
 import surveyor.id.com.mobilesurvey.modal.DatabaseManager;
 import surveyor.id.com.mobilesurvey.modal.setter;
 import surveyor.id.com.mobilesurvey.util.AppController;
+import surveyor.id.com.mobilesurvey.util.NotificationClass;
 
 /**
  * Created by fabio on 30/01/2016.
@@ -60,6 +67,9 @@ public class BackgroundService extends Service {
             notifSampaiLatitude,notifSampaiLongitude,notifSampaiTk,notifSampaiTanggal;
     private String janjiSurveyId,janjiSurveyIdSurveyor,janjiSurveyIdOrder,janjiSurveyJanjiSurvey,
             janjiSurveyTk;
+    private static final int NOTIF_ID = 1;
+    private static final String NOTIF_CHANNEL_ID = "surveyor.id.com.mobilesurvey";
+    private static final String CHANNEL_NAME = "MY Background Service";
 
     public BackgroundService(Context applicationContext) {
         super();
@@ -71,9 +81,16 @@ public class BackgroundService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        super.onStartCommand(intent, flags, startId);
         startTimer();
-        return START_STICKY;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForeground();
+        }else {
+            startForeground(1,new Notification());
+        }
+        return super.onStartCommand(intent, flags, startId);
+
+        //return START_STICKY;
     }
 
     @Override
@@ -191,7 +208,7 @@ public class BackgroundService extends Service {
             };
             RequestQueue requestQueue = Volley.newRequestQueue(context);
             requestQueue.add(jArr);
-
+            requestQueue.stop();
 
 
             /*
@@ -421,9 +438,16 @@ public class BackgroundService extends Service {
                             if (code.equals("200")) {
                                 dm.deleteStatusTerkirim(hasilIdOrder);
                                 //uploadphoto();
+                                NotificationClass notificationClass = new NotificationClass(context);
+                                notificationClass.NotifyBuilder("Status Pengiriman","Data survey berhasil terkirim. Terima kasih!");
+                                notificationClass.createNotificationChannel();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+
+                            NotificationClass notificationClass = new NotificationClass(context);
+                            notificationClass.NotifyBuilder("Status Pengiriman","Sebagian photo belum berhasil diupload. Koneksi internet tidak stabil.");
+                            notificationClass.createNotificationChannel();
                         }
 
                     }
@@ -466,6 +490,8 @@ public class BackgroundService extends Service {
                             if (code.equals("200")) {
                                 dm.deletePhotoAll(p_photo_nama,p_photo_id_order);
                                 //uploadphoto();
+
+                                Toast.makeText(getApplicationContext(),"Photo "+p_photo_nama+" berhasil diupload",Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -475,7 +501,8 @@ public class BackgroundService extends Service {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                Toast.makeText(context,"Proses upload foto terhenti. Photo "+p_photo_nama+" gagal diupload. Koneksi internet tidak stabil. Anda bisa melakukan refresh di halaman Home jika diperlukan.",Toast.LENGTH_LONG).show();
+                Log.e("VollyError",String.valueOf(error.getMessage()));
             }
         }) {
             @Override
@@ -516,7 +543,7 @@ public class BackgroundService extends Service {
 
     public void playNotificationSound() {
         try {
-            /*Uri alarmSound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
+            /*PathUri alarmSound = PathUri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
                     + "://" + this.getPackageName() + "/raw/notification");*/
             Uri alarmSound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
                     + "://" + this.getPackageName() + "/raw/arpeggio");
@@ -530,5 +557,25 @@ public class BackgroundService extends Service {
     public static void clearNotifications(Context context) {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancelAll();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void startForeground(){
+
+        NotificationChannel channel = new NotificationChannel(NOTIF_CHANNEL_ID,CHANNEL_NAME,NotificationManager.IMPORTANCE_NONE);
+        channel.setLightColor(Color.BLUE);
+        channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        assert manager != null;
+        manager.createNotificationChannel(channel);
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this,NOTIF_CHANNEL_ID);
+        Notification notification = notificationBuilder.setOngoing(true)
+                .setSmallIcon(R.drawable.icon1)
+                .setContentTitle("Mobile Survey is running in background")
+                .setPriority(NotificationManager.IMPORTANCE_MIN)
+                .setCategory(Notification.CATEGORY_SERVICE)
+                .build();
+        startForeground(2,notification);
     }
 }

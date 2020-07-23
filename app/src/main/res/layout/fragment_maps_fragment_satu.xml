@@ -1395,7 +1395,7 @@
             android:layout_alignParentBottom="true"
             android:id="@+id/input_kelengkapan"
             android:textColor="@color/putih"
-            android:background="@drawable/bg_bt_click"
+            android:background="@color/biru_muda"
             android:text="@string/input_kelengkapan"/>
 
     </RelativeLayout>

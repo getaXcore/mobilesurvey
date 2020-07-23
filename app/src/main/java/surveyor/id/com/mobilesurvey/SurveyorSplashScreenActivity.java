@@ -102,7 +102,12 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_PHONE_STATE},PERMISSION_ALL);
                 return;
             }
-            identifier = mngr.getDeviceId();
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+                identifier = null;
+            }else {
+                identifier = mngr.getDeviceId();
+            }
 
             if (identifier == null || identifier .length() == 0) {
                 identifier = Settings.Secure.getString(getContentResolver(),
@@ -208,8 +213,10 @@ public class SurveyorSplashScreenActivity extends AppCompatActivity {
                         };
                         welcomeThread.start();
                     } else {
-                        Toast.makeText(SurveyorSplashScreenActivity.this,
-                                "Imei Tidak Terdaftar", Toast.LENGTH_LONG).show();
+                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q){
+                            Toast.makeText(SurveyorSplashScreenActivity.this,
+                                    "Imei Tidak Terdaftar", Toast.LENGTH_LONG).show();
+                        }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

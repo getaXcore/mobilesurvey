@@ -3,10 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/biru_muda</item>
+        <item name="colorPrimaryDark">@color/biru_muda</item>
         <item name="colorAccent">@color/background_toolbar</item>
-        <item name="actionMenuTextColor">@color/colorPrimaryDark</item>
+        <item name="actionMenuTextColor">@color/biru_muda</item>
         <item name="android:textColor">@color/teksUtama</item>
         <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="android:actionOverflowButtonStyle">@style/MyActionButtonOverflow</item>

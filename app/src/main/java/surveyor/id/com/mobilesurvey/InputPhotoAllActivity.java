@@ -7,12 +7,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.ExifInterface;
 import android.media.ThumbnailUtils;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
+import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -22,6 +27,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 
 import com.google.android.gms.common.ConnectionResult;
@@ -29,8 +35,11 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileDescriptor;
 
 import surveyor.id.com.mobilesurvey.modal.DatabaseManager;
+import surveyor.id.com.mobilesurvey.util.PathUri;
 
 public class InputPhotoAllActivity extends AppCompatActivity implements GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener{
@@ -165,7 +174,24 @@ public class InputPhotoAllActivity extends AppCompatActivity implements GoogleAp
                 bitmapAll           = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
                 cameraBmpAll        = ThumbnailUtils.extractThumbnail(bitmapAll, 1205, 1795);
                 cameraBmpKecilAll   = ThumbnailUtils.extractThumbnail(bitmapAll, 100, 100);
-                uploadImage();
+
+                //Log.i("imageUri",imageUri.toString());
+
+                //Get RealPathUri
+                PathUri pathUri = new PathUri(getApplicationContext());
+                String selectedImagePath = pathUri.getPathFromURI(imageUri);
+                //Create File From Uri
+                File img_file = new File(selectedImagePath);
+                //Get File size
+                long imageFileSize = img_file.length()/1000; //in KB
+
+                if (imageFileSize < 3000){ //less than 3 MB
+                    uploadImage();
+                }else {
+                    Toast.makeText(getApplicationContext(),"Ukuran Foto terlalu besar, tidak boleh lebih dari 3MB. Silakan atur kembali pengaturan kamera.",Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }

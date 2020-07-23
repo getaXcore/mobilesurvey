@@ -21,7 +21,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_awesome_toolbar"
         android:layout_alignParentTop="true"
-        android:background="@color/background_toolbar"
+        android:background="@color/biru_muda"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
@@ -41,7 +41,7 @@
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:itemBackground="@color/background_toolbar"
+            app:itemBackground="@color/biru_muda"
             app:itemIconTint="@color/color_bottom"
             app:itemTextColor="@color/color_bottom"
             android:layout_alignParentBottom="true">

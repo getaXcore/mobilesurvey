@@ -1,6 +1,7 @@
 package surveyor.id.com.mobilesurvey;
 
 import android.Manifest;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -22,12 +23,14 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Base64;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.SimpleDateFormat;
@@ -35,6 +38,7 @@ import java.util.Date;
 
 import surveyor.id.com.mobilesurvey.fragment.InputFullFragmentSebelas;
 import surveyor.id.com.mobilesurvey.modal.DatabaseManager;
+import surveyor.id.com.mobilesurvey.util.PathUri;
 
 import static com.bumptech.glide.load.resource.bitmap.TransformationUtils.rotateImage;
 
@@ -193,7 +197,54 @@ public class InputGaleriPhotoActivity extends AppCompatActivity implements Googl
                 KecilcameraBmp = ThumbnailUtils.extractThumbnail(bitmapfixrotate, 400, 400);
                 cameraBmp = bitmapfixrotate;
 
-                uploadImage();
+                /*
+                //Get RealPathUri
+                PathUri pathUri = new PathUri(getApplicationContext());
+                String selectedImagePath = pathUri.getPathFromURI(filePath);
+                //Create File From Uri
+                File img_file = new File(selectedImagePath);
+                //Get File size
+                long imageFileSize = img_file.length()/1000; //in KB
+
+                if (imageFileSize < 1000){ //less than 1 MB
+                    uploadImage();
+                }else {
+                    Toast.makeText(getApplicationContext(),"Ukuran Foto terlalu besar, tidak boleh lebih dari 1MB. Silakan atur kembali pengaturan kamera.",Toast.LENGTH_LONG).show();
+                    finish();
+                }
+                */
+
+                String scheme = filePath.getScheme();
+                long imageFileSize = 0;
+
+                if (scheme.equals(ContentResolver.SCHEME_CONTENT)){
+                    try {
+                        InputStream inputStream = getApplicationContext().getContentResolver().openInputStream(filePath);
+                        imageFileSize = inputStream.available()/1000; //in KB
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+                else if (scheme.equals(ContentResolver.SCHEME_FILE)){
+                    String path = filePath.getPath();
+                    try {
+                        File img_file = new File(path);
+                        imageFileSize = img_file.length()/1000;
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+
+                if (imageFileSize < 3000){ //less than 3 MB
+                    uploadImage();
+                }else if (imageFileSize == 0){
+                    finish();
+                }else {
+                    Toast.makeText(getApplicationContext(),"Ukuran Foto terlalu besar, tidak boleh lebih dari 3MB. Silakan pilih foto kembali.",Toast.LENGTH_LONG).show();
+                    finish();
+                }
+
+                //Log.i("filePath",filePath.toString());
 
 
             } catch (IOException e) {

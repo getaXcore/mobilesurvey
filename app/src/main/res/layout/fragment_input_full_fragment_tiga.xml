@@ -2542,7 +2542,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@+id/cek_data_spouse_data"
                 android:textColor="@color/putih"
-                android:background="@color/background_toolbar"
+                android:background="@color/biru_muda"
                 android:text="@string/bt_simpan"/>
 
 
